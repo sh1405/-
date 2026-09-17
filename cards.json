@@ -1,114 +1,448 @@
-```json
-[
-  {
-    "id": 1,
-    "title": "الاستشفاء بالعسل والحجامة والكي",
-    "diseases_and_symptoms": ["النزف الحاد", "احتقان الدم", "الصداع والشقيقة", "اضطرابات الهضم", "الجروح والحروق"],
-    "usage_types": ["دواء_واستشفاء_صريح", "غذاء_وعادة", "إجراء_جراحي_يدوي"],
-    "primary_usage": "دواء_واستشفاء_صريح",
-    "target_body_system": "الجهاز الهضمي، الدورة الدموية، الجروح",
-    "hadith_verbatim": "الشِّفَاءُ فِي ثَلاَثَةٍ: شَرْبَةِ عَسَلٍ، وَشَرْطَةِ مِحْجَمٍ، وَكَيَّةِ نَارٍ، وَأَنْهَى أُمَّتِي عَنِ الكَيِّ",
-    "companion": "عبد الله بن عباس رضي الله عنهما",
-    "primary_source": "صحيح البخاري",
-    "book_name": "كتاب الطب",
-    "chapter_name": "باب الشفاء في ثلاث",
-    "hadith_number": 5680,
-    "authenticity": {
-      "grade": "صحيح",
-      "judgement_by": "الإمام البخاري (أخرجه في صحيحه)"
-    },
-    "prophetic_context": "نص استشفائي صريح بالاستطباب بهذه الأصول الثلاثة مع كراهة الكي والنهي عنه إلا لضرورة حسم النزف",
-    "traditional_indication": "استفراغ الأخلاط الرديئة: الدموية بالحجامة، والبلغمية بالعسل، وحسم المادة العفنة بالكي",
-    "modern_health_insight": "العسل مطهر طبيعي ومضاد للأكسدة، والحجامة تنشط التروية الموضعية، والكي يناظر الجراحة الحرارية لحسم النزف",
-    "precautions": "يمتنع إعطاء العسل للرضع دون عمر السنة، والكي لا يصار إليه إلا عند تعذر البدائل الطبية"
-  },
-  {
-    "id": 2,
-    "title": "علاج استطلاق البطن بسقي العسل",
-    "diseases_and_symptoms": ["استطلاق البطن (الإسهال)", "مغص الأمعاء", "عسر الهضم", "تسمم الغذاء"],
-    "usage_types": ["دواء_واستشفاء_صريح", "غذاء_وعادة"],
-    "primary_usage": "دواء_واستشفاء_صريح",
-    "target_body_system": "الجهاز الهضمي والأمعاء",
-    "hadith_verbatim": "أَنَّ رَجُلًا أَتَى النَّبِيَّ ﷺ فَقَالَ: أَخِي يَشْتَكِي بَطْنَهُ، فَقَالَ: «اسْقِهِ عَسَلًا» ثُمَّ أَتَى الثَّانِيَةَ، فَقَالَ: «اسْقِهِ عَسَلًا» ثُمَّ أَتَاهُ الثَّالِثَةَ فَقَالَ: «اسْقِهِ عَسَلًا» ثُمَّ أَتَاهُ فَقَالَ: قَدْ فَعَلْتُ؟ فَقَالَ: «صَدَقَ اللَّهُ، وَكَذَبَ بَطْنُ أَخِيكَ، اسْقِهِ عَسَلًا» فَسَقَاهُ فَبَرَأَ",
-    "companion": "أبو سعيد الخدري رضي الله عنه",
-    "primary_source": "صحيح البخاري",
-    "book_name": "كتاب الطب",
-    "chapter_name": "باب الدواء بالعسل",
-    "hadith_number": 5684,
-    "authenticity": {
-      "grade": "صحيح",
-      "judgement_by": "متفق عليه (أخرجه البخاري ومسلم برقم 2217)"
-    },
-    "prophetic_context": "توجيه علاجي صريح بتكرار جرعة العسل للمريض لدفع المادة اللزجة الفاسدة المسببة للاستطلاق حتى برأ",
-    "traditional_indication": "دباغة المعدة وجلاء الفضلات البلغمية الملتصقة بجدار الأمعاء",
-    "modern_health_insight": "يمتلك العسل فاعلية مضادة للبكتيريا المعوية المسببة للإسهال ويعوض السوائل والأملاح المفقودة",
-    "precautions": "مراعاة تعويض السوائل تجنباً للجفاف ومراقبة مرضى السكري"
-  },
-  {
-    "id": 3,
-    "title": "التلبينة لمجم فؤاد المريض وذهاب الحزن",
-    "diseases_and_symptoms": ["الحزن والاكتئاب", "ضعف الشهية", "إعياء المريض", "وهن النقاهة"],
-    "usage_types": ["غذاء_وعادة", "دواء_واستشفاء_صريح"],
-    "primary_usage": "غذاء_وعادة",
-    "target_body_system": "الجهاز الهضمي والدعم العصبي والنفسي",
-    "hadith_verbatim": "التَّلْبِينَةُ مُجِمَّةٌ لِفُؤَادِ المَرِيضِ، تَذْهَبُ بِبَعْضِ الحُزْنِ",
-    "companion": "عائشة أم المؤمنين رضي الله عنها",
-    "primary_source": "صحيح البخاري",
-    "book_name": "صحيح البخاري: كتاب الأطعمة / صحيح مسلم: كتاب السلام",
-    "chapter_name": "باب التلبينة مجمة لفؤاد المريض",
-    "hadith_number": 5417,
-    "authenticity": {
-      "grade": "صحيح",
-      "judgement_by": "متفق عليه (البخاري برقم 5417 ومسلم برقم 2216)"
-    },
-    "prophetic_context": "أمرت بها عائشة رضي الله عنها عند المصيبة والمرض لطعام أهل الميت والمريض لإراحة الفؤاد وترطيب البدن",
-    "traditional_indication": "تغذية البدن الضعيف بخلط لطيف سهل الهضم، وتسكين حرارة وحزن القلب ببرودتها ورطوبتها",
-    "modern_health_insight": "حساء الشعير بنخالته غني بالألياف الذائبة وحمض التريبتوفان المسهم في تحسين المزاج وتخفيف الكرب",
-    "precautions": "لا تناسب مرضى حساسية الجلوتين (السيلياك)"
-  },
-  {
-    "id": 4,
-    "title": "الشفاء في الحبة السوداء",
-    "diseases_and_symptoms": ["ضعف المناعة", "الزكام ونزلات البرد", "الربو والسعال", "اضطرابات الهضم الباردة"],
-    "usage_types": ["دواء_واستشفاء_صريح"],
-    "primary_usage": "دواء_واستشفاء_صريح",
-    "target_body_system": "المناعة والجهاز التنفسي والهضمي",
-    "hadith_verbatim": "فِي الحَبَّةِ السَّوْدَاءِ شِفَاءٌ مِنْ كُلِّ دَاءٍ، إِلَّا السَّامَ",
-    "companion": "أبو هريرة رضي الله عنه",
-    "primary_source": "صحيح البخاري",
-    "book_name": "كتاب الطب",
-    "chapter_name": "باب الحبة السوداء",
-    "hadith_number": 5688,
-    "authenticity": {
-      "grade": "صحيح",
-      "judgement_by": "متفق عليه (أخرجه البخاري ومسلم برقم 2215)"
-    },
-    "prophetic_context": "إرشاد نبوي عام للاستطباب بها للأمراض الباردة والبلغمية وتقوية مناعة البدن",
-    "traditional_indication": "تسخين البدن البارد، إذابة البلغم، طرد الرياح، وتضميد الأورام البلغمية",
-    "modern_health_insight": "تحتوي على مادة الثيموكينون المضادة للالتهاب والمحفزة للاستجابة المناعية والموسعة للشعب الهوائية",
-    "precautions": "الالتزام بالجرعات الغذائية المعتدلة وتجنب الإفراط المركز الضار بالكلى والكبد"
-  },
-  {
-    "id": 5,
-    "title": "ماء الكمأة لشفاء العين",
-    "diseases_and_symptoms": ["رمد العين", "ضعف البصر", "التراخوما", "سيلان الدموع والقذى"],
-    "usage_types": ["دواء_واستشفاء_صريح", "غذاء_وعادة"],
-    "primary_usage": "دواء_واستشفاء_صريح",
-    "target_body_system": "العين والبصر",
-    "hadith_verbatim": "الكَمْأَةُ مِنَ المَنِّ، وَمَاؤُهَا شِفَاءٌ لِلْعَيْنِ",
-    "companion": "سعيد بن زيد رضي الله عنه",
-    "primary_source": "صحيح البخاري",
-    "book_name": "كتاب الطب",
-    "chapter_name": "باب المن شفاء للعين",
-    "hadith_number": 5708,
-    "authenticity": {
-      "grade": "صحيح",
-      "judgement_by": "متفق عليه (أخرجه البخاري ومسلم برقم 2049)"
-    },
-    "prophetic_context": "نص استشفائي صريح باستعمال مائها كعلاج وقطرة للعين",
-    "traditional_indication": "تبريد رمد العين الحار، جلاء البصر، ومنع نزول الماء والرطوبات إلى طبقات القرنية",
-    "modern_health_insight": "يحتوي مستخلص مائها المعقم على مضادات حيوية طبيعية تمنع تشكل التليف في الملتحمة وتكافح بكتيريا التراخوما",
-    "precautions": "يجب تعقيم وتصفية مائها طبياً قبل تقطيره في العين لمنع الالتهابات البكتيرية الثانوية"
-  }
-]
+هذا الخطأ يحدث عادة لأن المتصفح يتأخر في قراءة الملف الخارجي أو بسبب اختلاف مسار الرابط على خوادم GitHub Pages.
+
+---
+
+### الحل الأبسط والنهائي (دمج البيانات داخل ملف `index.html` مباشرة):
+
+قمت الآن **بدمج البطاقات بالكامل داخل كود صفحة `index.html`**؛ بحيث يعمل الموقع ذاتياً فوراً **بدون الحاجة لملف `cards.json` نهائياً وبدون أي أخطاء تحميل**.
+
+---
+
+### ما عليك فعله في دقيقة واحدة:
+
+1. ادخل إلى مستودعك، واضغط على اسم الملف: **`index.html`**.
+2. اضغط على أيقونة **«القلم» ✏️ (تعديل الملف)** في أعلى يسار الملف.
+3. امسح كل الكلام الموجود داخله.
+4. انسخ الكود الجديد كاملاً من المربع المظلل أدناه والصقه مكانه.
+5. اضغط على الزر الأخضر: **«تثبيت التغييرات...»** ثم **«تثبيت التغييرات»**.
+
+---
+
+### كود `index.html` المحدّث (انسخه كاملاً من المربع):
+
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموسوعة الجامعة للهدي والصحة النبوية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        .hadith-text { font-family: 'Amiri', serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between selection:bg-emerald-200 selection:text-emerald-950">
+
+    <div>
+        <!-- رأس الصفحة -->
+        <header class="bg-emerald-950 text-emerald-50 py-12 px-4 shadow-lg border-b border-emerald-800 text-center">
+            <div class="max-w-6xl mx-auto space-y-4">
+                <div class="inline-block bg-emerald-800/60 border border-emerald-600/40 text-emerald-200 text-xs px-3 py-1 rounded-full font-medium">
+                    منصة بحثية محققة وفق الأمانة والورع الحديثي
+                </div>
+                <h1 class="text-3xl md:text-5xl font-black font-serif text-white tracking-tight">
+                    الموسوعة الجامعة للهدي والصحة النبوية
+                </h1>
+                <p class="text-emerald-200/90 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+                    محرك بحث واستقصاء محقق يتيح لك البحث بالمرض، والعضو المستهدف، والمادة الغذائية أو الدوائية، مع النقل الحرفي للمتون والتخريج الدقيق من دواوين السنة المشرفة.
+                </p>
+            </div>
+        </header>
+
+        <!-- لوحة التحكم والبحث -->
+        <div class="max-w-6xl mx-auto px-4 -mt-6">
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200/80 p-6 space-y-5">
+                <!-- حقل البحث المباشر -->
+                <div>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="🔍 ابحث بالمرض (مثال: الشقيقة، استطلاق البطن)، بالمادة (العسل، القسط)، بالصحابي، أو نص الحديث..."
+                        class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none text-sm transition"
+                    >
+                </div>
+
+                <!-- الفلاتر المنسدلة -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">🏥 تصفية بحسب المرض أو العَرَض:</label>
+                        <select
+                            id="diseaseFilter"
+                            class="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none text-sm bg-white"
+                        >
+                            <option value="all">جميع الأمراض والأعراض</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">⚖️ درجة ثبوت الحديث:</label>
+                        <select
+                            id="gradeFilter"
+                            class="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none text-sm bg-white"
+                        >
+                            <option value="all">جميع درجات الحديث</option>
+                            <option value="صحيح">صحيح فقط</option>
+                            <option value="حسن">حسن</option>
+                            <option value="ضعيف_معلل">ضعيف معلل</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- وسوم الصفة الاستعمالية -->
+                <div class="space-y-1.5 pt-2 border-t border-slate-100">
+                    <span class="text-xs font-bold text-slate-600">🏷️ الصفة الاستعمالية الشرعية:</span>
+                    <div class="flex flex-wrap gap-2" id="tagsContainer">
+                        <button class="tag-btn bg-emerald-900 text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition shadow" data-tag="all">جميع الأبواب</button>
+                        <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition" data-tag="دواء_واستشفاء_صريح">🌿 دواء واستشفاء منصوص</button>
+                        <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition" data-tag="غذاء_وعادة">🥣 غذاء وهدي معيشي</button>
+                        <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition" data-tag="وقاية_وحفظ_صحة">🛡️ وقاية وحفظ صحة</button>
+                        <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition" data-tag="نظافة_وسنن_فطرة">💧 سنن الفطرة والنظافة</button>
+                        <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition" data-tag="إجراء_جراحي_يدوي">✂️ إجراء جراحي يدوي</button>
+                        <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition" data-tag="أصل_تشريعي_وأدب">⚖️ تشريع وأدب طبي</button>
+                    </div>
+                </div>
+
+                <!-- زر تصفير الفلاتر -->
+                <div class="flex justify-end pt-2 border-t border-slate-100">
+                    <button id="resetBtn" class="text-xs text-rose-600 hover:text-rose-800 font-semibold transition">
+                        ↺ إعادة ضبط جميع الفلاتر
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- شبكة البطاقات -->
+        <main class="max-w-6xl mx-auto px-4 py-10">
+            <div class="text-xs text-slate-800 font-semibold mb-6">
+                نتائج البحث: <span id="resultsCount" class="text-emerald-900 font-bold text-sm">0</span> بطاقة محققة
+            </div>
+
+            <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+        </main>
+    </div>
+
+    <!-- تذييل الصفحة -->
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-700 mt-12">
+        <div class="max-w-6xl mx-auto px-4 space-y-2">
+            <p>الموسوعة النبوية في الطب وحفظ الصحة — عمل مبني على التثبت والتحقيق وصيانة جناب السنة.</p>
+            <p class="text-slate-500">النصوص الحديثية منقولة حرفياً من دواوين السنة بالترقيم العلمي المعتمد.</p>
+        </div>
+    </footer>
+
+    <!-- محرك التصفية والنسخ التلقائي والبيانات المدمجة -->
+    <script>
+        // قاعدة البيانات مدمجة بالكامل لتعمل مباشرة دون الحاجة لأي ملفات خارجية
+        const allCards = [
+            {
+                id: 1,
+                title: "الاستشفاء بالعسل والحجامة والكي",
+                diseases_and_symptoms: ["النزف الحاد", "احتقان الدم", "الصداع والشقيقة", "اضطرابات الهضم", "الجروح والحروق"],
+                usage_types: ["دواء_واستشفاء_صريح", "غذاء_وعادة", "إجراء_جراحي_يدوي"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز الهضمي، الدورة الدموية، الجروح",
+                hadith_verbatim: "الشِّفَاءُ فِي ثَلاَثَةٍ: شَرْبَةِ عَسَلٍ، وَشَرْطَةِ مِحْجَمٍ، وَكَيَّةِ نَارٍ، وَأَنْهَى أُمَّتِي عَنِ الكَيِّ",
+                companion: "عبد الله بن عباس رضي الله عنهما",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب الشفاء في ثلاث",
+                hadith_number: 5680,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "الإمام البخاري (أخرجه في صحيحه)"
+                },
+                prophetic_context: "نص استشفائي صريح بالاستطباب بهذه الأصول الثلاثة مع كراهة الكي والنهي عنه إلا لضرورة حسم النزف",
+                traditional_indication: "استفراغ الأخلاط الرديئة: الدموية بالحجامة، والبلغمية بالعسل، وحسم المادة العفنة بالكي",
+                modern_health_insight: "العسل مطهر طبيعي ومضاد للأكسدة، والحجامة تنشط التروية الموضعية، والكي يناظر الجراحة الحرارية لحسم النزف",
+                precautions: "يمتنع إعطاء العسل للرضع دون عمر السنة، والكي لا يصار إليه إلا عند تعذر البدائل الطبية"
+            },
+            {
+                id: 2,
+                title: "علاج استطلاق البطن بسقي العسل",
+                diseases_and_symptoms: ["استطلاق البطن (الإسهال)", "مغص الأمعاء", "عسر الهضم", "تسمم الغذاء"],
+                usage_types: ["دواء_واستشفاء_صريح", "غذاء_وعادة"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز الهضمي والأمعاء",
+                hadith_verbatim: "أَنَّ رَجُلًا أَتَى النَّبِيَّ ﷺ فَقَالَ: أَخِي يَشْتَكِي بَطْنَهُ، فَقَالَ: «اسْقِهِ عَسَلًا» ثُمَّ أَتَى الثَّانِيَةَ، فَقَالَ: «اسْقِهِ عَسَلًا» ثُمَّ أَتَاهُ الثَّالِثَةَ فَقَالَ: «اسْقِهِ عَسَلًا» ثُمَّ أَتَاهُ فَقَالَ: قَدْ فَعَلْتُ؟ فَقَالَ: «صَدَقَ اللَّهُ، وَكَذَبَ بَطْنُ أَخِيكَ، اسْقِهِ عَسَلًا» فَسَقَاهُ فَبَرَأَ",
+                companion: "أبو سعيد الخدري رضي الله عنه",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب الدواء بالعسل",
+                hadith_number: 5684,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 2217)"
+                },
+                prophetic_context: "توجيه علاجي صريح بتكرار جرعة العسل للمريض لدفع المادة اللزجة الفاسدة المسببة للاستطلاق حتى برأ",
+                traditional_indication: "دباغة المعدة وجلاء الفضلات البلغمية الملتصقة بجدار الأمعاء",
+                modern_health_insight: "يمتلك العسل فاعلية مضادة للبكتيريا المعوية المسببة للإسهال ويعوض السوائل والأملاح المفقودة",
+                precautions: "مراعاة تعويض السوائل تجنباً للجفاف ومراقبة مرضى السكري"
+            },
+            {
+                id: 3,
+                title: "التلبينة لمجم فؤاد المريض وذهاب الحزن",
+                diseases_and_symptoms: ["الحزن والاكتئاب", "ضعف الشهية", "إعياء المريض", "وهن النقاهة"],
+                usage_types: ["غذاء_وعادة", "دواء_واستشفاء_صريح"],
+                primary_usage: "غذاء_وعادة",
+                target_body_system: "الجهاز الهضمي والدعم العصبي والنفسي",
+                hadith_verbatim: "التَّلْبِينَةُ مُجِمَّةٌ لِفُؤَادِ المَرِيضِ، تَذْهَبُ بِبَعْضِ الحُزْنِ",
+                companion: "عائشة أم المؤمنين رضي الله عنها",
+                primary_source: "صحيح البخاري",
+                book_name: "صحيح البخاري: كتاب الأطعمة / صحيح مسلم: كتاب السلام",
+                chapter_name: "باب التلبينة مجمة لفؤاد المريض",
+                hadith_number: 5417,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (البخاري برقم 5417 ومسلم برقم 2216)"
+                },
+                prophetic_context: "أمرت بها عائشة رضي الله عنها عند المصيبة والمرض لطعام أهل الميت والمريض لإراحة الفؤاد وترطيب البدن",
+                traditional_indication: "تغذية البدن الضعيف بخلط لطيف سهل الهضم، وتسكين حرارة وحزن القلب ببرودتها ورطوبتها",
+                modern_health_insight: "حساء الشعير بنخالته غني بالألياف الذائبة وحمض التريبتوفان المسهم في تحسين المزاج وتخفيف الكرب",
+                precautions: "لا تناسب مرضى حساسية الجلوتين (السيلياك)"
+            },
+            {
+                id: 4,
+                title: "الشفاء في الحبة السوداء",
+                diseases_and_symptoms: ["ضعف المناعة", "الزكام ونزلات البرد", "الربو والسعال", "اضطرابات الهضم الباردة"],
+                usage_types: ["دواء_واستشفاء_صريح"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "المناعة والجهاز التنفسي والهضمي",
+                hadith_verbatim: "فِي الحَبَّةِ السَّوْدَاءِ شِفَاءٌ مِنْ كُلِّ دَاءٍ، إِلَّا السَّامَ",
+                companion: "أبو هريرة رضي الله عنه",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب الحبة السوداء",
+                hadith_number: 5688,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 2215)"
+                },
+                prophetic_context: "إرشاد نبوي عام للاستطباب بها للأمراض الباردة والبلغمية وتقوية مناعة البدن",
+                traditional_indication: "تسخين البدن البارد، إذابة البلغم، طرد الرياح، وتضميد الأورام البلغمية",
+                modern_health_insight: "تحتوي على مادة الثيموكينون المضادة للالتهاب والمحفزة للاستجابة المناعية والموسعة للشعب الهوائية",
+                precautions: "الالتزام بالجرعات الغذائية المعتدلة وتجنب الإفراط المركز الضار بالكلى والكبد"
+            },
+            {
+                id: 5,
+                title: "ماء الكمأة لشفاء العين",
+                diseases_and_symptoms: ["رمد العين", "ضعف البصر", "التراخوما", "سيلان الدموع والقذى"],
+                usage_types: ["دواء_واستشفاء_صريح", "غذاء_وعادة"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "العين والبصر",
+                hadith_verbatim: "الكَمْأَةُ مِنَ المَنِّ، وَمَاؤُهَا شِفَاءٌ لِلْعَيْنِ",
+                companion: "سعيد بن زيد رضي الله عنه",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب المن شفاء للعين",
+                hadith_number: 5708,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 2049)"
+                },
+                prophetic_context: "نص استشفائي صريح باستعمال مائها كعلاج وقطرة للعين",
+                traditional_indication: "تبريد رمد العين الحار، جلاء البصر، ومنع نزول الماء والرطوبات إلى طبقات القرنية",
+                modern_health_insight: "يحتوي مستخلص مائها المعقم على مضادات حيوية طبيعية تمنع تشكل التليف في الملتحمة وتكافح بكتيريا التراخوما",
+                precautions: "يجب تعقيم وتصفية مائها طبياً قبل تقطيره في العين لمنع الالتهابات البكتيرية الثانوية"
+            }
+        ];
+
+        let currentTag = 'all';
+
+        function populateDiseases() {
+            const select = document.getElementById('diseaseFilter');
+            const set = new Set();
+            allCards.forEach(card => {
+                if (card.diseases_and_symptoms) {
+                    card.diseases_and_symptoms.forEach(d => set.add(d));
+                }
+            });
+            Array.from(set).sort().forEach(disease => {
+                const opt = document.createElement('option');
+                opt.value = disease;
+                opt.textContent = disease;
+                select.appendChild(opt);
+            });
+        }
+
+        function copyCardContent(cardId, btnElement) {
+            const card = allCards.find(c => c.id === cardId);
+            if (!card) return;
+
+            const textToCopy = `📌 [${card.title}]
+«${card.hadith_verbatim}»
+📖 المصدر: ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})
+👤 الراوي: ${card.companion}
+⚖️ الحكم: ${card.authenticity.grade} (${card.authenticity.judgement_by})
+🎯 العضو المستهدف: ${card.target_body_system}
+🩺 الاستعمال: ${card.traditional_indication}
+🔬 المنظور الطبي: ${card.modern_health_insight}
+${card.precautions ? `⚠️ تنبيه: ${card.precautions}` : ''}`;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = btnElement.innerHTML;
+                btnElement.innerHTML = `✅ <span class="font-bold">تم النسخ بنجاح!</span>`;
+                btnElement.className = "w-full py-2 px-4 rounded-xl text-xs font-semibold bg-emerald-700 text-white shadow transition flex items-center justify-center gap-1.5";
+
+                setTimeout(() => {
+                    btnElement.innerHTML = originalText;
+                    btnElement.className = "w-full py-2 px-4 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 border border-slate-200 hover:border-emerald-300 transition flex items-center justify-center gap-1.5";
+                }, 2000);
+            }).catch(err => {
+                alert('تم التحديد للنسخ');
+            });
+        }
+
+        function render() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const selectedGrade = document.getElementById('gradeFilter').value;
+            const selectedDisease = document.getElementById('diseaseFilter').value;
+            const grid = document.getElementById('cardsGrid');
+            grid.innerHTML = '';
+
+            const filtered = allCards.filter(card => {
+                const matchesTag = currentTag === 'all' || (card.usage_types && card.usage_types.includes(currentTag));
+                const matchesGrade = selectedGrade === 'all' || (card.authenticity && card.authenticity.grade === selectedGrade);
+                const matchesDisease = selectedDisease === 'all' || (card.diseases_and_symptoms && card.diseases_and_symptoms.includes(selectedDisease));
+
+                const matchesQuery = !query ||
+                    card.title.toLowerCase().includes(query) ||
+                    card.hadith_verbatim.toLowerCase().includes(query) ||
+                    card.target_body_system.toLowerCase().includes(query) ||
+                    card.companion.toLowerCase().includes(query) ||
+                    (card.diseases_and_symptoms && card.diseases_and_symptoms.some(d => d.toLowerCase().includes(query)));
+
+                return matchesTag && matchesGrade && matchesDisease && matchesQuery;
+            });
+
+            document.getElementById('resultsCount').textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 bg-white rounded-2xl border border-dashed border-slate-300">
+                        <p class="text-slate-700 font-medium">لم يتم العثور على نتائج تطابق معايير البحث المحددة.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(card => {
+                const article = document.createElement('article');
+                article.className = "bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between overflow-hidden";
+
+                const gradeBadgeClass =
+                    card.authenticity.grade === 'صحيح' ? 'bg-emerald-100 text-emerald-800' :
+                    card.authenticity.grade === 'حسن' ? 'bg-teal-100 text-teal-800' : 'bg-amber-100 text-amber-800';
+
+                const diseasesHtml = card.diseases_and_symptoms && card.diseases_and_symptoms.length > 0 ? `
+                    <div class="flex flex-wrap items-center gap-1.5 mb-3 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                        <span class="text-[11px] font-bold text-slate-500">الأمراض والأعراض:</span>
+                        ${card.diseases_and_symptoms.map(d => `
+                            <button onclick="setDiseaseFilter('${d}')" class="text-[11px] px-2 py-0.5 rounded-md font-medium bg-rose-50 text-rose-800 border border-rose-200/70 hover:bg-rose-100 transition">
+                                💊 ${d}
+                            </button>
+                        `).join('')}
+                    </div>
+                ` : '';
+
+                const tagsHtml = card.usage_types ? card.usage_types.map(t => `
+                    <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-medium border border-emerald-200/60">
+                        🏷️ ${t.replace(/_/g, ' ')}
+                    </span>
+                `).join('') : '';
+
+                article.innerHTML = `
+                    <div class="p-6 pb-4">
+                        <div class="flex justify-between items-start gap-2 mb-3">
+                            <span class="text-xs font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">#${card.id}</span>
+                            <div class="flex flex-wrap gap-1.5 justify-end">
+                                <span class="text-xs px-2 py-0.5 rounded font-bold ${gradeBadgeClass}">${card.authenticity.grade}</span>
+                                <span class="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded">🎯 ${card.target_body_system}</span>
+                            </div>
+                        </div>
+
+                        <h2 class="text-xl font-bold text-slate-900 mb-3">${card.title}</h2>
+
+                        ${diseasesHtml}
+
+                        <div class="bg-emerald-50/70 border-r-4 border-emerald-700 p-4 rounded-lg mb-4 text-emerald-950 hadith-text text-base leading-relaxed">
+                            «${card.hadith_verbatim}»
+                        </div>
+
+                        <div class="text-xs text-slate-700 bg-slate-50 p-2.5 rounded-lg border border-slate-100 mb-4 space-y-1">
+                            <p><strong>📖 المصدر:</strong> ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})</p>
+                            <p><strong>👤 الراوي:</strong> ${card.companion}</p>
+                            <p><strong>⚖️ الحكم السندي:</strong> ${card.authenticity.judgement_by}</p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 mb-4">${tagsHtml}</div>
+
+                        <div class="space-y-2 text-xs text-slate-800 border-t border-slate-100 pt-3">
+                            <p><strong class="text-slate-900">📌 التوصيف النبوي:</strong> ${card.prophetic_context}</p>
+                            <p><strong class="text-slate-900">🩺 الاستعمال التراثي:</strong> ${card.traditional_indication}</p>
+                            <p><strong class="text-slate-900">🔬 المنظور الصحي الحديث:</strong> ${card.modern_health_insight}</p>
+                        </div>
+
+                        ${card.precautions ? `
+                            <div class="mt-3 p-2.5 bg-amber-50/60 border border-amber-100 rounded-lg text-[11px] text-amber-900">
+                                ⚠️ <strong>تنبيه طبي:</strong> ${card.precautions}
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <div class="px-6 py-3 bg-slate-50/90 border-t border-slate-100">
+                        <button onclick="copyCardContent(${card.id}, this)" class="w-full py-2 px-4 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 border border-slate-200 hover:border-emerald-300 transition flex items-center justify-center gap-1.5">
+                            📋 <span>نسخ بيانات البطاقة كاملة بالتخريج</span>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(article);
+            });
+        }
+
+        function setDiseaseFilter(disease) {
+            document.getElementById('diseaseFilter').value = disease;
+            render();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', render);
+        document.getElementById('gradeFilter').addEventListener('change', render);
+        document.getElementById('diseaseFilter').addEventListener('change', render);
+
+        document.getElementById('tagsContainer').addEventListener('click', (e) => {
+            if (e.target.classList.contains('tag-btn')) {
+                document.querySelectorAll('.tag-btn').forEach(b => {
+                    b.className = 'tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition';
+                });
+                e.target.className = 'tag-btn bg-emerald-900 text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition shadow';
+                currentTag = e.target.getAttribute('data-tag');
+                render();
+            }
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('gradeFilter').value = 'all';
+            document.getElementById('diseaseFilter').value = 'all';
+            document.querySelectorAll('.tag-btn').forEach(b => {
+                b.className = 'tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition';
+            });
+            document.querySelector('[data-tag="all"]').className = 'tag-btn bg-emerald-900 text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition shadow';
+            currentTag = 'all';
+            render();
+        });
+
+        // البدء الفوري
+        populateDiseases();
+        render();
+    </script>
+</body>
+</html>
 ```
+
+---
+
+بعد ا
