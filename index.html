@@ -1,0 +1,317 @@
+تفضل، إليك كود ملف `index.html` كاملاً مصفوفاً داخل **صندوق برمجي واحد خالص للنسخ** دون أي نص بشري أو تعليق وسيط؛ لتنسخه بنقرة واحدة وتلصقه في ملفك مباشرة:
+
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموسوعة الجامعة للهدي والصحة النبوية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; }
+        .hadith-text { font-family: 'Amiri', serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between selection:bg-emerald-200 selection:text-emerald-950">
+
+    <div>
+        <header class="bg-emerald-950 text-emerald-50 py-12 px-4 shadow-lg border-b border-emerald-800 text-center">
+            <div class="max-w-6xl mx-auto space-y-4">
+                <div class="inline-block bg-emerald-800/60 border border-emerald-600/40 text-emerald-200 text-xs px-3 py-1 rounded-full font-medium">
+                    منصة بحثية محققة وفق الأمانة والورع الحديثي
+                </div>
+                <h1 class="text-3xl md:text-5xl font-black font-serif text-white tracking-tight">
+                    الموسوعة الجامعة للهدي والصحة النبوية
+                </h1>
+                <p class="text-emerald-200/90 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+                    محرك بحث واستقصاء محقق يتيح لك البحث بالمرض، والعضو المستهدف، والمادة الغذائية أو الدوائية، مع النقل الحرفي للمتون والتخريج الدقيق من دواوين السنة المشرفة.
+                </p>
+            </div>
+        </header>
+
+        <div class="max-w-6xl mx-auto px-4 -mt-6">
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200/80 p-6 space-y-5">
+                <div>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="🔍 ابحث بالمرض (مثال: الشقيقة، استطلاق البطن)، بالمادة (العسل، القسط)، بالصحابي، أو نص الحديث..."
+                        class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none text-sm transition"
+                    >
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">🏥 تصفية بحسب المرض أو العَرَض:</label>
+                        <select
+                            id="diseaseFilter"
+                            class="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none text-sm bg-white"
+                        >
+                            <option value="all">جميع الأمراض والأعراض</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">⚖️ درجة ثبوت الحديث:</label>
+                        <select
+                            id="gradeFilter"
+                            class="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-600 focus:outline-none text-sm bg-white"
+                        >
+                            <option value="all">جميع درجات الحديث</option>
+                            <option value="صحيح">صحيح فقط</option>
+                            <option value="حسن">حسن</option>
+                            <option value="ضعيف_معلل">ضعيف معلل</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-1.5 pt-2 border-t border-slate-100">
+                    <span class="text-xs font-bold text-slate-600">🏷️ الصفة الاستعمالية الشرعية:</span>
+                    <div class="flex flex-wrap gap-2" id="tagsContainer">
+                        <button class="tag-btn bg-emerald-900 text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition shadow" data-tag="all">جميع الأبواب</button>
+                        <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition" data-tag="دواء_واستشفاء_صريح">🌿 دواء واستشفاء منصوص</button>
+                        <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition" data-tag="غذاء_وعادة">🥣 غذاء وهدي معيشي</button>
+                        <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition" data-tag="وقاية_وحفظ_صحة">🛡️ وقاية وحفظ صحة</button>
+                        <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition" data-tag="نظافة_وسنن_فطرة">💧 سنن الفطرة والنظافة</button>
+                        <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition" data-tag="إجراء_جراحي_يدوي">✂️ إجراء جراحي يدوي</button>
+                        <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition" data-tag="أصل_تشريعي_وأدب">⚖️ تشريع وأدب طبي</button>
+                    </div>
+                </div>
+
+                <div class="flex justify-end pt-2 border-t border-slate-100">
+                    <button id="resetBtn" class="text-xs text-rose-600 hover:text-rose-800 font-semibold transition">
+                        ↺ إعادة ضبط جميع الفلاتر
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <main class="max-w-6xl mx-auto px-4 py-10">
+            <div class="text-xs text-slate-800 font-semibold mb-6">
+                نتائج البحث: <span id="resultsCount" class="text-emerald-900 font-bold text-sm">0</span> بطاقة محققة
+            </div>
+
+            <div id="loadingState" class="text-center py-12 text-slate-500 font-medium">
+                جاري تحميل بطاقات الموسوعة المحققة...
+            </div>
+
+            <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+        </main>
+    </div>
+
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-700 mt-12">
+        <div class="max-w-6xl mx-auto px-4 space-y-2">
+            <p>الموسوعة النبوية في الطب وحفظ الصحة — عمل مبني على التثبت والتحقيق وصيانة جناب السنة.</p>
+            <p class="text-slate-500">النصوص الحديثية منقولة حرفياً من دواوين السنة بالترقيم العلمي المعتمد.</p>
+        </div>
+    </footer>
+
+    <script>
+        let allCards = [];
+        let currentTag = 'all';
+
+        async function loadData() {
+            try {
+                const response = await fetch('cards.json');
+                allCards = await response.json();
+                document.getElementById('loadingState').style.display = 'none';
+                populateDiseases();
+                render();
+            } catch (error) {
+                document.getElementById('loadingState').innerHTML =
+                    '<span class="text-rose-600">تعذر تحميل ملف cards.json. تأكد من رفعه في نفس المجلد بجانب ملف index.html.</span>';
+            }
+        }
+
+        function populateDiseases() {
+            const select = document.getElementById('diseaseFilter');
+            const set = new Set();
+            allCards.forEach(card => {
+                if (card.diseases_and_symptoms) {
+                    card.diseases_and_symptoms.forEach(d => set.add(d));
+                }
+            });
+            Array.from(set).sort().forEach(disease => {
+                const opt = document.createElement('option');
+                opt.value = disease;
+                opt.textContent = disease;
+                select.appendChild(opt);
+            });
+        }
+
+        function copyCardContent(cardId, btnElement) {
+            const card = allCards.find(c => c.id === cardId);
+            if (!card) return;
+
+            const textToCopy = `📌 [${card.title}]
+«${card.hadith_verbatim}»
+📖 المصدر: ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})
+👤 الراوي: ${card.companion}
+⚖️ الحكم: ${card.authenticity.grade} (${card.authenticity.judgement_by})
+🎯 العضو المستهدف: ${card.target_body_system}
+🩺 الاستعمال: ${card.traditional_indication}
+🔬 المنظور الطبي: ${card.modern_health_insight}
+${card.precautions ? `⚠️ تنبيه: ${card.precautions}` : ''}`;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = btnElement.innerHTML;
+                btnElement.innerHTML = `✅ <span class="font-bold">تم النسخ بنجاح!</span>`;
+                btnElement.className = "w-full py-2 px-4 rounded-xl text-xs font-semibold bg-emerald-700 text-white shadow transition flex items-center justify-center gap-1.5";
+
+                setTimeout(() => {
+                    btnElement.innerHTML = originalText;
+                    btnElement.className = "w-full py-2 px-4 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 border border-slate-200 hover:border-emerald-300 transition flex items-center justify-center gap-1.5";
+                }, 2000);
+            }).catch(err => {
+                alert('يرجى نسخ النص يدوياً');
+            });
+        }
+
+        function render() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const selectedGrade = document.getElementById('gradeFilter').value;
+            const selectedDisease = document.getElementById('diseaseFilter').value;
+            const grid = document.getElementById('cardsGrid');
+            grid.innerHTML = '';
+
+            const filtered = allCards.filter(card => {
+                const matchesTag = currentTag === 'all' || (card.usage_types && card.usage_types.includes(currentTag));
+                const matchesGrade = selectedGrade === 'all' || (card.authenticity && card.authenticity.grade === selectedGrade);
+                const matchesDisease = selectedDisease === 'all' || (card.diseases_and_symptoms && card.diseases_and_symptoms.includes(selectedDisease));
+
+                const matchesQuery = !query ||
+                    card.title.toLowerCase().includes(query) ||
+                    card.hadith_verbatim.toLowerCase().includes(query) ||
+                    card.target_body_system.toLowerCase().includes(query) ||
+                    card.companion.toLowerCase().includes(query) ||
+                    (card.diseases_and_symptoms && card.diseases_and_symptoms.some(d => d.toLowerCase().includes(query)));
+
+                return matchesTag && matchesGrade && matchesDisease && matchesQuery;
+            });
+
+            document.getElementById('resultsCount').textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 bg-white rounded-2xl border border-dashed border-slate-300">
+                        <p class="text-slate-700 font-medium">لم يتم العثور على نتائج تطابق معايير البحث المحددة.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(card => {
+                const article = document.createElement('article');
+                article.className = "bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between overflow-hidden";
+
+                const gradeBadgeClass =
+                    card.authenticity.grade === 'صحيح' ? 'bg-emerald-100 text-emerald-800' :
+                    card.authenticity.grade === 'حسن' ? 'bg-teal-100 text-teal-800' : 'bg-amber-100 text-amber-800';
+
+                const diseasesHtml = card.diseases_and_symptoms && card.diseases_and_symptoms.length > 0 ? `
+                    <div class="flex flex-wrap items-center gap-1.5 mb-3 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                        <span class="text-[11px] font-bold text-slate-500">الأمراض والأعراض:</span>
+                        ${card.diseases_and_symptoms.map(d => `
+                            <button onclick="setDiseaseFilter('${d}')" class="text-[11px] px-2 py-0.5 rounded-md font-medium bg-rose-50 text-rose-800 border border-rose-200/70 hover:bg-rose-100 transition">
+                                💊 ${d}
+                            </button>
+                        `).join('')}
+                    </div>
+                ` : '';
+
+                const tagsHtml = card.usage_types ? card.usage_types.map(t => `
+                    <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 font-medium border border-emerald-200/60">
+                        🏷️ ${t.replace(/_/g, ' ')}
+                    </span>
+                `).join('') : '';
+
+                article.innerHTML = `
+                    <div class="p-6 pb-4">
+                        <div class="flex justify-between items-start gap-2 mb-3">
+                            <span class="text-xs font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">#${card.id}</span>
+                            <div class="flex flex-wrap gap-1.5 justify-end">
+                                <span class="text-xs px-2 py-0.5 rounded font-bold ${gradeBadgeClass}">${card.authenticity.grade}</span>
+                                <span class="bg-slate-100 text-slate-700 text-xs px-2 py-0.5 rounded">🎯 ${card.target_body_system}</span>
+                            </div>
+                        </div>
+
+                        <h2 class="text-xl font-bold text-slate-900 mb-3">${card.title}</h2>
+
+                        ${diseasesHtml}
+
+                        <div class="bg-emerald-50/70 border-r-4 border-emerald-700 p-4 rounded-lg mb-4 text-emerald-950 hadith-text text-base leading-relaxed">
+                            «${card.hadith_verbatim}»
+                        </div>
+
+                        <div class="text-xs text-slate-700 bg-slate-50 p-2.5 rounded-lg border border-slate-100 mb-4 space-y-1">
+                            <p><strong>📖 المصدر:</strong> ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})</p>
+                            <p><strong>👤 الراوي:</strong> ${card.companion}</p>
+                            <p><strong>⚖️ الحكم السندي:</strong> ${card.authenticity.judgement_by}</p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 mb-4">${tagsHtml}</div>
+
+                        <div class="space-y-2 text-xs text-slate-800 border-t border-slate-100 pt-3">
+                            <p><strong class="text-slate-900">📌 التوصيف النبوي:</strong> ${card.prophetic_context}</p>
+                            <p><strong class="text-slate-900">🩺 الاستعمال التراثي:</strong> ${card.traditional_indication}</p>
+                            <p><strong class="text-slate-900">🔬 المنظور الصحي الحديث:</strong> ${card.modern_health_insight}</p>
+                        </div>
+
+                        ${card.precautions ? `
+                            <div class="mt-3 p-2.5 bg-amber-50/60 border border-amber-100 rounded-lg text-[11px] text-amber-900">
+                                ⚠️ <strong>تنبيه طبي:</strong> ${card.precautions}
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <div class="px-6 py-3 bg-slate-50/90 border-t border-slate-100">
+                        <button onclick="copyCardContent(${card.id}, this)" class="w-full py-2 px-4 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 border border-slate-200 hover:border-emerald-300 transition flex items-center justify-center gap-1.5">
+                            📋 <span>نسخ بيانات البطاقة كاملة بالتخريج</span>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(article);
+            });
+        }
+
+        function setDiseaseFilter(disease) {
+            document.getElementById('diseaseFilter').value = disease;
+            render();
+        }
+
+        document.getElementById('searchInput').addEventListener('input', render);
+        document.getElementById('gradeFilter').addEventListener('change', render);
+        document.getElementById('diseaseFilter').addEventListener('change', render);
+
+        document.getElementById('tagsContainer').addEventListener('click', (e) => {
+            if (e.target.classList.contains('tag-btn')) {
+                document.querySelectorAll('.tag-btn').forEach(b => {
+                    b.className = 'tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition';
+                });
+                e.target.className = 'tag-btn bg-emerald-900 text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition shadow';
+                currentTag = e.target.getAttribute('data-tag');
+                render();
+            }
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', () => {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('gradeFilter').value = 'all';
+            document.getElementById('diseaseFilter').value = 'all';
+            document.querySelectorAll('.tag-btn').forEach(b => {
+                b.className = 'tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition';
+            });
+            document.querySelector('[data-tag="all"]').className = 'tag-btn bg-emerald-900 text-white px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition shadow';
+            currentTag = 'all';
+            render();
+        });
+
+        loadData();
+    </script>
+</body>
+</html>
+```
