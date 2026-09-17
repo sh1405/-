@@ -1,0 +1,1943 @@
+تمت معالجة الخلل الفني بدقة، وإعادة بناء المنظومة بالكامل لتكون **صفحة واحدة متكاملة قائمة بذاتها (تتضمن محرك البحث الفوري، ودائرة التحميل والانتظار، وكامل بطاقات الموسوعة المحققة سندياً ومتنياً، ونظام الطباعة والمشاركة وتصدير الـ PDF والـ Word، مع نموذج التواصل الفوري)** دون الاعتماد على أي ملفات خارجية.
+
+---
+
+### التعديلات والتحسينات المنجزة في هذا الإصدار:
+
+1. **الهوية البصرية والألوان الملكية:**
+   * اعتماد التدرجات العنابية الدافئة الفخمة (`#260208` إلى `#801526`) متداخلة مع الذهبي الوهاج والمضيء (`#f59e0b` و `#fcd34d`).
+2. **تنقية نصوص الواجهة:**
+   * حذف المستطيل الصغير العلوي بالكامل.
+   * حذف عبارة «صيانة لجناب السنة» من أسفل العنوان لتقتصر الترويسة على اسم الموسوعة بخط عريض فاخر.
+3. **القائمة الجانبية المنسدلة (ثلاث شُرط):**
+   * تفتح نافذة جانبية متحركة ناعمة تحتوي على: (عن الموسوعة، منهج الموسوعة، ونموذج اتصل بنا).
+4. **التحقيق الأكاديمي الصارم والتخريج الدقيق:**
+   * صياغة التخريج بأسلوب أكاديمي: (عزوه بدقة لاسم المصنف، واسم الكتاب، واسم الباب، ورقم الحديث، وبيان ألفاظ الرواة، ونقل أحكام أئمة الحديث ونقاده كابن حجر والنووي والذهبي والألباني بأجزائها وصفحاتها).
+5. **أدوات البطاقة والموقع الشاملة:**
+   * زر نسخ بيانات البطاقة كاملة بالتخريج.
+   * زر مشاركة البطاقة مع الغير.
+   * زر طباعة مخصصة لكل بطاقة.
+   * زر حفظ البطاقة Word و PDF.
+   * أزرار علوية لحفظ كامل محتوى الموسوعة Word و PDF.
+6. **دائرة الانتظار (Loading Spinner):**
+   * تدور فوراً وبسلاسة عند الكتابة في محرك البحث لتحديث النتائج ديناميكياً.
+7. **إصلاح نموذج «اتصل بنا»:**
+   * ربطه بخادم إرسال فوري مع رسالة تأكيد مرئية للمستخدم بعد الإرسال إلى: `sh.k.b1448@gmail.com`.
+8. **الوقفية:**
+   * إثبات الوقفية أسفل الصفحة: **وقفٌ لله تعالى @شيرين بنت كاظم بنون**.
+
+---
+
+### الكود الشامل لملف `index.html` (انسخه كاملاً وضعه في ملف `index.html` بمستودعك):
+
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموسوعة الجامعة للهدي والصحة النبوية</title>
+
+    <!-- Tailwind CSS للتصميم العصري المتقدم -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- الخطوط الملكية الأصيلة -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;600;700;800;900&family=Reem+Kufi:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- مكتبة تصدير PDF الاحترافية -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        burgundy: {
+                            50: '#fdf2f4',
+                            100: '#fce7ea',
+                            200: '#f8d0d7',
+                            700: '#9b1c31',
+                            800: '#801526',
+                            900: '#65101e',
+                            950: '#400610',
+                            990: '#260208',
+                        },
+                        amberGold: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                        serif: ['Amiri', 'serif'],
+                        kufi: ['Reem Kufi', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .royal-gradient {
+            background: linear-gradient(135deg, #260208 0%, #400610 35%, #65101e 75%, #801526 100%);
+        }
+        .hadith-text {
+            font-family: 'Amiri', serif;
+            line-height: 2.3;
+        }
+        .card-luxury {
+            background: radial-gradient(circle at top right, rgba(254, 243, 199, 0.35) 0%, rgba(255, 255, 255, 1) 100%);
+            box-shadow: 0 10px 30px -5px rgba(64, 6, 16, 0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-luxury:hover {
+            box-shadow: 0 25px 45px -10px rgba(101, 16, 30, 0.22), 0 0 0 1.5px rgba(245, 158, 11, 0.5);
+            transform: translateY(-4px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 7px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f8d0d7;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #9b1c31;
+            border-radius: 9999px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #65101e;
+        }
+        .glow-gold {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-amber-200 selection:text-burgundy-950 flex flex-col min-h-screen">
+
+    <!-- شريط التنقل العلوي الملكي -->
+    <nav class="sticky top-0 z-50 bg-burgundy-950/95 backdrop-blur-md border-b border-amberGold-500/40 text-white shadow-2xl transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- الشعار والاسم -->
+                <div class="flex items-center gap-3.5">
+                    <div class="w-13 h-13 p-2 rounded-2xl bg-gradient-to-tr from-amberGold-600 via-amberGold-400 to-amberGold-200 flex items-center justify-center shadow-lg shadow-black/40 border border-amberGold-300 glow-gold">
+                        <span class="text-2xl font-serif font-black text-burgundy-950 drop-shadow">ﷺ</span>
+                    </div>
+                    <div>
+                        <span class="font-kufi text-xl md:text-2xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amberGold-200 via-amberGold-400 to-amberGold-100 block">موسوعة الصحة النبوية</span>
+                        <span class="text-[11px] text-amberGold-300 font-bold block tracking-wider">جامعة محققة على دواوين السنة المشرفة</span>
+                    </div>
+                </div>
+
+                <!-- أزرار التصدير والقائمة الجانبية -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <button onclick="exportFullEncyclopediaPDF()" class="inline-flex items-center gap-1.5 bg-gradient-to-r from-rose-700 to-red-800 hover:from-rose-600 hover:to-red-700 text-white text-xs font-black px-3.5 py-2.5 rounded-xl shadow-md transition transform hover:-translate-y-0.5 active:translate-y-0 border border-rose-400/40">
+                        <i class="fa-solid fa-file-pdf text-amberGold-300"></i>
+                        <span class="hidden sm:inline">تحميل الموقع PDF</span>
+                    </button>
+                    <button onclick="exportFullEncyclopediaWord()" class="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-800 to-indigo-900 hover:from-blue-700 hover:to-indigo-800 text-white text-xs font-black px-3.5 py-2.5 rounded-xl shadow-md transition transform hover:-translate-y-0.5 active:translate-y-0 border border-blue-400/40">
+                        <i class="fa-solid fa-file-word text-amberGold-300"></i>
+                        <span class="hidden sm:inline">تحميل الموقع Word</span>
+                    </button>
+
+                    <!-- زر القائمة ثلاث شُرط -->
+                    <button id="menuToggleBtn" onclick="toggleSidebar()" class="w-11 h-11 rounded-xl bg-burgundy-900 hover:bg-burgundy-800 text-amberGold-400 hover:text-white border border-amberGold-500/50 flex items-center justify-center text-xl transition shadow-inner">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة الجانبية المنسدلة (Drawer Overlay) -->
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+    <aside id="sidebar" class="fixed top-0 right-0 h-full w-80 sm:w-96 bg-burgundy-950 text-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col border-l border-amberGold-600/40">
+        <!-- ترويسة القائمة -->
+        <div class="p-6 border-b border-amberGold-600/30 flex items-center justify-between bg-burgundy-900/60">
+            <div class="flex items-center gap-2.5">
+                <span class="text-amberGold-400 text-xl"><i class="fa-solid fa-compass"></i></span>
+                <span class="font-kufi font-black text-lg text-white">دليل الموسوعة</span>
+            </div>
+            <button onclick="toggleSidebar()" class="w-8 h-8 rounded-lg bg-burgundy-800 text-amberGold-300 hover:text-white flex items-center justify-center transition border border-amberGold-500/30">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <!-- محتوى القائمة المنسدلة -->
+        <div class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
+            <button onclick="openModal('aboutModal'); toggleSidebar();" class="w-full text-right p-4 rounded-2xl bg-burgundy-900/50 hover:bg-burgundy-800/80 border border-burgundy-700/60 transition flex items-center gap-3.5 group">
+                <div class="w-11 h-11 rounded-xl bg-burgundy-800 group-hover:bg-amberGold-500 group-hover:text-burgundy-950 text-amberGold-300 flex items-center justify-center text-lg transition shadow-md">
+                    <i class="fa-solid fa-circle-info"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-white block text-sm">عن الموسوعة</span>
+                    <span class="text-[11px] text-amberGold-200/80 block">رؤية المنصة وغاياتها العلمية</span>
+                </div>
+            </button>
+
+            <button onclick="openModal('methodologyModal'); toggleSidebar();" class="w-full text-right p-4 rounded-2xl bg-burgundy-900/50 hover:bg-burgundy-800/80 border border-burgundy-700/60 transition flex items-center gap-3.5 group">
+                <div class="w-11 h-11 rounded-xl bg-burgundy-800 group-hover:bg-amberGold-500 group-hover:text-burgundy-950 text-amberGold-300 flex items-center justify-center text-lg transition shadow-md">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-white block text-sm">منهج الموسوعة</span>
+                    <span class="text-[11px] text-amberGold-200/80 block">قواعد التحقيق والضبط والتصنيف</span>
+                </div>
+            </button>
+
+            <button onclick="openModal('contactModal'); toggleSidebar();" class="w-full text-right p-4 rounded-2xl bg-burgundy-900/50 hover:bg-burgundy-800/80 border border-burgundy-700/60 transition flex items-center gap-3.5 group">
+                <div class="w-11 h-11 rounded-xl bg-burgundy-800 group-hover:bg-amberGold-500 group-hover:text-burgundy-950 text-amberGold-300 flex items-center justify-center text-lg transition shadow-md">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-white block text-sm">اتصل بنا والمقترحات</span>
+                    <span class="text-[11px] text-amberGold-200/80 block">نموذج تواصل مباشر بالإدارة</span>
+                </div>
+            </button>
+        </div>
+
+        <!-- تذييل القائمة -->
+        <div class="p-5 border-t border-amberGold-600/30 bg-burgundy-990 text-center">
+            <span class="text-xs text-amberGold-300 font-serif font-bold">وقف لله تعالى @شيرين بنت كاظم بنون</span>
+        </div>
+    </aside>
+
+    <!-- الواجهة الرئيسية الملكية الفاخرة -->
+    <header class="royal-gradient text-white pt-16 pb-28 px-4 relative overflow-hidden border-b border-amberGold-500/40">
+        <div class="max-w-4xl mx-auto text-center space-y-4 relative z-10">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-black font-serif tracking-tight text-white leading-tight drop-shadow-md">
+                الموسوعة الجامعة للهدي والصحة النبوية
+            </h1>
+            <p class="text-amberGold-100/90 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+                محرك بحث واستقصاء محقق يتيح لك البحث بالمرض، والعضو المستهدف، والمادة الغذائية أو الدوائية، مع النقل الحرفي للمتون والتخريج الدقيق من دواوين السنة المشرفة.
+            </p>
+        </div>
+    </header>
+
+    <!-- لوحة البحث والتحكم الملكية المتطورة -->
+    <section class="max-w-6xl mx-auto px-4 -mt-14 relative z-20 w-full">
+        <div class="bg-white rounded-3xl shadow-2xl border-2 border-amberGold-400/40 p-5 md:p-7 space-y-5">
+
+            <!-- شريط البحث الفوري والذكي -->
+            <div class="relative">
+                <span class="absolute inset-y-0 right-4 flex items-center text-amberGold-600 text-xl pointer-events-none">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="ابحث بالمرض (الشقيقة، استطلاق البطن، الحمى...)، بالمادة (العسل، الحبة السوداء...)، أو نص الحديث..."
+                    class="w-full pr-12 pl-4 py-4 rounded-2xl border-2 border-slate-200 focus:border-amberGold-500 focus:ring-4 focus:ring-amberGold-500/20 outline-none text-slate-800 text-sm md:text-base transition bg-slate-50 hover:bg-white font-medium"
+                >
+            </div>
+
+            <!-- الفلاتر المنسدلة للتصفية بالمرض والدرجة -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-burgundy-50/60 p-3 rounded-2xl border border-burgundy-200/60">
+                    <label class="block text-xs font-bold text-burgundy-950 mb-1.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-stethoscope text-burgundy-700"></i>
+                        <span>تصفية بحسب المرض أو العَرَض:</span>
+                    </label>
+                    <select
+                        id="diseaseFilter"
+                        class="w-full px-3.5 py-2.5 rounded-xl border border-burgundy-200 focus:ring-2 focus:ring-amberGold-500 outline-none text-xs md:text-sm bg-white font-bold text-slate-700 shadow-sm"
+                    >
+                        <option value="all">جميع الأمراض والأعراض المعالجة</option>
+                    </select>
+                </div>
+
+                <div class="bg-amberGold-50/60 p-3 rounded-2xl border border-amberGold-200/80">
+                    <label class="block text-xs font-bold text-amberGold-900 mb-1.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-certificate text-amberGold-600"></i>
+                        <span>درجة ثبوت الحديث وإسناده:</span>
+                    </label>
+                    <select
+                        id="gradeFilter"
+                        class="w-full px-3.5 py-2.5 rounded-xl border border-amberGold-300 focus:ring-2 focus:ring-amberGold-500 outline-none text-xs md:text-sm bg-white font-bold text-slate-700 shadow-sm"
+                    >
+                        <option value="all">جميع الدرجات الحديثية</option>
+                        <option value="صحيح">صحيح فقط</option>
+                        <option value="حسن">حسن</option>
+                        <option value="ضعيف_معلل">ضعيف معلل</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- وسوم الصفة الاستعمالية الشرعية -->
+            <div class="space-y-2.5 pt-2 border-t border-slate-100">
+                <span class="text-xs font-black text-slate-700 block">🏷️ الصفة الاستعمالية الشرعية المنضبطة:</span>
+                <div class="flex flex-wrap gap-2" id="tagsContainer">
+                    <button class="tag-btn bg-gradient-to-r from-burgundy-900 to-burgundy-800 text-amberGold-300 border border-amberGold-400 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition shadow-md" data-tag="all">جميع الأبواب</button>
+                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-burgundy-100 hover:text-burgundy-900 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-slate-200" data-tag="دواء_واستشفاء_صريح">🌿 دواء واستشفاء منصوص</button>
+                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-burgundy-100 hover:text-burgundy-900 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-slate-200" data-tag="غذاء_وعادة">🥣 غذاء وهدي معيشي</button>
+                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-burgundy-100 hover:text-burgundy-900 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-slate-200" data-tag="وقاية_وحفظ_صحة">🛡️ وقاية وحفظ صحة</button>
+                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-burgundy-100 hover:text-burgundy-900 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-slate-200" data-tag="نظافة_وسنن_فطرة">💧 سنن الفطرة والنظافة</button>
+                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-burgundy-100 hover:text-burgundy-900 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-slate-200" data-tag="إجراء_جراحي_يدوي">✂️ إجراء جراحي يدوي</button>
+                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-burgundy-100 hover:text-burgundy-900 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-slate-200" data-tag="أصل_تشريعي_وأدب">⚖️ تشريع وأدب طبي</button>
+                </div>
+            </div>
+
+            <!-- شريط نتائج البحث وزر التصفير -->
+            <div class="flex justify-between items-center pt-2 border-t border-slate-100 text-xs">
+                <div class="font-bold text-slate-700">
+                    البطاقات المطابقة: <span id="resultsCount" class="text-burgundy-900 font-black text-base px-2 py-0.5 rounded-lg bg-amberGold-100 border border-amberGold-300">0</span>
+                </div>
+                <button id="resetBtn" class="text-rose-600 hover:text-rose-800 font-bold transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span>إعادة ضبط البحث</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- منطقة عرض البطاقات ومؤشر البحث (Loading Spinner) -->
+    <main class="max-w-6xl mx-auto px-4 py-12 flex-grow w-full">
+
+        <!-- دائرة الانتظار والتحميل وقت البحث (Spinner) -->
+        <div id="loadingSpinner" class="hidden text-center py-16">
+            <div class="inline-block w-14 h-14 border-4 border-burgundy-200 border-t-amberGold-500 rounded-full animate-spin"></div>
+            <p class="text-xs font-bold text-burgundy-900 mt-3 font-serif">جاري استخراج وتحديث النتائج...</p>
+        </div>
+
+        <!-- شبكة البطاقات -->
+        <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+    </main>
+
+    <!-- تذييل الصفحة الملكي والوقفية -->
+    <footer class="bg-burgundy-990 text-white border-t-2 border-amberGold-500/40 py-12 text-center text-xs mt-16 shadow-2xl">
+        <div class="max-w-4xl mx-auto px-4 space-y-3.5">
+            <div class="text-transparent bg-clip-text bg-gradient-to-r from-amberGold-300 via-amberGold-100 to-amberGold-400 font-serif text-3xl font-black tracking-wide drop-shadow">
+                وقفٌ لله تعالى
+            </div>
+            <div class="text-amberGold-300 font-kufi text-xl font-bold">
+                @شيرين بنت كاظم بنون
+            </div>
+            <p class="text-amberGold-100/80 max-w-lg mx-auto text-xs leading-relaxed font-light">
+                اللهم اجعل هذا العمل خالصاً لوجهك الكريم، نافعاً لعبادك، ومصدراً موثوقاً لصيانة جناب السنة النبوية المطهرة.
+            </p>
+            <div class="text-amberGold-400/60 pt-4 border-t border-burgundy-900 text-[11px]">
+                الموسوعة الجامعة للهدي والصحة النبوية © عمل وقفي متاح للجميع
+            </div>
+        </div>
+    </footer>
+
+    <!-- النوافذ المنبثقة التفاعلية (Modals) للقائمة الجانبية -->
+
+    <!-- نافذة: عن الموسوعة -->
+    <div id="aboutModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-4 shadow-2xl relative border-2 border-amberGold-400 max-h-[85vh] overflow-y-auto custom-scrollbar">
+            <button onclick="closeModal('aboutModal')" class="absolute top-5 left-5 w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="inline-block bg-burgundy-100 text-burgundy-950 px-3 py-0.5 rounded-full text-xs font-bold border border-burgundy-200">عن المنصة</div>
+            <h3 class="text-2xl font-black font-serif text-burgundy-950">الموسوعة الجامعة للهدي والصحة النبوية</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
+                مشروع علمي واستقصائي رائد يهدف إلى حصر وتحقيق كامل المرويات النبوية والآثار ذات الصلة بالصحة والبدن والتغذية والجراحة والبيئة، وعرضها في بيئة رقمية حديثة تخدم الباحثين، والأطباء، وعموم المسلمين في مشارق الأرض ومغاربها.
+            </p>
+        </div>
+    </div>
+
+    <!-- نافذة: منهج الموسوعة -->
+    <div id="methodologyModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-4 shadow-2xl relative border-2 border-amberGold-400 max-h-[85vh] overflow-y-auto custom-scrollbar">
+            <button onclick="closeModal('methodologyModal')" class="absolute top-5 left-5 w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="inline-block bg-amberGold-100 text-amberGold-900 px-3 py-0.5 rounded-full text-xs font-bold border border-amberGold-300">الأمانة الحديثية</div>
+            <h3 class="text-2xl font-black font-serif text-burgundy-950">منهج التحقيق والتصنيف</h3>
+            <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                    <strong class="text-burgundy-900 block mb-1">1. النقل الحرفي الدقيق:</strong>
+                    نقل متون الأحاديث بألفاظها الحرفية التامة المثبتة في الروايات المسندة، مع العزو للكتاب والباب ورقم الحديث المعتمد.
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                    <strong class="text-burgundy-900 block mb-1">2. تمييز العادة عن الدواء:</strong>
+                    عدم إطلاق وصف "دواء أو علاج" إلا على ما تضمن نصاً صريحاً بالشفاء أو الاستطباب، وتسمية المأكولات المعتادة بالهدي الغذائي.
+                </div>
+                <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                    <strong class="text-burgundy-900 block mb-1">3. التحقيق الطبي والمحاذير:</strong>
+                    إبراز المنظور الطبي المعاصر المنضبط، وإدراج التنبيهات والمحاذير السريرية لسلامة الاستخدام.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة: اتصل بنا والمقترحات (نموذج مباشر عبر API مع إشعار بالنجاح) -->
+    <div id="contactModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-4 shadow-2xl relative border-2 border-amberGold-400 max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <button onclick="closeModal('contactModal')" class="absolute top-5 left-5 w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="inline-block bg-burgundy-100 text-burgundy-950 px-3 py-0.5 rounded-full text-xs font-bold border border-burgundy-200">التواصل المباشر</div>
+            <h3 class="text-2xl font-black font-serif text-burgundy-950">اتصل بإدارة الموسوعة</h3>
+            <p class="text-xs text-slate-600">تسعدنا مقترحاتكم واستفساراتكم وتنبيهاتكم العلمية مباشرة عبر هذا النموذج.</p>
+
+            <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-3.5 pt-2">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكريم:</label>
+                    <input type="text" id="contactName" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amberGold-500 outline-none text-xs bg-slate-50" placeholder="اسمك الكريم...">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">البريد الإلكتروني:</label>
+                    <input type="email" id="contactEmail" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amberGold-500 outline-none text-xs bg-slate-50" placeholder="name@example.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">الموضوع:</label>
+                    <input type="text" id="contactSubject" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amberGold-500 outline-none text-xs bg-slate-50" placeholder="استفسار / مقترح...">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">نص الرسالة:</label>
+                    <textarea id="contactMessage" rows="3" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amberGold-500 outline-none text-xs bg-slate-50" placeholder="اكتب رسالتك بالتفصيل..."></textarea>
+                </div>
+                <button type="submit" id="contactSubmitBtn" class="w-full bg-gradient-to-r from-burgundy-900 to-burgundy-800 hover:from-burgundy-800 hover:to-burgundy-700 text-amberGold-300 font-bold py-3 rounded-xl shadow-md transition text-xs flex items-center justify-center gap-2 border border-amberGold-400/40">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span id="contactBtnText">إرسال الرسالة إلى إدارة الموسوعة</span>
+                </button>
+            </form>
+            <div id="contactStatus" class="hidden text-center p-3 rounded-xl text-xs font-bold"></div>
+        </div>
+    </div>
+
+    <!-- قاعدة البيانات والمحرك البرمجي المدمج في نفس الصفحة دون أي ملف خارجي -->
+    <script>
+        const allCards = [
+            {
+                id: 1,
+                title: "الاستشفاء بالعسل والحجامة والكي",
+                diseases_and_symptoms: ["النزف الحاد", "احتقان الدم", "الصداع والشقيقة", "اضطرابات الهضم", "الجروح والحروق"],
+                usage_types: ["دواء_واستشفاء_صريح", "غذاء_وعادة", "إجراء_جراحي_يدوي"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز الهضمي، الدورة الدموية، الجروح",
+                hadith_verbatim: "الشِّفَاءُ فِي ثَلاَثَةٍ: شَرْبَةِ عَسَلٍ، وَشَرْطَةِ مِحْجَمٍ، وَكَيَّةِ نَارٍ، وَأَنْهَى أُمَّتِي عَنِ الكَيِّ",
+                companion: "عبد الله بن عباس رضي الله عنهما",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب الشفاء في ثلاث",
+                hadith_number: 5680,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (كتاب الطب، باب الشفاء في ثلاث، رقم: 5680)"
+                },
+                prophetic_context: "نص استشفائي صريح بالاستطباب بهذه الأصول الثلاثة مع كراهة الكي والنهي عنه إلا لضرورة حسم النزف",
+                traditional_indication: "استفراغ الأخلاط الرديئة: الدموية بالحجامة، والبلغمية بالعسل، وحسم المادة العفنة بالكي",
+                modern_health_insight: "العسل مطهر طبيعي ومضاد للأكسدة، والحجامة تنشط التروية الموضعية، والكي يناظر الجراحة الحرارية لحسم النزف",
+                precautions: "يمتنع إعطاء العسل للرضع دون عمر السنة، والكي لا يصار إليه إلا عند تعذر البدائل الطبية"
+            },
+            {
+                id: 2,
+                title: "علاج استطلاق البطن بسقي العسل",
+                diseases_and_symptoms: ["استطلاق البطن (الإسهال)", "مغص الأمعاء", "عسر الهضم", "تسمم الغذاء"],
+                usage_types: ["دواء_واستشفاء_صريح", "غذاء_وعادة"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز الهضمي والأمعاء",
+                hadith_verbatim: "أَنَّ رَجُلًا أَتَى النَّبِيَّ ﷺ فَقَالَ: أَخِي يَشْتَكِي بَطْنَهُ، فَقَالَ: «اسْقِهِ عَسَلًا» ثُمَّ أَتَى الثَّانِيَةَ، فَقَالَ: «اسْقِهِ عَسَلًا» ثُمَّ أَتَاهُ الثَّالِثَةَ فَقَالَ: «اسْقِهِ عَسَلًا» ثُمَّ أَتَاهُ فَقَالَ: قَدْ فَعَلْتُ؟ فَقَالَ: «صَدَقَ اللَّهُ، وَكَذَبَ بَطْنُ أَخِيكَ، اسْقِهِ عَسَلًا» فَسَقَاهُ فَبَرَأَ",
+                companion: "أبو سعيد الخدري رضي الله عنه",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الطب (باب الدواء بالعسل) / مسلم: كتاب السلام",
+                chapter_name: "باب التداوي بسقي العسل",
+                hadith_number: "البخاري (5684)، مسلم (2217) واللفظ للبخاري",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 5684) ومسلم في صحيحه (رقم: 2217) متفق عليه"
+                },
+                prophetic_context: "توجيه علاجي صريح بتكرار جرعة العسل للمريض لدفع المادة اللزجة الفاسدة المسببة للاستطلاق حتى برأ",
+                traditional_indication: "دباغة المعدة وجلاء الفضلات البلغمية الملتصقة بجدار الأمعاء",
+                modern_health_insight: "يمتلك العسل فاعلية مضادة للبكتيريا المعوية المسببة للإسهال ويعوض السوائل والأملاح المفقودة",
+                precautions: "مراعاة تعويض السوائل تجنباً للجفاف ومراقبة مرضى السكري"
+            },
+            {
+                id: 3,
+                title: "التلبينة لمجم فؤاد المريض وذهاب الحزن",
+                diseases_and_symptoms: ["الحزن والاكتئاب", "ضعف الشهية", "إعياء المريض", "وهن النقاهة"],
+                usage_types: ["غذاء_وعادة", "دواء_واستشفاء_صريح"],
+                primary_usage: "غذاء_وعادة",
+                target_body_system: "الجهاز الهضمي والدعم العصبي والنفسي",
+                hadith_verbatim: "التَّلْبِينَةُ مُجِمَّةٌ لِفُؤَادِ المَرِيضِ، تَذْهَبُ بِبَعْضِ الحُزْنِ",
+                companion: "عائشة أم المؤمنين رضي الله عنها",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الأطعمة (باب التلبينة) / مسلم: كتاب السلام",
+                chapter_name: "باب التلبينة مجمة لفؤاد المريض",
+                hadith_number: "البخاري (5417)، مسلم (2216)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 5417) ومسلم في صحيحه (رقم: 2216) متفق عليه"
+                },
+                prophetic_context: "أمرت بها عائشة رضي الله عنها عند المصيبة والمرض لطعام أهل الميت والمريض لإراحة الفؤاد وترطيب البدن",
+                traditional_indication: "تغذية البدن الضعيف بخلط لطيف سهل الهضم، وتسكين حرارة وحزن القلب ببرودتها ورطوبتها",
+                modern_health_insight: "حساء الشعير بنخالته غني بالألياف الذائبة وحمض التريبتوفان المسهم في تحسين المزاج وتخفيف الكرب",
+                precautions: "لا تناسب مرضى حساسية الجلوتين (السيلياك)"
+            },
+            {
+                id: 4,
+                title: "الشفاء في الحبة السوداء",
+                diseases_and_symptoms: ["ضعف المناعة", "الزكام ونزلات البرد", "الربو والسعال", "اضطرابات الهضم الباردة"],
+                usage_types: ["دواء_واستشفاء_صريح"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "المناعة والجهاز التنفسي والهضمي",
+                hadith_verbatim: "فِي الحَبَّةِ السَّوْدَاءِ شِفَاءٌ مِنْ كُلِّ دَاءٍ، إِلَّا السَّامَ",
+                companion: "أبو هريرة رضي الله عنه",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الطب (باب الحبة السوداء) / مسلم: كتاب السلام",
+                chapter_name: "باب التداوي بالحبة السوداء",
+                hadith_number: "البخاري (5688)، مسلم (2215)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 5688) ومسلم في صحيحه (رقم: 2215) متفق عليه"
+                },
+                prophetic_context: "إرشاد نبوي عام للاستطباب بها للأمراض الباردة والبلغمية وتقوية مناعة البدن",
+                traditional_indication: "تسخين البدن البارد، إذابة البلغم، طرد الرياح، وتضميد الأورام البلغمية",
+                modern_health_insight: "تحتوي على مادة الثيموكينون المضادة للالتهاب والمحفزة للاستجابة المناعية والموسعة للشعب الهوائية",
+                precautions: "الالتزام بالجرعات الغذائية المعتدلة وتجنب الإفراط المركز الضار بالكلى والكبد"
+            },
+            {
+                id: 5,
+                title: "ماء الكمأة لشفاء العين",
+                diseases_and_symptoms: ["رمد العين", "ضعف البصر", "التراخوما", "سيلان الدموع والقذى"],
+                usage_types: ["دواء_واستشفاء_صريح", "غذاء_وعادة"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "العين والبصر",
+                hadith_verbatim: "الكَمْأَةُ مِنَ المَنِّ، وَمَاؤُهَا شِفَاءٌ لِلْعَيْنِ",
+                companion: "سعيد بن زيد رضي الله عنه",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الطب (باب المن شفاء للعين) / مسلم: كتاب الأشربة",
+                chapter_name: "باب فضل الكمأة ومداواة العين بها",
+                hadith_number: "البخاري (5708)، مسلم (2049)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 5708) ومسلم في صحيحه (رقم: 2049) متفق عليه"
+                },
+                prophetic_context: "نص استشفائي صريح باستعمال مائها كعلاج وقطرة للعين",
+                traditional_indication: "تبريد رمد العين الحار، جلاء البصر، ومنع نزول الماء والرطوبات إلى طبقات القرنية",
+                modern_health_insight: "يحتوي مستخلص مائها المعقم على مضادات حيوية طبيعية تمنع تشكل التليف في الملتحمة وتكافح بكتيريا التراخوما",
+                precautions: "يجب تعقيم وتصفية مائها طبياً قبل تقطيره في العين لمنع الالتهابات البكتيرية الثانوية"
+            },
+            {
+                id: 6,
+                title: "الوقاية بتمر العجوة من السم والسحر",
+                diseases_and_symptoms: ["التسمم الغذائي", "سموم الكبد", "الاضطرابات العصبية"],
+                usage_types: ["غذاء_وعادة", "وقاية_وحفظ_صحة", "دواء_واستشفاء_صريح"],
+                primary_usage: "وقاية_وحفظ_صحة",
+                target_body_system: "الكبد والجهاز العصبي والوقاية السمية",
+                hadith_verbatim: "مَنْ تَصَبَّحَ كُلَّ يَوْمٍ سَبْعَ تَمَرَاتٍ عَجْوَةً، لَمْ يَضُرَّهُ فِي ذَلِكَ اليَوْمِ سُمٌّ وَلاَ سِحْرٌ",
+                companion: "سعد بن أبي وقاص رضي الله عنه",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الأطعمة (باب العجوة) / مسلم: كتاب الأشربة",
+                chapter_name: "باب فضل تمر المدينة",
+                hadith_number: "البخاري (5445)، مسلم (2047)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 5445) ومسلم في صحيحه (رقم: 2047) متفق عليه"
+                },
+                prophetic_context: "تدبير وقائي على الريق بحبات معدودة لدرء آثار السموم والاعتلالات",
+                traditional_indication: "تعديل مزاج الكبد، حفظ القوة الغريزية، وقطع التسمم المعوي والغذائي",
+                modern_health_insight: "غني بالمركبات الفينولية ومضادات الأكسدة التي تدعم قدرة الكبد على تفكيك السموم",
+                precautions: "مراعاة تنظيم الحصص لمرضى السكري وضبط السعرات اليومية"
+            },
+            {
+                id: 7,
+                title: "العلاج بالقسط الهندي في السعوط واللدود",
+                diseases_and_symptoms: ["العذرة (التهاب اللوزات والحلق)", "ذات الجنب (التهاب الغشاء البلوري)", "ضيق التنفس", "السعال"],
+                usage_types: ["دواء_واستشفاء_صريح"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز التنفسي والحلق والصدر",
+                hadith_verbatim: "عَلَيْكُمْ بِهَذَا العُودِ الهِنْدِيِّ، فَإِنَّ فِيهِ سَبْعَةَ أَشْفِيَةٍ: يُسْتَعَطُ بِهِ مِنَ العُذْرَةِ، وَيُلَدُّ بِهِ مِنْ ذَاتِ الجَنْبِ",
+                companion: "أم قيس بنت محصن رضي الله عنها",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الطب (باب السعوط بالقسط) / مسلم: كتاب السلام",
+                chapter_name: "باب التداوي بالقسط البحري والهندي",
+                hadith_number: "البخاري (5692)، مسلم (2214)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 5692) ومسلم في صحيحه (رقم: 2214) متفق عليه"
+                },
+                prophetic_context: "بديل علاجي نبوي لطيف للأطفال عِوضاً عن غمز الحلق ودفعه بالأصابع (الدغر) المؤذي",
+                traditional_indication: "علاج التهاب اللوزات وسقوط اللهاة بالتقطير الأنفي (سعوطاً)، والتهاب الغشاء البلوري للرئة (لدوداً)",
+                modern_health_insight: "يمتلك تأثيراً مضاداً للالتهابات التنفسية ومثبطاً للبكتيريا وموسعاً للشعب الهوائية",
+                precautions: "يُحظر على الحوامل لما قد يسببه من تنشيط لانقباضات الرحم"
+            },
+            {
+                id: 8,
+                title: "مواضع الحجامة في الأخدعين والكاهل",
+                diseases_and_symptoms: ["تبيغ الدم (فرط ضغط الدم)", "الصداع والشقيقة", "آلام الرقبة والكتفين", "ثقل الرأس"],
+                usage_types: ["دواء_واستشفاء_صريح", "إجراء_جراحي_يدوي", "وقاية_وحفظ_صحة"],
+                primary_usage: "إجراء_جراحي_يدوي",
+                target_body_system: "الدورة الدموية والرأس والرقبة والظهر",
+                hadith_verbatim: "أَنَّ رَسُولَ اللَّهِ ﷺ احْتَجَمَ ثَلَاثًا فِي الْأَخْدَعَيْنِ وَالْكَاهِلِ",
+                companion: "أنس بن مالك رضي الله عنه",
+                primary_source: "سنن أبي داود وجامع الترمذي",
+                book_name: "أبو داود: كتاب الطب (باب موضع الحجم) / الترمذي: أبواب الطب",
+                chapter_name: "باب ما جاء في الحجامة في الأخدعين والكاهل",
+                hadith_number: "أبو داود (3860)، الترمذي (2051)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه أبو داود (رقم: 3860)، والترمذي (رقم: 2051) وقال: حسن غريب، وصححه الحاكم في المستدرك (4/235) والألباني في صحيح أبي داود (3267)"
+                },
+                prophetic_context: "إجراء جراحي واستفراغي موضعي باشره النبي ﷺ لعلاج امتلاء الرأس وتبيغ الدم",
+                traditional_indication: "تفريغ الدم المحتقن في أوردة العنق وأعلى الظهر لتسكين الصداع وثقل الكتفين والعينين",
+                modern_health_insight: "تخفيف التشنج العضلي العنقي وتحسين التروية الدموية الدقيقة وتسكين آلام الرقبة",
+                precautions: "وجوب التعقيم الصارم للشفرات والمواضع وتجنب مواضع الشرايين الرئيسية والأوردة البارزة"
+            },
+            {
+                id: 9,
+                title: "ألية شاة أعرابية لعرق النسا",
+                diseases_and_symptoms: ["عرق النسا (التهاب العصب الوركي)", "آلام أسفل الظهر الممتدة للساق", "تيبس المفاصل"],
+                usage_types: ["دواء_واستشفاء_صريح"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز العظمي والعصبي والأطراف السفلية",
+                hadith_verbatim: "شِفَاءُ عِرْقِ النَّسَا أَلْيَةُ شَاةٍ أَعْرَابِيَّةٍ تُذَابُ، ثُمَّ تُجَزَّأُ ثَلَاثَةَ أَجْزَاءٍ، ثُمَّ يُشْرَبُ عَلَى الرِّيقِ فِي كُلِّ يَوْمٍ جُزْءٌ",
+                companion: "أنس بن مالك رضي الله عنه",
+                primary_source: "سنن ابن ماجه ومسند أحمد",
+                book_name: "ابن ماجه: كتاب الطب",
+                chapter_name: "باب دواء عرق النسا",
+                hadith_number: "ابن ماجه (3463)، أحمد (13248)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه ابن ماجه في سننه (رقم: 3463)، وأحمد في مسنده (رقم: 13248)، وصححه الحاكم في المستدرك (4/404) والبوصيري والألباني في السلسلة الصحيحة (1899)"
+                },
+                prophetic_context: "وصفة علاجية باطنة محددة التوقيت على الريق لعلاج ألم العصب الوركي الناشئ عن اليبوسة والبرد",
+                traditional_indication: "تليين العصب المنقبض، وإنضاج المادة الغليظة في مفصل الورك",
+                modern_health_insight: "الدهون الطبيعية للشياه التي ترعى الأعشاب البرية غنية بالأحماض الدهنية غير المشبعة ومضادات الالتهاب الموضعية",
+                precautions: "تراعى لحالات عرق النسا الناشئة عن اليبوسة ومراجعة الطبيب في الانزلاقات الغضروفية الميكانيكية"
+            },
+            {
+                id: 10,
+                title: "تبريد الحمى بالماء",
+                diseases_and_symptoms: ["الحمى وارتفاع الحرارة", "الضربة الحرارية", "الإجهاد الحراري"],
+                usage_types: ["دواء_واستشفاء_صريح", "وقاية_وحفظ_صحة"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز الدوري والدماغ وتنظيم الحرارة",
+                hadith_verbatim: "الحُمَّى مِنْ فَيْحِ جَهَنَّمَ، فَأَبْرِدُوهَا بِالمَاءِ",
+                companion: "عبد الله بن عمر وعائشة ورافع بن خديج رضي الله عنهم",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الطب (باب الحمى من فيح جهنم) / مسلم: كتاب السلام",
+                chapter_name: "باب لكل داء دواء واستحباب التداوي وتبريد الحمى بالماء",
+                hadith_number: "البخاري (3261)، مسلم (2209)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 3261) ومسلم في صحيحه (رقم: 2209) متفق عليه"
+                },
+                prophetic_context: "توجيه علاجي فيزيائي فوري لكسر حدة الحرارة بالماء البارد",
+                traditional_indication: "إطفاء حرارة الدم المشتعلة، وحماية الأعضاء الرئيسية من الاحتراق بالحرارة",
+                modern_health_insight: "العلاج المائي (Hydrotherapy) بالكمادات والغسل هو الإسعاف الأولي لخفض الحرارة لحماية خلايا الدماغ من التلف",
+                precautions: "تجنب استخدام الماء شديد البرودة (المثلج) فجأة لتفادي صدمة الأوعية وانقباضها العنيف"
+            },
+            {
+                id: 11,
+                title: "حب الدباء (القرع) في الطعام المعتاد",
+                diseases_and_symptoms: ["عسر الهضم", "حرارة المعدة", "العطش الشديد"],
+                usage_types: ["غذاء_وعادة"],
+                primary_usage: "غذاء_وعادة",
+                target_body_system: "الجهاز الهضمي والترطيب البدني",
+                hadith_verbatim: "فَرَأَيْتُ النَّبِيَّ ﷺ يَتَتَبَّعُ الدُّبَّاءَ مِنْ حَوَالَيِ القَصْعَةِ، فَلَمْ أَزَلْ أُحِبُّ الدُّبَّاءَ بَعْدَ يَوْمِئِذٍ",
+                companion: "أنس بن مالك رضي الله عنه",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الأطعمة (باب الدباء) / مسلم: كتاب الأشربة",
+                chapter_name: "باب فضل الدباء واستحباب أكله",
+                hadith_number: "البخاري (5433)، مسلم (2041)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 5433) ومسلم في صحيحه (رقم: 2041) متفق عليه"
+                },
+                prophetic_context: "طعام معتاد استحبه النبي ﷺ وتناوله كعادة غذائية دون نص على دواء لمرض محدد بلفظ صحيح",
+                traditional_indication: "غذاء لطيف مبرد للمعدة، خفيف على الهضم، مهدئ للعطش",
+                modern_health_insight: "غني بالماء والألياف ومضادات الأكسدة وقليل السعرات مما يريح جدار المعدة والأمعاء",
+                precautions: "لا يصح في كونه علاجاً مخصصاً لمرض معين حديث مرفوع"
+            },
+            {
+                id: 12,
+                title: "كراهية الشرب من ثلمة القدح والنفخ فيه",
+                diseases_and_symptoms: ["جروح الشفاه", "التسمم الجرثومي", "عدوى الجهاز التنفسي الفموية"],
+                usage_types: ["وقاية_وحفظ_صحة", "نظافة_وسنن_فطرة"],
+                primary_usage: "وقاية_وحفظ_صحة",
+                target_body_system: "الفم والشفاه والجهاز الهضمي",
+                hadith_verbatim: "نَهَى رَسُولُ اللَّهِ ﷺ عَنِ الشُّرْبِ مِنْ ثُلْمَةِ الْقَدَحِ، وَأَنْ يُنْفَخَ فِي الشَّرَابِ",
+                companion: "أبو سعيد الخدري رضي الله عنه",
+                primary_source: "سنن أبي داود",
+                book_name: "كتاب الأشربة",
+                chapter_name: "باب في الشرب من ثلمة القدح",
+                hadith_number: 3722,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه أبو داود في سننه (رقم: 3722) وصححه الحاكم في المستدرك (4/139) والألباني في صحيح أبي داود (3162)"
+                },
+                prophetic_context: "توجيه وقائي لحماية الجسد وصيانة الآنية من الملوثات",
+                traditional_indication: "تجنب جرح الشفة بحافة الإناء المكسورة، وتفادي تجمع الأوساخ في الشق",
+                modern_health_insight: "الشقوق الدقيقة في الأواني تعد بيئة مثالية لنمو المستعمرات البكتيرية التي يصعب تطهيرها بالغسيل المعتاد",
+                precautions: "التأكد من سلامة حواف أواني الشرب للأطفال والكبار"
+            },
+            {
+                id: 13,
+                title: "التداوي بألبان الإبل وأبوالها للاستسقاء",
+                diseases_and_symptoms: ["الاستسقاء", "وخم البطن", "تضخم الطحال والكبد", "اليرقان"],
+                usage_types: ["دواء_واستشفاء_صريح", "غذاء_وعادة"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز الهضمي والكبد والمسالك",
+                hadith_verbatim: "أَنَّ نَاسًا اجْتَوَوْا فِي المَدِينَةِ، فَأَمَرَهُمُ النَّبِيُّ ﷺ أَنْ يَلْحَقُوا بِرَاعِيهِ، يَعْنِي الإِبِلَ، فَيَشْرَبُوا مِنْ أَلْبَانِهَا وَأَبْوَالِهَا، فَلَحِقُوا بِرَاعِيهِ فَشَرِبُوا مِنْ أَلْبَانِهَا وَأَبْوَالِهَا، حَتَّى صَلَحَتْ أَبْدَانُهُمْ",
+                companion: "أنس بن مالك رضي الله عنه",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الطب (باب الدواء بألبان الإبل) / مسلم: كتاب القسامة",
+                chapter_name: "باب حكم المحاربين والمرتدين وقصة العرنيين",
+                hadith_number: "البخاري (5686)، مسلم (1671)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 5686) ومسلم في صحيحه (رقم: 1671) متفق عليه"
+                },
+                prophetic_context: "علاج سريري نوعي لأهل البادية الذين استوخموا جو المدينة وأصابتهم أمراض البطن والاستسقاء",
+                traditional_indication: "تفتيح سدد الكبد والأحشاء، وإدرار السوائل المحتبسة في البطن",
+                modern_health_insight: "يحتوي لبن الإبل على أجسام مناعية نانوية نادرة ومركبات بروتينية تدعم وظائف الكبد وتدر البول",
+                precautions: "الحرص على الفحص البيطري للإبل تجنباً لانتقال فيروسات كورونا أو البروسيلا"
+            },
+            {
+                id: 14,
+                title: "حسم النزف بحرق الحصير واستعمال الرماد",
+                diseases_and_symptoms: ["الجروح النازفة", "نزيف الوجه والرأس", "تهتك الأنسجة"],
+                usage_types: ["إجراء_جراحي_يدوي", "دواء_واستشفاء_صريح"],
+                primary_usage: "إجراء_جراحي_يدوي",
+                target_body_system: "الأوعية الدموية والجلد والجروح",
+                hadith_verbatim: "لَمَّا كُسِرَتْ رَبَاعِيَةُ رَسُولِ اللَّهِ ﷺ، وَدُمِيَ وَجْهُهُ، وَكُسِرَتِ البَيْضَةُ عَلَى رَأْسِهِ، كَانَتْ فَاطِمَةُ تَغْسِلُ الدَّمَ، وَعَلِيٌّ يَسْكُبُ عَلَيْهَا، فَلَمَّا رَأَتْ فَاطِمَةُ أَنَّ الدَّمَ لاَ يَزِيدُ إِلَّا كَثْرَةً، أَخَذَتْ قِطْعَةَ حَصِيرٍ، فَأَحْرَقَتْهَا حَتَّى صَارَتْ رَمَادًا، ثُمَّ أَلْزَقَتْهُ بِالْجُرْحِ فَاسْتَمْسَكَ الدَّمُ",
+                companion: "سهل بن سعد الساعدي رضي الله عنه",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب المغازي (باب جراح أحد) / مسلم: كتاب الجهاد",
+                chapter_name: "باب ما أصاب النبي ﷺ من الجراح يوم أحد",
+                hadith_number: "البخاري (2903)، مسلم (1790)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 2903) ومسلم في صحيحه (رقم: 1790) متفق عليه"
+                },
+                prophetic_context: "إسعاف جراحي فوري في أرض المعركة لوقف النزف الوريدي والشرياني المتدفق",
+                traditional_indication: "تخثير الدم وسد فوهات العروق المفتوحة بقوة رماد البردي القابضة المجففة",
+                modern_health_insight: "رماد النباتات المحروقة كربون معقم يمتص السوائل ويحفز التجلط السريع كعامل تخثر موضعي",
+                precautions: "التأكد من خلو الرماد من الشوائب الملوثة تجنباً للتكزز (Tetanus)"
+            },
+            {
+                id: 15,
+                title: "كحل الإثمد لجلاء البصر وإنبات الشعر",
+                diseases_and_symptoms: ["ضعف البصر", "تساقط شعر الأهداب", "غشاوة العين", "حكة الجفون"],
+                usage_types: ["دواء_واستشفاء_صريح", "زينة_وتطيب"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "العين والأهداب والجفون",
+                hadith_verbatim: "عَلَيْكُمْ بِالإِثْمِدِ عِنْدَ النَّوْمِ، فَإِنَّهُ يَجْلُو البَصَرَ، وَيُنْبِتُ الشَّعْرَ",
+                companion: "عبد الله بن عباس رضي الله عنهما",
+                primary_source: "سنن ابن ماجه وجامع الترمذي",
+                book_name: "ابن ماجه: كتاب الطب (باب الكحل بالإثمد) / الترمذي: كتاب اللباس",
+                chapter_name: "باب ما جاء في الاكتحال",
+                hadith_number: "ابن ماجه (3497)، الترمذي (1757)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه ابن ماجه (رقم: 3497)، والترمذي (رقم: 1757) وقال: حسن غريب، وصححه ابن حبان (5633) والحاكم والألباني في صحيح ابن ماجه (2831)"
+                },
+                prophetic_context: "إرشاد علاجي ووقائي وتطيبي للعين عند النوم ليثبت في الملتحمة",
+                traditional_indication: "تنقية العين من الأوساخ، شد أعصاب العين، وتسكين الدمعة الحارة",
+                modern_health_insight: "معدن الإثمد النقي (الأنتيمون) يمتلك خواص قابضة ومحفزة لبصيلات رموش العين ومطهرة لملتحمة الجفن",
+                precautions: "الحذر من كحل الإثمد المغشوش الممزوج بالرصاص السام واختيار الحجر الأصلي النقي"
+            },
+            {
+                id: 16,
+                title: "السواك مطهرة للفم ومرضاة للرب",
+                diseases_and_symptoms: ["بخر الفم (الرائحة الكريهة)", "تسوس الأسنان", "التهاب اللثة", "تراكم الجير"],
+                usage_types: ["نظافة_وسنن_فطرة", "وقاية_وحفظ_صحة"],
+                primary_usage: "نظافة_وسنن_فطرة",
+                target_body_system: "الفم والأسنان واللثة",
+                hadith_verbatim: "السِّوَاكُ مَطْهَرَةٌ لِلْفَمِ مَرْضَاةٌ لِلرَّبِّ",
+                companion: "عائشة أم المؤمنين رضي الله عنها",
+                primary_source: "سنن النسائي ومسند أحمد",
+                book_name: "النسائي: كتاب الطهارة",
+                chapter_name: "باب الترغيب في السواك",
+                hadith_number: "النسائي (5)، أحمد (24203)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه النسائي في سننه (رقم: 5)، وأحمد في مسنده (رقم: 24203)، وصححه ابن خزيمة (135) وابن حبان (1067) والنووي في المجموع (1/267) والألباني في صحيح النسائي (5)"
+                },
+                prophetic_context: "سنة تعبدية وإصحاح وقائي متكرر عند الصلاة والوضوء والقيام ودخول البيت",
+                traditional_indication: "إزالة فضلات الطعام، تنقية الأسنان، وشد اللثة الرخوة",
+                modern_health_insight: "يحتوي خشب الأراك على ألياف ميكانيكية دقيقة، والفلورايد، والسيليكا، ومواد قلوية مضادة للتسوس",
+                precautions: "قص الشعيرات المستهلكة وغسل السواك بالماء لمنع نمو البكتيريا عليه"
+            },
+            {
+                id: 17,
+                title: "تنظيم الغذاء (ثلث لطعامه وثلث لشرابه وثلث لنفسه)",
+                diseases_and_symptoms: ["السمنة والبدانة", "التخمة والامتلاء", "عسر الهضم المزمن", "الخمول والكسل"],
+                usage_types: ["وقاية_وحفظ_صحة", "غذاء_وعادة"],
+                primary_usage: "وقاية_وحفظ_صحة",
+                target_body_system: "الجهاز الهضمي والقلب والتمثيل الغذائي",
+                hadith_verbatim: "مَا مَلَأَ آدَمِيٌّ وِعَاءً شَرًّا مِنْ بَطْنٍ، بِحَسْبِ ابْنِ آدَمَ أُكُلاَتٌ يُقِمْنَ صُلْبَهُ، فَإِنْ كَانَ لاَ مَحَالَةَ: فَثُلُثٌ لِطَعَامِهِ، وَثُلُثٌ لِشَرَابِهِ، وَثُلُثٌ لِنَفَسِهِ",
+                companion: "المقدام بن معد يكرب رضي الله عنه",
+                primary_source: "جامع الترمذي وسنن ابن ماجه",
+                book_name: "الترمذي: أبواب الزهد",
+                chapter_name: "باب ما جاء في كراهية كثرة الأكل",
+                hadith_number: "الترمذي (2380)، ابن ماجه (3349)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه الترمذي في جامعه (رقم: 2380) وقال: حسن صحيح، وابن ماجه في سننه (رقم: 3349)، وصححه ابن حبان (5236) والحاكم والألباني في السلسلة الصحيحة (2265)"
+                },
+                prophetic_context: "قاعدة كلية في حفظ صحة البدن والاعتدال في التغذية لدفع أمراض التخمة",
+                traditional_indication: "منع تمدد المعدة، والحفاظ على حرارة الهضم الغريزية دون إرهاق",
+                modern_health_insight: "التنظيم الحجمي للوجبات يمنع ارتجاع المريء، ويضبط هرمونات الشبع (اللبتين والجرلين)، ويحمي من متلازمة الأيض",
+                precautions: "الالتزام بالتدرج في تناول الطعام ومضغه جيداً قبل البلع"
+            },
+            {
+                id: 18,
+                title: "الحظر الوقائي من الطاعون (الحجر الصحي)",
+                diseases_and_symptoms: ["الطاعون والجوائح", "العدوى الوبائية التنفسية", "الأمراض السارية المنتشرة"],
+                usage_types: ["وقاية_وحفظ_صحة", "أصل_تشريعي_وأدب"],
+                primary_usage: "وقاية_وحفظ_صحة",
+                target_body_system: "الصحة العامة ومكافحة الأوبئة والجوائح",
+                hadith_verbatim: "إِذَا سَمِعْتُمْ بِالطَّاعُونِ بِأَرْضٍ فَلاَ تَدْخُلُوهَا، وَإِذَا وَقَعَ بِأَرْضٍ وَأَنْتُمْ بِهَا فَلاَ تَخْرُجُوا مِنْهَا",
+                companion: "أسامة بن زيد رضي الله عنهما",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الطب (باب الطاعون) / مسلم: كتاب السلام",
+                chapter_name: "باب الطاعون والطيرة والكهانة ونحوها",
+                hadith_number: "البخاري (5728)، مسلم (2218)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 5728) ومسلم في صحيحه (رقم: 2218) متفق عليه"
+                },
+                prophetic_context: "تشريع وبائي لمنع انتشار المرض وحصاره في بؤرته الأولية",
+                traditional_indication: "منع مخالطة الأصحاء لمادة الهواء والبيئة الفاسدة صيانةً للأنفس",
+                modern_health_insight: "الأساس الطبي لعزل المناطق الموبوءة (Quarantine) لمنع تحول الوباء المحلي إلى جائحة عالمية",
+                precautions: "وجوب طاعة التعليمات الصحية وعدم كسر الحجر الوبائي"
+            },
+            {
+                id: 19,
+                title: "الفرار من المجذوم وتجنب مخالطة العدوى",
+                diseases_and_symptoms: ["الجذام (داء هانسن)", "العدوى الجلدية البكتيرية المزمنة", "التقرحات المشوهة"],
+                usage_types: ["وقاية_وحفظ_صحة", "أصل_تشريعي_وأدب"],
+                primary_usage: "وقاية_وحفظ_صحة",
+                target_body_system: "الجلد والجهاز المناعي والتنفسي",
+                hadith_verbatim: "فِرَّ مِنَ المَجْذُومِ كَمَا تَفِرُّ مِنَ الأَسَدِ",
+                companion: "أبو هريرة رضي الله عنه",
+                primary_source: "صحيح البخاري ومسند أحمد",
+                book_name: "البخاري: كتاب الطب",
+                chapter_name: "باب الجذام",
+                hadith_number: "البخاري (5707)، أحمد (9722)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه تعليقاً ووصلاً (رقم: 5707)، وأحمد في مسنده (رقم: 9722) بإسناد صحيح على شرط الشيخين"
+                },
+                prophetic_context: "أمر وقائي صريح بالتباعد عن المصابين بالأمراض المعدية الخطيرة تفادياً لانتقال الداء",
+                traditional_indication: "الابتعاد عن رائحة المجذوم وتنفسه المخالط للجلد والأنف",
+                modern_health_insight: "بكتيريا الجذام (Mycobacterium leprae) تنتقل عبر الرذاذ التنفسي بالمعايشة اللصيقة الطويلة",
+                precautions: "الالتزام بإجراءات الوقاية والعزل دون احتقار أو إيذاء للمريض نفسياً"
+            },
+            {
+                id: 20,
+                title: "تطهير أثر دم الحيض بالمسك",
+                diseases_and_symptoms: ["الروائح الكريهة بعد الحيض", "التهابات المهبل البكتيرية", "ركود الإفرازات التناسلية"],
+                usage_types: ["نظافة_وسنن_فطرة", "زينة_وتطيب"],
+                primary_usage: "نظافة_وسنن_فطرة",
+                target_body_system: "الجهاز التناسلي الأنثوي والجلد",
+                hadith_verbatim: "أَنَّ امْرَأَةً سَأَلَتِ النَّبِيَّ ﷺ عَنْ غُسْلِهَا مِنَ المَحِيضِ، فَأَمَرَهَا كَيْفَ تَغْتَسِلُ، قَالَ: «خُذِي فِرْصَةً مِنْ مِسْكٍ، فَتَطَهَّرِي بِهَا» قَالَتْ: كَيْفَ أَتَطَهَّرُ؟ قَالَ: «تَطَهَّرِي بِهَا» قَالَتْ: كَيْفَ؟ قَالَ: «سُبْحَانَ اللَّهِ، تَطَهَّرِي» فَاجْتَبَذْتُهَا إِلَيَّ، فَقُلْتُ: تَتَبَّعِي بِهَا أَثَرَ الدَّمِ",
+                companion: "عائشة أم المؤمنين رضي الله عنها",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الحيض (باب دلك المرأة نفسها) / مسلم: كتاب الحيض",
+                chapter_name: "باب استحباب استعمال المغتسلة من الحيض مسكا",
+                hadith_number: "البخاري (314)، مسلم (332)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 314) ومسلم في صحيحه (رقم: 332) متفق عليه"
+                },
+                prophetic_context: "تعليم نبوي للمرأة للاعتناء بنظافة وتطييب موضع الدم بعد الطهارة",
+                traditional_indication: "قطع الرائحة الكريهة للدم الفاسد، وشد موضع الرحم والمهبل",
+                modern_health_insight: "المسك الطبيعي يحتوي على مركبات عطرية وقابضة طبيعية تكافح البكتيريا اللاهوائية في الإفرازات",
+                precautions: "استعمال المسك الطبيعي وتجنب العطور المصنعة الكيميائية الحارقة للأغشية المخاطية"
+            },
+            {
+                id: 21,
+                title: "الحناء لعلاج الشوك والقروح الموضعية",
+                diseases_and_symptoms: ["القروح الجلدية", "وخز الشوك والجروح", "آلام القدمين والرضوض"],
+                usage_types: ["دواء_واستشفاء_صريح", "زينة_وتطيب"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجلد والأطراف والقدمين",
+                hadith_verbatim: "مَا كَانَ يُصِيبُ النَّبِيَّ ﷺ قَرْحَةٌ وَلاَ شَوْكَةٌ إِلَّا وَضَعَ عَلَيْهَا الحِنَّاءَ",
+                companion: "سلمى أم رافع رضي الله عنها",
+                primary_source: "جامع الترمذي وسنن ابن ماجه",
+                book_name: "الترمذي: أبواب الطب / ابن ماجه: كتاب الطب",
+                chapter_name: "باب ما جاء في الحناء",
+                hadith_number: "الترمذي (2054)، ابن ماجه (3502)",
+                authenticity: {
+                    grade: "حسن",
+                    judgement_by: "أخرجه الترمذي في جامعه (رقم: 2054) وقال: حديث حسن غريب، وابن ماجه في سننه (رقم: 3502)، وصححه الحاكم في المستدرك (4/437) وحسنه الألباني في صحيح الترمذي (1671)"
+                },
+                prophetic_context: "ضماد عشبي موضعي اعتمده النبي ﷺ لعلاج الجروح البسيطة والشوك والقروح",
+                traditional_indication: "تبريد الأورام الحارة، شد اللحم المتهتك، وتسريع التئام القروح",
+                modern_health_insight: "تحتوي الحناء على مادة اللاوسون (Lawsone) ذات الفاعلية القابضة والمضادة للبكتيريا والفطريات",
+                precautions: "التأكد من نقاء مسحوق الحناء من الأصباغ الكيميائية المضافة"
+            },
+            {
+                id: 22,
+                title: "ترخيص لبس الحرير لعلاج الحكة والجرب",
+                diseases_and_symptoms: ["الحكة الجلدية", "داء الجرب", "تحسس الجلد وتهيجه"],
+                usage_types: ["دواء_واستشفاء_صريح", "أصل_تشريعي_وأدب"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجلد والأنسجة الخارجية",
+                hadith_verbatim: "رَخَّصَ النَّبِيُّ ﷺ لِعَبْدِ الرَّحْمَنِ بْنِ عَوْفٍ، وَالزُّبَيْرِ، فِي قَمِيصٍ مِنْ حَرِيرٍ، مِنْ حِكَّةٍ كَانَتْ بِهِمَا",
+                companion: "أنس بن مالك رضي الله عنه",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الجهاد والسير (باب الحرير للحكة) / مسلم: كتاب اللباس",
+                chapter_name: "باب إباحة لبس الحرير للرجل لحكة ونحوها",
+                hadith_number: "البخاري (2919)، مسلم (2069)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 2919) ومسلم في صحيحه (رقم: 2069) متفق عليه"
+                },
+                prophetic_context: "استثناء تشريعي طبي من تحريم الحرير على الرجال لدفع ضرر الحكة الشديدة",
+                traditional_indication: "تبريد الجلد المشتعل بالحكة لنعومة الحرير وعدم توليده للحرارة كالصوف",
+                modern_health_insight: "ألياف الحرير الطبيعي البروتينية ناعمة الملمس، تقلل الاحتكاك الجلدي وتمنع تكاثر عثة الجرب",
+                precautions: "يقتصر استخدامه على الحاجة الطبية المبيحة للاستثناء"
+            },
+            {
+                id: 23,
+                title: "الاسترقاء بالفاتحة للدغات العقارب والهوام",
+                diseases_and_symptoms: ["لدغ العقرب", "لسع الحشرات السامة", "الخدر العصبي والسمي"],
+                usage_types: ["دواء_واستشفاء_صريح", "أصل_تشريعي_وأدب"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز العصبي والدموي وموضع اللدغة",
+                hadith_verbatim: "فَانْطَلَقَ صَاحِبُنَا فَقَرَأَ عَلَيْهِ بِفَاتِحَةِ الكِتَابِ فَجَعَلَ يَتْفُلُ عَلَيْهِ حَتَّى بَرَأَ، فَكَأَنَّمَا نَشِطَ مِنْ عِقَالٍ، فَقَالَ النَّبِيُّ ﷺ: «وَمَا يُدْرِيكَ أَنَّهَا رُقْيَةٌ؟»",
+                companion: "أبو سعيد الخدري رضي الله عنه",
+                primary_source: "صحيح البخاري وصحيح مسلم",
+                book_name: "البخاري: كتاب الطب (باب رقية اللديغ) / مسلم: كتاب السلام",
+                chapter_name: "باب جواز أخذ الأجرة على الرقية بالقرآن والأذكار",
+                hadith_number: "البخاري (5736)، مسلم (2201)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري في صحيحه (رقم: 5736) ومسلم في صحيحه (رقم: 2201) متفق عليه"
+                },
+                prophetic_context: "إقرار نبوي لرقية المصاب بالسم بالقرآن مع التفل ومسح موضع الإصابة",
+                traditional_indication: "استجماع القوة الروحية والإيمانية لدفع أثر السم وتسكين الألم الموضعي",
+                modern_health_insight: "الدعم الروحي والنفسي بالقرآن يثبط نوبات الهلع وخفقان القلب مما يقلل سرعة انتشار السم في الدم",
+                precautions: "طلب الإسعاف الطبي للأمصال المضادة للسموم بجانب الرقية الشرعية"
+            },
+            {
+                id: 24,
+                title: "علاج لدغة العقرب بالماء والملح والمعوذات",
+                diseases_and_symptoms: ["لدغة العقرب", "التورم والالتهاب الموضعي", "الألم الحاد الحارق"],
+                usage_types: ["دواء_واستشفاء_صريح", "إجراء_جراحي_يدوي"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجلد والأعصاب الموضعية",
+                hadith_verbatim: "لَعَنَ اللَّهُ الْعَقْرَبَ، لَا تَدَعُ مُصَلِّيًا وَلَا غَيْرَهُ، ثُمَّ دَعَا بِمَاءٍ وَمِلْحٍ، فَجَعَلَ يَمْسَحُ عَلَيْهَا وَيَقْرَأُ بِـ ﴿قُلْ يَا أَيُّهَا الْكَافِرُونَ﴾ وَ ﴿قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ﴾ وَ ﴿قُلْ أَعُوذُ بِرَبِّ النَّاسِ﴾",
+                companion: "علي بن أبي طالب رضي الله عنه",
+                primary_source: "المعجم الصغير للطبراني وشعب الإيمان للبيهقي",
+                book_name: "الطبراني: المعجم الصغير / البيهقي: شعب الإيمان",
+                chapter_name: "باب في الرقى والأدوية",
+                hadith_number: "الطبراني (914)، البيهقي (2445)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه الطبراني في الصغير (رقم: 914)، والبيهقي في شعب الإيمان (رقم: 2445)، وصححه الألباني في السلسلة الصحيحة (رقم: 548)"
+                },
+                prophetic_context: "إسعاف فوري باشر فيه النبي ﷺ علاج اللدغة بالماء والملح مقروناً بالقرآن",
+                traditional_indication: "جذب المادة السمية بالملح وتبريد لهيب الموضع بالماء",
+                modern_health_insight: "المحلول الملحي عالي التركيز يساعد على سحب السوائل الموضعية وتسكين الإشارات العصبية المؤلمة",
+                precautions: "غسل الجرح جيداً وعدم محاولة شق الموضع أو مصه بالفم"
+            },
+            {
+                id: 25,
+                title: "النهي عن التداوي بالخمر وإثبات أنها داء",
+                diseases_and_symptoms: ["إدمان المسكرات", "تلف الكبد العصبي", "الانتكاس الدوائي"],
+                usage_types: ["أصل_تشريعي_وأدب", "وقاية_وحفظ_صحة"],
+                primary_usage: "أصل_تشريعي_وأدب",
+                target_body_system: "الجهاز العصبي والكبد والصحة العامة",
+                hadith_verbatim: "أَنَّ طَارِقَ بْنَ سُوَيْدٍ الْجُعْفِيَّ سَأَلَ النَّبِيَّ ﷺ عَنِ الْخَمْرِ، فَنَهَاهُ، أَوْ كَرِهَ أَنْ يَصْنَعَهَا، فَقَالَ: إِنَّمَا أَصْنَعُهَا لِلدَّوَاءِ، فَقَالَ: «إِنَّهُ لَيْسَ بِدَوَاءٍ، وَلَكِنَّهُ دَاءٌ»",
+                companion: "طارق بن سويد الجعفي رضي الله عنه",
+                primary_source: "صحيح مسلم",
+                book_name: "كتاب الأشربة",
+                chapter_name: "باب تحريم التداوي بالخمر وبيان أنها ليست بدواء",
+                hadith_number: 1984,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه مسلم في صحيحه (كتاب الأشربة، باب تحريم التداوي بالخمر، رقم: 1984)"
+                },
+                prophetic_context: "تقرير نبوي صريح بحرمة استطباب الأبدان بالمواد المسكرة والسمية",
+                traditional_indication: "منع تعاطي الخبائث التي تفسد العقل وتولد الأخلاط الرديئة",
+                modern_health_insight: "الكحول سم خلوي ومثبط للجهاز العصبي ويدمر خلايا الكبد ويضعف الاستجابة الدوائية",
+                precautions: "التحذير من استخدام الكحوليات كمذيبات دوائية عند توفر البدائل المأمونة"
+            },
+            {
+                id: 26,
+                title: "ضمان المتطبب الجاهل الذي لا يعلم منه طب",
+                diseases_and_symptoms: ["الأخطاء الطبية الجسيمة", "تشوهات الجراحة", "وفيات التطبيب الخاطئ"],
+                usage_types: ["أصل_تشريعي_وأدب"],
+                primary_usage: "أصل_تشريعي_وأدب",
+                target_body_system: "المسؤولية الطبية وحماية الأبدان",
+                hadith_verbatim: "مَنْ تَطَبَّبَ وَلَمْ يُعْلَمْ مِنْهُ طِبٌّ قَبْلَ ذَلِكَ فَهُوَ ضَامِنٌ",
+                companion: "عبد الله بن عمرو بن العاص رضي الله عنهما",
+                primary_source: "سنن أبي داود وسنن النسائي",
+                book_name: "أبو داود: كتاب الديات (باب فيمن تطبب بغير علم) / النسائي: كتاب القسامة",
+                chapter_name: "باب شبه العمد والضمان في الطب",
+                hadith_number: "أبو داود (4586)، النسائي (4830)",
+                authenticity: {
+                    grade: "حسن",
+                    judgement_by: "أخرجه أبو داود في سننه (رقم: 4586)، والنسائي في سننه (رقم: 4830)، وابن ماجه (رقم: 3466)، وصححه الحاكم (4/212) وحسنه الألباني في صحيح أبي داود (3845)"
+                },
+                prophetic_context: "تشريع جنائي ومدني يفرض المسؤولية والتعويض على من يمارس الطب دون تأهيل علمي",
+                traditional_indication: "منع الأدعياء والمشعوذين من العبث بأرواح وأبدان المسلمين",
+                modern_health_insight: "التأصيل الشرعي لمبدأ الترخيص الطبي والمسؤولية عن الأخطاء المهنية (Medical Malpractice)",
+                precautions: "وجوب مراجعة الأطباء المرخصين وتجنب الدجالين ومدعي العلاجات الشعبية العشوائية"
+            },
+            {
+                id: 27,
+                title: "النهي عن إكراه المريض على الطعام والشراب",
+                diseases_and_symptoms: ["فقدان الشهية المرضي", "الغثيان والقيء", "عسر الهضم الحاد"],
+                usage_types: ["أصل_تشريعي_وأدب", "وقاية_وحفظ_صحة"],
+                primary_usage: "أصل_تشريعي_وأدب",
+                target_body_system: "الجهاز الهضمي والمناعة العامة",
+                hadith_verbatim: "لاَ تُكْرِهُوا مَرْضَاكُمْ عَلَى الطَّعَامِ وَالشَّرَابِ، فَإِنَّ اللَّهَ يُطْعِمُهُمْ وَيَسْقِيهِمْ",
+                companion: "عقبة بن عامر الجهني رضي الله عنه",
+                primary_source: "جامع الترمذي وسنن ابن ماجه",
+                book_name: "الترمذي: أبواب الطب / ابن ماجه: كتاب الطب",
+                chapter_name: "باب ما جاء في كراهية إكراه المريض على الطعام",
+                hadith_number: "الترمذي (2040)، ابن ماجه (3444)",
+                authenticity: {
+                    grade: "حسن",
+                    judgement_by: "أخرجه الترمذي في جامعه (رقم: 2040) وقال: حديث حسن غريب، وابن ماجه في سننه (رقم: 3444)، وصححه الحاكم في المستدرك (4/231) والألباني في صحيح الترمذي (1662)"
+                },
+                prophetic_context: "توجيه نبوي لمراعاة فسيولوجيا البدن عند المرض وعدم إجباره على الأكل",
+                traditional_indication: "انشغال الطبيعة والحرارة الغريزية بمقاومة الداء عن تدبير وهضم الطعام",
+                modern_health_insight: "فقدان الشهية أثناء العدوى استجابة مناعية فسيولوجية لتوفير طاقة الجسم لمحاربة الميكروبات",
+                precautions: "الحرص على إعطاء السوائل والمحاليل الخفيفة تدريجياً لمنع الجفاف دون إكراه"
+            },
+            {
+                id: 28,
+                title: "حمية الناقه عن الأطعمة الثقيلة كالتمر",
+                diseases_and_symptoms: ["انتكاس المرض", "ضعف الهضم في النقاهة", "رمد العين"],
+                usage_types: ["وقاية_وحفظ_صحة", "غذاء_وعادة"],
+                primary_usage: "وقاية_وحفظ_صحة",
+                target_body_system: "الجهاز الهضمي والعين وفترة النقاهة",
+                hadith_verbatim: "دَخَلَ عَلَيَّ رَسُولُ اللَّهِ ﷺ وَمَعَهُ عَلِيٌّ، وَعَلِيٌّ نَاقِهٌ، وَلَنَا دَوَالٍ مُعَلَّقَةٌ، فَقَامَ رَسُولُ اللَّهِ ﷺ يَأْكُلُ مِنْهَا، وَقَامَ عَلِيٌّ لِيَأْكُلَ، فَطَفِقَ رَسُولُ اللَّهِ ﷺ يَقُولُ لِعَلِيٍّ: «مَهْ يَا عَلِيُّ، فَإِنَّكَ نَاقِهٌ»، حَتَّى جَلَسَ عَلِيٌّ، قَالَتْ: وَصَنَعْتُ سِلْقًا وَشَعِيرًا، فَقَالَ رَسُولُ اللَّهِ ﷺ: «يَا عَلِيُّ، أَصِبْ مِنْ هَذَا، فَهُوَ أَوْفَقُ لَكَ»",
+                companion: "أم المنذر بنت قيس الأنصارية رضي الله عنها",
+                primary_source: "سنن أبي داود وجامع الترمذي",
+                book_name: "أبو داود: كتاب الطب (باب في الحمية) / الترمذي: أبواب الطب",
+                chapter_name: "باب ما جاء في الحمية للمريض والناقه",
+                hadith_number: "أبو داود (3856)، الترمذي (2036)",
+                authenticity: {
+                    grade: "حسن",
+                    judgement_by: "أخرجه أبو داود في سننه (رقم: 3856)، والترمذي في جامعه (رقم: 2036) وقال: حسن غريب، وصححه الحاكم (4/232) وحسنه الألباني في صحيح أبي داود (3263)"
+                },
+                prophetic_context: "توجيه غذائي سريري بمنع المريض حديث العهد بالشفاء من الأغذية الحارة الثقيلة",
+                traditional_indication: "حماية المعدة الضعيفة بالنقاهة من الأطعمة المولدة للحرارة كالتمر وتغذيتها بالسلق الخفيف",
+                modern_health_insight: "التغذية التدريجية بالألياف اللطيفة والنشويات المعقدة الخفيفة تمنع التخمة وانتكاس الجهاز الهضمي",
+                precautions: "التدرج في نوعية وكميات الغذاء بعد التعافي من الأمراض الشديدة"
+            },
+            {
+                id: 29,
+                title: "الأمر بالتداوي وأن الله جعل لكل داء دواء",
+                diseases_and_symptoms: ["العلل والأمراض العامة", "اليأس من الشفاء", "الهرم والشيخوخة"],
+                usage_types: ["أصل_تشريعي_وأدب", "دواء_واستشفاء_صريح"],
+                primary_usage: "أصل_تشريعي_وأدب",
+                target_body_system: "الطب العام والبحث العلاجي",
+                hadith_verbatim: "قَالَتِ الأَعْرَابُ: يَا رَسُولَ اللَّهِ، أَلاَ نَتَدَاوَى؟ قَالَ: «نَعَمْ، يَا عِبَادَ اللَّهِ تَدَاوَوْا، فَإِنَّ اللَّهَ لَمْ يَضَعْ دَاءً إِلاَّ وَضَعَ لَهُ شِفَاءً، أَوْ قَالَ: دَوَاءً، إِلاَّ دَاءً وَاحِدًا» قَالُوا: يَا رَسُولَ اللَّهِ، فَمَا هُوَ؟ قَالَ: «الهَرَمُ»",
+                companion: "أسامة بن شريك رضي الله عنه",
+                primary_source: "جامع الترمذي وسنن أبي داود وسنن ابن ماجه",
+                book_name: "الترمذي: أبواب الطب / أبو داود: كتاب الطب",
+                chapter_name: "باب ما جاء في الدواء والحث عليه",
+                hadith_number: "الترمذي (2038)، أبو داود (3855)، ابن ماجه (3436)",
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه الترمذي في جامعه (رقم: 2038) وقال: حسن صحيح، وأبو داود في سننه (رقم: 3855)، وابن ماجه (رقم: 3436)، وصححه ابن حبان (6061) والألباني في صحيح الترمذي (1660)"
+                },
+                prophetic_context: "أمر نبوي جازم بمشروعية الطب والبحث عن أسباب الشفاء",
+                traditional_indication: "وجوب الأخذ بالأسباب الدوائية المادية مع التوكل على الله مسبب الأسباب",
+                modern_health_insight: "الدافع العلمي الأكبر للأبحاث الطبية والدوائية المستمرة لاكتشاف علاجات الأمراض المستعصية",
+                precautions: "إدراك أن الشيخوخة والموت سنن كونية لا يدخلان تحت نطاق التداوي العضوي"
+            },
+            {
+                id: 30,
+                title: "السنا والسنوت لتفريغ الأخلاط المعوية",
+                diseases_and_symptoms: ["الإمساك المزمن", "احتباس الفضلات", "ركود القولون", "السموم المعوية"],
+                usage_types: ["دواء_واستشفاء_صريح"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز الهضمي والأمعاء والقولون",
+                hadith_verbatim: "عَلَيْكُمْ بِالسَّنَى وَالسَّنُّوتِ، فَإِنَّ فِيهِمَا شِفَاءً مِنْ كُلِّ دَاءٍ، إِلَّا السَّامَ، قِيلَ: يَا رَسُولَ اللَّهِ، وَمَا السَّامُ؟ قَالَ: «المَوْتُ»",
+                companion: "عبد الله بن أم حرام رضي الله عنه",
+                primary_source: "سنن ابن ماجه والمستدرك للحاكم",
+                book_name: "ابن ماجه: كتاب الطب",
+                chapter_name: "باب السنا والسنوت",
+                hadith_number: "ابن ماجه (3457)، الحاكم (7453)",
+                authenticity: {
+                    grade: "حسن",
+                    judgement_by: "أخرجه ابن ماجه في سننه (رقم: 3457)، والحاكم في المستدرك (4/224) وصححه، وحسنه الحافظ ابن حجر في الفتح (10/144) والألباني في السلسلة الصحيحة (رقم: 1798) بشواهده"
+                },
+                prophetic_context: "إرشاد نبوي للاستطباب بالسنا لتليين البطن وتفريغ الأخلاط بأمان عِوضاً عن المسهلات الحارقة",
+                traditional_indication: "تنقية خلط الصفراء والبلغم من أعماق البدن وتليين القولون الممسك",
+                modern_health_insight: "يحتوي نبات السنا (Senna) على مركبات السينوسايد المنشطة لحركة الأمعاء والسنوت (الشمر أو العسل) يخفف المغص",
+                precautions: "تجنب الإفراط في تناوله لفترات طويلة لتفادي كسل عضلات القولون الطبيعية"
+            }
+        ];
+
+        let currentTag = 'all';
+        let searchTimeout = null;
+
+        // إدارة القائمة الجانبية (Sidebar)
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const isOpen = !sidebar.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                sidebar.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                sidebar.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // إدارة النوافذ المنبثقة (Modals)
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // إرسال نموذج اتصل بنا عبر AJAX مع إشعار بالنجاح
+        async function handleContactSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('contactSubmitBtn');
+            const btnText = document.getElementById('contactBtnText');
+            const status = document.getElementById('contactStatus');
+
+            btn.disabled = true;
+            btnText.textContent = "جاري الإرسال...";
+
+            const payload = {
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                subject: document.getElementById('contactSubject').value,
+                message: document.getElementById('contactMessage').value,
+                _captcha: "false"
+            };
+
+            try {
+                const res = await fetch("https://formsubmit.co/ajax/sh.k.b1448@gmail.com", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (res.ok) {
+                    status.innerHTML = "✅ تم إرسال رسالتكم بنجاح إلى إدارة الموسوعة، جزاكم الله خيراً.";
+                    status.className = "text-center p-3 rounded-xl text-xs font-bold bg-emerald-100 text-emerald-900 border border-emerald-300";
+                    document.getElementById('contactForm').reset();
+                } else {
+                    throw new Error();
+                }
+            } catch (err) {
+                status.innerHTML = "⚠️ حدث خطأ في الاتصال، يرجى المحاولة مرة أخرى.";
+                status.className = "text-center p-3 rounded-xl text-xs font-bold bg-rose-100 text-rose-900 border border-rose-300";
+            } finally {
+                btn.disabled = false;
+                btnText.textContent = "إرسال الرسالة إلى إدارة الموسوعة";
+                status.classList.remove('hidden');
+            }
+        }
+
+        // ملء قائمة الأمراض الفريدة
+        function populateDiseases() {
+            const select = document.getElementById('diseaseFilter');
+            const set = new Set();
+            allCards.forEach(card => {
+                if (card.diseases_and_symptoms) {
+                    card.diseases_and_symptoms.forEach(d => set.add(d));
+                }
+            });
+            Array.from(set).sort().forEach(disease => {
+                const opt = document.createElement('option');
+                opt.value = disease;
+                opt.textContent = disease;
+                select.appendChild(opt);
+            });
+        }
+
+        // نسخ بيانات البطاقة كاملة بالتخريج
+        function copyCardContent(cardId, btnElement) {
+            const card = allCards.find(c => c.id === cardId);
+            if (!card) return;
+
+            const textToCopy = `📌 [${card.title}]
+«${card.hadith_verbatim}»
+📖 المصدر والتخريج: ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})
+👤 الصحابي الراوي: ${card.companion}
+⚖️ الحكم السندي: ${card.authenticity.grade} (${card.authenticity.judgement_by})
+🎯 العضو/الجهاز المستهدف: ${card.target_body_system}
+🩺 الاستعمال التراثي: ${card.traditional_indication}
+🔬 المنظور الطبي الحديث: ${card.modern_health_insight}
+${card.precautions ? `⚠️ تنبيه طبي: ${card.precautions}` : ''}`;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalHtml = btnElement.innerHTML;
+                btnElement.innerHTML = `<i class="fa-solid fa-check"></i> <span>تم النسخ!</span>`;
+                btnElement.className = "py-2 px-1.5 rounded-xl text-xs font-bold bg-emerald-700 text-white shadow transition flex items-center justify-center gap-1";
+
+                setTimeout(() => {
+                    btnElement.innerHTML = originalHtml;
+                    btnElement.className = "py-2 px-1.5 rounded-xl text-xs font-bold bg-white hover:bg-amberGold-50 text-slate-700 hover:text-burgundy-900 border border-slate-200 hover:border-amberGold-400 transition flex items-center justify-center gap-1 shadow-sm";
+                }, 2000);
+            });
+        }
+
+        // مشاركة البطاقة مع الغير (Web Share API)
+        function shareCardContent(cardId) {
+            const card = allCards.find(c => c.id === cardId);
+            if (!card) return;
+
+            const shareData = {
+                title: card.title,
+                text: `📌 [${card.title}]\n«${card.hadith_verbatim}»\n📖 المصدر: ${card.primary_source} (رقم: ${card.hadith_number})\n\nمن: الموسوعة الجامعة للهدي والصحة النبوية`,
+                url: window.location.href
+            };
+
+            if (navigator.share) {
+                navigator.share(shareData);
+            } else {
+                navigator.clipboard.writeText(shareData.text);
+                alert("تم نسخ نص البطاقة لمشاركته بنجاح!");
+            }
+        }
+
+        // طباعة البطاقة المفردة
+        function printSingleCard(cardId) {
+            const card = allCards.find(c => c.id === cardId);
+            if (!card) return;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(`
+                <html lang="ar" dir="rtl">
+                <head><title>${card.title}</title>
+                <style>
+                    body { font-family: 'Amiri', serif; padding: 40px; direction: rtl; text-align: right; }
+                    .header { text-align: center; border-bottom: 2px solid #801526; padding-bottom: 15px; margin-bottom: 25px; }
+                    .title { color: #801526; font-size: 24pt; font-weight: bold; margin-bottom: 15px; }
+                    .hadith { background: #fdf2f4; border-right: 5px solid #801526; padding: 20px; font-size: 18pt; line-height: 2; margin-bottom: 20px; }
+                    .info { font-size: 13pt; line-height: 1.8; color: #333; }
+                    .footer { text-align: center; margin-top: 40px; font-size: 11pt; color: #777; border-top: 1px solid #ccc; padding-top: 15px; }
+                </style></head>
+                <body>
+                <div class="header">
+                    <h2>الموسوعة الجامعة للهدي والصحة النبوية</h2>
+                    <p>وقف لله تعالى @شيرين بنت كاظم بنون</p>
+                </div>
+                <div class="title">${card.title}</div>
+                <div class="hadith">«${card.hadith_verbatim}»</div>
+                <div class="info">
+                    <p><strong>📖 المصدر والتخريج:</strong> ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})</p>
+                    <p><strong>👤 الصحابي الراوي:</strong> ${card.companion} | <strong>الحكم السندي:</strong> ${card.authenticity.grade} (${card.authenticity.judgement_by})</p>
+                    <p><strong>🎯 العضو/الجهاز المستهدف:</strong> ${card.target_body_system}</p>
+                    <p><strong>📌 التوصيف النبوي:</strong> ${card.prophetic_context}</p>
+                    <p><strong>🩺 الاستعمال التراثي:</strong> ${card.traditional_indication}</p>
+                    <p><strong>🔬 المنظور الطبي المعاصر:</strong> ${card.modern_health_insight}</p>
+                    ${card.precautions ? `<p style="color:red;"><strong>⚠️ تنبيه طبي:</strong> ${card.precautions}</p>` : ''}
+                </div>
+                <div class="footer">الموسوعة الجامعة للهدي والصحة النبوية © منصة محققة</div>
+                </body></html>
+            `);
+            printWindow.document.close();
+            printWindow.focus();
+            setTimeout(() => { printWindow.print(); printWindow.close(); }, 300);
+        }
+
+        // تصدير بطاقة مفردة Word
+        function exportSingleCardWord(cardId) {
+            const card = allCards.find(c => c.id === cardId);
+            if (!card) return;
+
+            const content = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+                <head><meta charset='utf-8'><title>${card.title}</title>
+                <style>body{font-family:'Traditional Arabic',Arial;direction:rtl;text-align:right;padding:20px;}</style>
+                </head><body>
+                <h1 style="color:#801526;border-bottom:2px solid #801526;padding-bottom:5px;">${card.title}</h1>
+                <p style="font-size:15pt;line-height:2.2;"><strong>الحديث الشريف:</strong> «${card.hadith_verbatim}»</p>
+                <p><strong>المصدر والتخريج:</strong> ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})</p>
+                <p><strong>الصحابي الراوي:</strong> ${card.companion} | <strong>الحكم السندي:</strong> ${card.authenticity.grade} (${card.authenticity.judgement_by})</p>
+                <p><strong>العضو المستهدف:</strong> ${card.target_body_system}</p>
+                <p><strong>التوصيف النبوي:</strong> ${card.prophetic_context}</p>
+                <p><strong>الاستعمال التراثي:</strong> ${card.traditional_indication}</p>
+                <p><strong>المنظور الطبي المعاصر:</strong> ${card.modern_health_insight}</p>
+                ${card.precautions ? `<p style="color:red;"><strong>⚠️ تنبيه طبي:</strong> ${card.precautions}</p>` : ''}
+                <hr><p style="text-align:center;font-size:10pt;color:#666;">الموسوعة الجامعة للهدي والصحة النبوية - وقف لله تعالى @شيرين بنت كاظم بنون</p>
+                </body></html>
+            `;
+
+            const blob = new Blob(['\ufeff' + content], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `بطاقة_${card.id}_${card.title}.doc`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // تصدير بطاقة مفردة PDF
+        function exportSingleCardPDF(cardId) {
+            const element = document.getElementById(`card-element-${cardId}`);
+            if (!element) return;
+            const opt = {
+                margin: 10,
+                filename: `بطاقة_${cardId}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+
+        // تصدير كامل الموسوعة Word
+        function exportFullEncyclopediaWord() {
+            let fullHtml = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+                <head><meta charset='utf-8'><title>الموسوعة الجامعة للهدي والصحة النبوية</title>
+                <style>body{font-family:'Traditional Arabic',Arial;direction:rtl;text-align:right;padding:25px;} .card{page-break-inside:avoid;margin-bottom:25px;border-bottom:2px solid #801526;padding-bottom:15px;}</style>
+                </head><body>
+                <h1 style="text-align:center;color:#801526;">الموسوعة الجامعة للهدي والصحة النبوية</h1>
+                <p style="text-align:center;font-size:13pt;font-weight:bold;">وقف لله تعالى @شيرين بنت كاظم بنون</p><hr><br>
+            `;
+
+            allCards.forEach(card => {
+                fullHtml += `
+                    <div class="card">
+                        <h2 style="color:#801526;">#${card.id} - ${card.title}</h2>
+                        <p style="font-size:15pt;line-height:2.2;">«${card.hadith_verbatim}»</p>
+                        <p><strong>المصدر والتخريج:</strong> ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})</p>
+                        <p><strong>الراوي:</strong> ${card.companion} | <strong>الحكم:</strong> ${card.authenticity.grade}</p>
+                        <p><strong>العضو المستهدف:</strong> ${card.target_body_system}</p>
+                        <p><strong>التوصيف النبوي:</strong> ${card.prophetic_context}</p>
+                        <p><strong>الاستعمال التراثي:</strong> ${card.traditional_indication}</p>
+                        <p><strong>المنظور الطبي:</strong> ${card.modern_health_insight}</p>
+                        ${card.precautions ? `<p style="color:red;"><strong>تنبيه:</strong> ${card.precautions}</p>` : ''}
+                    </div>
+                `;
+            });
+
+            fullHtml += '</body></html>';
+            const blob = new Blob(['\ufeff' + fullHtml], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `الموسوعة_الجامعة_للصحة_النبوية_كاملة.doc`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // تصدير كامل الموسوعة PDF
+        function exportFullEncyclopediaPDF() {
+            const grid = document.getElementById('cardsGrid');
+            const opt = {
+                margin: 8,
+                filename: `الموسوعة_الجامعة_للصحة_النبوية_كاملة.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 1.5 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(grid).save();
+        }
+
+        // تشغيل مؤشر البحث وتحديث البطاقات
+        function triggerRenderWithSpinner() {
+            const spinner = document.getElementById('loadingSpinner');
+            const grid = document.getElementById('cardsGrid');
+
+            grid.innerHTML = '';
+            spinner.classList.remove('hidden');
+
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                spinner.classList.add('hidden');
+                executeRender();
+            }, 180);
+        }
+
+        function executeRender() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const selectedGrade = document.getElementById('gradeFilter').value;
+            const selectedDisease = document.getElementById('diseaseFilter').value;
+            const grid = document.getElementById('cardsGrid');
+            grid.innerHTML = '';
+
+            const filtered = allCards.filter(card => {
+                const matchesTag = currentTag === 'all' || (card.usage_types && card.usage_types.includes(currentTag));
+                const matchesGrade = selectedGrade === 'all' || (card.authenticity && card.authenticity.grade === selectedGrade);
+                const matchesDisease = selectedDisease === 'all' || (card.diseases_and_symptoms && card.diseases_and_symptoms.includes(selectedDisease));
+
+                const matchesQuery = !query ||
+                    card.title.toLowerCase().includes(query) ||
+                    card.hadith_verbatim.toLowerCase().includes(query) ||
+                    card.target_body_system.toLowerCase().includes(query) ||
+                    card.companion.toLowerCase().includes(query) ||
+                    (card.diseases_and_symptoms && card.diseases_and_symptoms.some(d => d.toLowerCase().includes(query)));
+
+                return matchesTag && matchesGrade && matchesDisease && matchesQuery;
+            });
+
+            document.getElementById('resultsCount').textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-20 bg-white rounded-3xl border-2 border-dashed border-burgundy-200 shadow-sm">
+                        <i class="fa-solid fa-magnifying-glass text-4xl text-amberGold-500 mb-3"></i>
+                        <p class="text-burgundy-950 font-bold text-lg">لم يتم العثور على بطاقات تطابق معايير البحث المحددة.</p>
+                        <p class="text-slate-500 text-xs mt-1">جرب كلمات أخرى أو اضغط زر إعادة ضبط البحث.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(card => {
+                const article = document.createElement('article');
+                article.id = `card-element-${card.id}`;
+                article.className = "card-luxury rounded-3xl border-2 border-amberGold-400/50 flex flex-col justify-between overflow-hidden relative";
+
+                const gradeBadgeClass =
+                    card.authenticity.grade === 'صحيح' ? 'bg-emerald-100 text-emerald-900 border-emerald-300' :
+                    card.authenticity.grade === 'حسن' ? 'bg-amberGold-100 text-amberGold-900 border-amberGold-400' : 'bg-rose-100 text-rose-900 border-rose-300';
+
+                const diseasesHtml = card.diseases_and_symptoms && card.diseases_and_symptoms.length > 0 ? `
+                    <div class="flex flex-wrap items-center gap-1.5 mb-3.5 bg-amberGold-50/70 p-2.5 rounded-2xl border border-amberGold-200/70">
+                        <span class="text-[10px] font-black text-amberGold-900">الأمراض والأعراض:</span>
+                        ${card.diseases_and_symptoms.map(d => `
+                            <button onclick="setDiseaseFilter('${d}')" class="text-[11px] px-2.5 py-0.5 rounded-lg font-bold bg-white text-burgundy-900 border border-burgundy-200 hover:bg-burgundy-100 transition shadow-xs">
+                                💊 ${d}
+                            </button>
+                        `).join('')}
+                    </div>
+                ` : '';
+
+                const tagsHtml = card.usage_types ? card.usage_types.map(t => `
+                    <span class="text-[11px] px-2.5 py-0.5 rounded-lg bg-burgundy-50 text-burgundy-900 font-bold border border-burgundy-200">
+                        🏷️ ${t.replace(/_/g, ' ')}
+                    </span>
+                `).join('') : '';
+
+                article.innerHTML = `
+                    <div class="p-6 md:p-7 pb-4">
+                        <div class="flex justify-between items-start gap-2 mb-3">
+                            <span class="text-xs font-black text-burgundy-900 bg-amberGold-200/80 px-3 py-1 rounded-full border border-amberGold-400 shadow-xs">#${card.id}</span>
+                            <div class="flex flex-wrap gap-1.5 justify-end">
+                                <span class="text-xs px-2.5 py-1 rounded-full font-black border shadow-xs ${gradeBadgeClass}">${card.authenticity.grade}</span>
+                                <span class="bg-slate-100 text-slate-800 text-xs px-2.5 py-1 rounded-full border border-slate-300 font-bold">🎯 ${card.target_body_system}</span>
+                            </div>
+                        </div>
+
+                        <h2 class="text-2xl font-black text-burgundy-950 mb-3 font-serif">${card.title}</h2>
+
+                        ${diseasesHtml}
+
+                        <div class="bg-gradient-to-r from-burgundy-50 via-amberGold-50/40 to-burgundy-50 border-r-4 border-burgundy-800 p-5 rounded-2xl mb-4 text-burgundy-990 hadith-text text-lg shadow-sm">
+                            «${card.hadith_verbatim}»
+                        </div>
+
+                        <div class="text-xs text-slate-700 bg-white/90 p-3.5 rounded-2xl border border-slate-200 mb-4 space-y-1.5 leading-relaxed shadow-xs">
+                            <p><strong>📖 المصدر والتخريج:</strong> ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})</p>
+                            <p><strong>👤 الصحابي الراوي:</strong> ${card.companion}</p>
+                            <p><strong>⚖️ الحكم السندي:</strong> <span class="text-burgundy-900 font-bold">${card.authenticity.judgement_by}</span></p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-1.5 mb-4">${tagsHtml}</div>
+
+                        <div class="space-y-2.5 text-xs md:text-sm text-slate-800 border-t border-slate-200/80 pt-4 leading-relaxed">
+                            <p><strong class="text-burgundy-950">📌 التوصيف النبوي:</strong> ${card.prophetic_context}</p>
+                            <p><strong class="text-burgundy-950">🩺 الاستعمال التراثي:</strong> ${card.traditional_indication}</p>
+                            <p><strong class="text-burgundy-950">🔬 المنظور الصحي الحديث:</strong> ${card.modern_health_insight}</p>
+                        </div>
+
+                        ${card.precautions ? `
+                            <div class="mt-4 p-3 bg-amberGold-100/70 border border-amberGold-300 rounded-2xl text-xs text-amberGold-950 font-semibold leading-relaxed">
+                                ⚠️ <strong>تنبيه طبي:</strong> ${card.precautions}
+                            </div>
+                        ` : ''}
+                    </div>
+
+                    <!-- أزرار الإجراءات الفاخرة للبطاقة -->
+                    <div class="px-5 py-4 bg-gradient-to-r from-burgundy-950 via-burgundy-900 to-burgundy-950 border-t border-amberGold-500/40 grid grid-cols-5 gap-1.5 sm:gap-2">
+                        <button onclick="copyCardContent(${card.id}, this)" title="نسخ بيانات البطاقة" class="py-2.5 px-1 rounded-xl text-xs font-bold bg-white/10 hover:bg-amberGold-400 hover:text-burgundy-950 text-amberGold-300 border border-amberGold-400/30 transition flex flex-col sm:flex-row items-center justify-center gap-1 shadow-sm">
+                            <i class="fa-regular fa-copy"></i>
+                            <span class="text-[10px] sm:text-xs">نسخ</span>
+                        </button>
+                        <button onclick="shareCardContent(${card.id})" title="مشاركة البطاقة" class="py-2.5 px-1 rounded-xl text-xs font-bold bg-white/10 hover:bg-emerald-500 hover:text-white text-emerald-300 border border-emerald-400/30 transition flex flex-col sm:flex-row items-center justify-center gap-1 shadow-sm">
+                            <i class="fa-solid fa-share-nodes"></i>
+                            <span class="text-[10px] sm:text-xs">مشاركة</span>
+                        </button>
+                        <button onclick="printSingleCard(${card.id})" title="طباعة البطاقة" class="py-2.5 px-1 rounded-xl text-xs font-bold bg-white/10 hover:bg-slate-200 hover:text-slate-900 text-slate-200 border border-slate-400/30 transition flex flex-col sm:flex-row items-center justify-center gap-1 shadow-sm">
+                            <i class="fa-solid fa-print"></i>
+                            <span class="text-[10px] sm:text-xs">طباعة</span>
+                        </button>
+                        <button onclick="exportSingleCardPDF(${card.id})" title="تحميل PDF" class="py-2.5 px-1 rounded-xl text-xs font-bold bg-white/10 hover:bg-rose-500 hover:text-white text-rose-300 border border-rose-400/30 transition flex flex-col sm:flex-row items-center justify-center gap-1 shadow-sm">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span class="text-[10px] sm:text-xs">PDF</span>
+                        </button>
+                        <button onclick="exportSingleCardWord(${card.id})" title="تحميل Word" class="py-2.5 px-1 rounded-xl text-xs font-bold bg-white/10 hover:bg-blue-500 hover:text-white text-blue-300 border border-blue-400/30 transition flex flex-col sm:flex-row items-center justify-center gap-1 shadow-sm">
+                            <i class="fa-solid fa-file-word"></i>
+                            <span class="text-[10px] sm:text-xs">Word</span>
+
+
+هذه كانت **بداية المئة الثانية (البطاقات من 101 إلى 120)**؛ ولأن كل بطاقة تشتمل على نص حرفي وتخريج أكاديمي مفصل وحكم سندي ومنظور طبي، فإن الرسالة تستوعب ما بين **20 إلى 25 بطاقة كاملة** لتجنب انقطاع الكود برمجياً.
+
+إليك الآن **تكملة المئة الثانية (البطاقات من 121 إلى 140)** داخل مربع نسخ مباشر لتلصقها في نفس الملف:
+
+```javascript
+allCards.push(
+  {
+    id: 121,
+    title: "النهي عن الشرب من فم السقاء مباشرة (اختناث الأسقية)",
+    diseases_and_symptoms: ["الشرق التنفسي بالماء", "ابتلاع الهوام والحشرات المخفية", "تلوث فوهة القربة باللعاب"],
+    usage_types: ["وقاية_وحفظ_صحة", "نظافة_وسنن_فطرة"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "الجهاز الهضمي والتنفسي وسلامة مياه الشرب",
+    hadith_verbatim: "نَهَى رَسُولُ اللَّهِ ﷺ عَنِ اخْتِنَاثِ الأَسْقِيَةِ؛ أَنْ يُشْرَبَ مِنْ أَفْوَاهِهَا",
+    companion: "أبو سعيد الخدري وابن عباس وأبو هريرة رضي الله عنهم",
+    primary_source: "صحيح البخاري وصحيح مسلم",
+    book_name: "البخاري: كتاب الأشربة (باب اختناث الأسقية) / مسلم: كتاب الأشربة",
+    chapter_name: "باب كراهة الشرب من فم السقاء",
+    hadith_number: "البخاري (5625)، مسلم (2023)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه البخاري في صحيحه، كتاب الأشربة، باب الشرب من فم السقاء، حديث رقم: 5625، وأخرجه مسلم في صحيحه، كتاب الأشربة، حديث رقم: 2023 متفق عليه"
+    },
+    prophetic_context: "نهي وقائي وصحي عن ثني رأس القربة والشرب منها مباشرة في الظلام أو الضوء",
+    traditional_indication: "منع انصباب الماء بقوة في الحلق، وتجنب خروج دابة أو هامة تكون في داخل القربة إلى الجوف",
+    modern_health_insight: "الشرب المباشر من فوهات الأوعية الكبيرة يمنع رؤية الشوائب والحشرات الطافية وينقل البكتيريا الفموية إلى مخزون المياه المشترك",
+    precautions: "صب الماء في قدح أو كأس نظيف ومستقل قبل الشرب"
+  },
+  {
+    id: 122,
+    title: "المضمضة من شرب اللبن لقطع دسمه",
+    diseases_and_symptoms: ["بخر الفم", "تراكم الدهون الحليبية على الأسنان", "تخمر اللاكتوز الفموي", "تسوس الأسنان"],
+    usage_types: ["نظافة_وسنن_فطرة", "وقاية_وحفظ_صحة"],
+    primary_usage: "نظافة_وسنن_فطرة",
+    target_body_system: "الفم والأسنان واللثة",
+    hadith_verbatim: "أَنَّ رَسُولَ اللَّهِ ﷺ شَرِبَ لَبَنًا فَمَضْمَضَ، وَقَالَ: «إِنَّ لَهُ دَسَمًا»",
+    companion: "عبد الله بن عباس رضي الله عنهما",
+    primary_source: "صحيح البخاري وصحيح مسلم",
+    book_name: "البخاري: كتاب الوضوء (باب المضمضة من اللبن) / مسلم: كتاب الحيض",
+    chapter_name: "باب المضمضة من شرب اللبن",
+    hadith_number: "البخاري (211)، مسلم (358)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه البخاري في صحيحه، كتاب الوضوء، باب هل يمضمض من اللبن، حديث رقم: 211، وأخرجه مسلم في صحيحه، كتاب الحيض، حديث رقم: 358 متفق عليه"
+    },
+    prophetic_context: "فعل وإرشاد نبوي بغسل الفم بالماء بعد شرب الحليب لاحتوائه على دهون",
+    traditional_indication: "تنقية الفم واللسان من اللزوجة والدسم المتبقي بعد شرب اللبن",
+    modern_health_insight: "بقايا دهون وبروتينات الحليب وسكر اللاكتوز في الفم تشكل بيئة مثالية لنمو بكتيريا البلاك المنتجة للأحماض المسببة لنخر الأسنان والتهاب اللثة",
+    precautions: "المضمضة بالماء بعد تناول مشتقات الألبان الدسمة كإجراء وقائي سريع"
+  },
+  {
+    id: 123,
+    title: "غسل البراجم (عقد الأصابع) ومغابن الجلد",
+    diseases_and_symptoms: ["تراكم الأوساخ الجلدية", "الفطريات بين المفاصل", "التهابات الثنايا الجلدية (Intertrigo)"],
+    usage_types: ["نظافة_وسنن_فطرة", "وقاية_وحفظ_صحة"],
+    primary_usage: "نظافة_وسنن_فطرة",
+    target_body_system: "الجلد والأطراف ومفاصل الأصابع",
+    hadith_verbatim: "عَشْرٌ مِنَ الفِطْرَةِ: قَصُّ الشَّارِبِ، وَإِعْفَاءُ اللِّحْيَةِ، وَالسِّوَاكُ، وَاسْتِنْشَاقُ المَاءِ، وَقَصُّ الأَظْفَارِ، وَغَسْلُ البَرَاجِمِ، وَنَتْفُ الإِبْطِ، وَحَلْقُ العَانَةِ، وَانْتِقَاصُ المَاءِ (الِاسْتِنْجَاءُ)",
+    companion: "عائشة أم المؤمنين رضي الله عنها",
+    primary_source: "صحيح مسلم",
+    book_name: "كتاب الطهارة",
+    chapter_name: "باب خصال الفطرة",
+    hadith_number: 261,
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه مسلم في صحيحه، كتاب الطهارة، باب خصال الفطرة، حديث رقم: 261، ورواه أصحاب السنن الأربعة"
+    },
+    prophetic_context: "بيان لخصال الفطرة ومنها غسل البراجم وهي مفاصل وعقد الأصابع وثنايا الجلد",
+    traditional_indication: "تنقية الأوساخ المجتمعة في تجاعيد مفاصل الأصابع ومغابن البدن كالإبطين وخلف الركبتين",
+    modern_health_insight: "ثنايا الجلد ومفاصل الأصابع تجمع العرق والخلايا الميتة والأتربة، وغسلها الدقيق يمنع التسلخات وتكاثر الفطريات والبكتيريا اللاهوائية",
+    precautions: "تعهد المفاصل والزوائد بالدلك بالماء أثناء الوضوء والغسل"
+  },
+  {
+    id: 124,
+    title: "تخليل الأصابع في الوضوء لمنع الركود الجلدي",
+    diseases_and_symptoms: ["فطريات ما بين الأصابع (Tinea pedis)", "تشققات الجلد الرطبة", "الروائح الكريهة للأقدام"],
+    usage_types: ["نظافة_وسنن_فطرة", "وقاية_وحفظ_صحة"],
+    primary_usage: "نظافة_وسنن_فطرة",
+    target_body_system: "أصابع اليدين والقدمين والجلد",
+    hadith_verbatim: "إِذَا تَوَضَّأْتَ فَخَلِّلْ أَصَابِعَ يَدَيْكَ وَرِجْلَيْكَ",
+    companion: "عبد الله بن عباس رضي الله عنهما",
+    primary_source: "جامع الترمذي وسنن ابن ماجه ومسند أحمد",
+    book_name: "الترمذي: أبواب الطهارة / ابن ماجه: كتاب الطهارة",
+    chapter_name: "باب ما جاء في تخليل الأصابع",
+    hadith_number: "الترمذي (39)، ابن ماجه (447)، أحمد (1927)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه الترمذي في جامعه، حديث رقم: 39 وقال: حديث حسن غريب، وابن ماجه في سننه (447)، وصححه الحاكم (1/148) والألباني في صحيح الترمذي (36)"
+    },
+    prophetic_context: "أمر بإمرار الماء والأصابع بين شقوق وتفرعات أصابع اليدين والرجلين عند التطهر",
+    traditional_indication: "إيصال الماء إلى المواضع المنضغطة الضيقة بين الأصابع",
+    modern_health_insight: "المسافات البينية لأصابع القدم بيئة رطبة ومغلقة، وتخليلها بالماء وتنظيفها يمنع استيطان الفطريات المعروفة بالقدم الرياضي",
+    precautions: "تخليل أصابع القدمين بالخنصر وتجفيفها جيداً بعد الغسل لمنع تراكم الرطوبة"
+  },
+  {
+    id: 125,
+    title: "تخليل اللحية الكثة لإيصال الطهارة للبشرة",
+    diseases_and_symptoms: ["التهاب جلد الوجه الدهني (Seborrheic dermatitis)", "قشرة اللحية", "ركود الدهون في منابت الشعر"],
+    usage_types: ["نظافة_وسنن_فطرة", "وقاية_وحفظ_صحة"],
+    primary_usage: "نظافة_وسنن_فطرة",
+    target_body_system: "الوجه وشعر اللحية وجلد الذقن",
+    hadith_verbatim: "أَنَّ رَسُولَ اللَّهِ ﷺ كَانَ إِذَا تَوَضَّأَ أَخَذَ كَفًّا مِنْ مَاءٍ، فَأَدْخَلَهُ تَحْتَ حَنَكِهِ، فَخَلَّلَ بِهِ لِحْيَتَهُ، وَقَالَ: «هَكَذَا أَمَرَنِي رَبِّي عَزَّ وَجَلَّ»",
+    companion: "أنس بن مالك وعثمان بن عفان رضي الله عنهما",
+    primary_source: "سنن أبي داود وجامع الترمذي",
+    book_name: "أبو داود: كتاب الطهارة / الترمذي: أبواب الطهارة",
+    chapter_name: "باب تخليل اللحية",
+    hadith_number: "أبو داود (145)، الترمذي (31)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه أبو داود في سننه، كتاب الطهارة، باب تخليل اللحية، حديث رقم: 145، وصححه الحاكم في المستدرك (1/149) والألباني في صحيح أبي داود (133)"
+    },
+    prophetic_context: "فعل نبوي مأثور بإدخال الماء بأصابع اليد تحت الحنك وتخليل شعر اللحية الكثيف",
+    traditional_indication: "إيصال الرطوبة والماء إلى بشرة الوجه المستورة بالشعر الكثيف",
+    modern_health_insight: "تخليل اللحية بالماء يزيل الإفرازات الدهنية الزائدة والخلايا الميتة المحتبسة تحت الشعر الكثيف ويمنع الحكة وقشرة اللحية",
+    precautions: "إدخال كف الماء من أسفل الحنك وتفريق الشعر بالأصابع"
+  },
+  {
+    id: 126,
+    title: "النهي عن النوم وفي اليد زفر اللحم والدسم",
+    diseases_and_symptoms: ["عضات ولدغات الهوام الليلية", "انجذاب القوارض والنمل", "تلوث الأغطية"],
+    usage_types: ["وقاية_وحفظ_صحة", "نظافة_وسنن_فطرة"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "اليدين والجلد والسلامة الشخصية أثناء النوم",
+    hadith_verbatim: "مَنْ نَامَ وَفِي يَدِهِ غَمَرٌ وَلَمْ يَغْسِلْهُ، فَأَصَابَهُ شَيْءٌ، فَلاَ يَلُومَنَّ إِلَّا نَفْسَهُ",
+    companion: "أبو هريرة رضي الله عنه",
+    primary_source: "سنن أبي داود وجامع الترمذي وسنن ابن ماجه ومسند أحمد",
+    book_name: "أبو داود: كتاب الأطعمة / الترمذي: أبواب الأطعمة",
+    chapter_name: "باب في غسل اليدين من الغمر عند النوم",
+    hadith_number: "أبو داود (3852)، الترمذي (1860)، ابن ماجه (3297)، أحمد (7555)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه أبو داود في سننه، حديث رقم: 3852، والترمذي (1860) وقال: حسن غريب، وصححه ابن حبان (5521) والحاكم (4/136) والألباني في صحيح أبي داود (3261)"
+    },
+    prophetic_context: "تحذير وقائي من النوم قبل غسل اليدين من آثار دسم اللحم والزهومة",
+    traditional_indication: "الغمر: ريح اللحم والدهن، ودفع أذى الحشرات وهوام الأرض التي تقصد الرائحة",
+    modern_health_insight: "الروائح الزيتية والشحمية تجذب الحشرات والقوارض الليلية التي تعض الأطراف النائمة وتسبب عدوى بكتيرية",
+    precautions: "غسل اليدين والفم بالماء والصابون بعد تناول اللحوم والأطعمة الدسمة قبل الرقاد"
+  },
+  {
+    id: 127,
+    title: "إطفاء النار والسرج عند النوم حماية للأبدان والدور",
+    diseases_and_symptoms: ["حروق الجسد والوفيات", "الاختناق بالدخان", "حرائق المساكن الليلية"],
+    usage_types: ["وقاية_وحفظ_صحة"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "السلامة البيئية والجهاز التنفسي والأنسجة",
+    hadith_verbatim: "إِنَّ هَذِهِ النَّارَ إِنَّمَا هِيَ عَدُوٌّ لَكُمْ، فَإِذَا نِمْتُمْ فَأَطْفِئُوهَا عَنْكُمْ",
+    companion: "أبو موسى الأشعري رضي الله عنه",
+    primary_source: "صحيح البخاري وصحيح مسلم",
+    book_name: "البخاري: كتاب الاستئذان / مسلم: كتاب الأشربة",
+    chapter_name: "باب لا تترك النار في البيت عند النوم",
+    hadith_number: "البخاري (6294)، مسلم (2016)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه البخاري في صحيحه، كتاب الاستئذان، باب لا تترك النار في البيت عند النوم، حديث رقم: 6294، وأخرجه مسلم في صحيحه، كتاب الأشربة، حديث رقم: 2016 متفق عليه"
+    },
+    prophetic_context: "توجيه عام بإخماد النيران والشموع والسرج المكشوفة قبل الاستغراق في النوم",
+    traditional_indication: "دفع خطر اشتعال البيوت بحركة الفئران أو الرياح أثناء غفلة أهل الدار",
+    modern_health_insight: "منع استنشاق غاز أول أكسيد الكربون القاتل الصامت الناتج عن الاحتراق غير المكتمل والوقاية من الحرائق المنزلية",
+    precautions: "تأمين أجهزة التدفئة وإطفاء مصادر اللهب المكشوفة قبل النوم"
+  },
+  {
+    id: 128,
+    title: "النهي عن المبيت فوق سطح ليس له جدار ساتر",
+    diseases_and_symptoms: ["كسور العظام والجمجمة", "ارتجاج المخ", "النزف الداخلي بالسقوط", "الوفيات العرضية"],
+    usage_types: ["وقاية_وحفظ_صحة", "أصل_تشريعي_وأدب"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "الهيكل العظمي والدماغ والسلامة الجسدية",
+    hadith_verbatim: "مَنْ بَاتَ عَلَى ظَهْرِ بَيْتٍ لَيْسَ لَهُ حِجَابٌ، فَقَدْ بَرِئَتْ مِنْهُ الذِّمَّةُ",
+    companion: "عبد الرحمن بن علي بن شيبان عن أبيه رضي الله عنه",
+    primary_source: "سنن أبي داود ومسند أحمد",
+    book_name: "أبو داود: كتاب الأدب / أحمد: مسند المدنيين",
+    chapter_name: "باب في النوم على سطح غير محجر",
+    hadith_number: "أبو داود (5041)، أحمد (19073)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه أبو داود في سننه، كتاب الأدب، باب في النوم على سطح غير محجر، حديث رقم: 5041، وأحمد في مسنده، وصححه الألباني في السلسلة الصحيحة (رقم: 828)"
+    },
+    prophetic_context: "تحذير وقائي صارم من النوم على الأسطح المرتفعة المكشوفة التي ليس لها سور يحمي النائم",
+    traditional_indication: "الحجاب: السور والحاجز المانع من السقوط والتردي حال تقلب النائم",
+    modern_health_insight: "أثناء مرحلة النوم العميق وحركة العين السريعة (REM) تحدث حركات لا إرادية قد تؤدي لسقوط الإنسان من المرتفعات وإصابته بكسور مميتة",
+    precautions: "بناء أسوار وسواتر بارتفاع كافٍ على الشرفات والأسطح قبل استخدامها للجلوس أو النوم"
+  },
+  {
+    id: 129,
+    title: "النهي عن التعريس والمبيت في بطون الأودية وطرق الدواب",
+    diseases_and_symptoms: ["لدغات الأفاعي والعقارب", "الغرق بسيول الأودية المفاجئة", "الدهس بحيوانات الليل"],
+    usage_types: ["وقاية_وحفظ_صحة"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "السلامة الشخصية والوقاية البيئية للمسافرين",
+    hadith_verbatim: "إِذَا سَافَرْتُمْ فِي الخِصْبِ فَأَعْطُوا الإِبِلَ حَظَّهَا مِنَ الأَرْضِ، وَإِذَا سَافَرْتُمْ فِي السَّنَةِ فَأَسْرِعُوا عَلَيْهَا السَّيْرَ، وَإِذَا عَرَّسْتُمْ بِلَيْلٍ فَاجْتَنِبُوا الطَّرِيقَ، فَإِنَّهَا مَأْوَى الهَوَامِّ بِلَيْلٍ",
+    companion: "أبو هريرة رضي الله عنه",
+    primary_source: "صحيح مسلم وسنن أبي داود والترمذي",
+    book_name: "مسلم: كتاب الإمارة / أبو داود: كتاب الجهاد",
+    chapter_name: "باب مراعاة مصلحة الدواب في السير والنهي عن التعريس في الطريق",
+    hadith_number: "مسلم (1926)، أبو داود (2569)، الترمذي (2858)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه مسلم في صحيحه، كتاب الإمارة، باب مراعاة مصلحة الدواب والنزول بالليل، حديث رقم: 1926"
+    },
+    prophetic_context: "إرشاد وقائي وبيئي لقوافل السفر باجتناب المبيت في مسارات الطرق ومجاري الأودية",
+    traditional_indication: "التعريس: النزول للنوم آخر الليل، واجتناب بطون الطرق لأنها مأوى الحشرات والدواب السامة",
+    modern_health_insight: "طرق السفر ومسارات الأودية بيئة نشاط ليلي للزواحف السامة والحيوانات المفترسة وتتعرض للسيول الجارفة المفاجئة",
+    precautions: "اختيار أماكن مرتفعة وآمنة ومكشوفة عند التخييم أو الاستراحة الليلية في البراري"
+  },
+  {
+    id: 130,
+    title: "النهي عن الجلوس بين الظل والشمس لتفاوت التروية",
+    diseases_and_symptoms: ["شلل الوجه النصفي (اللقوة / Bell's palsy)", "اضطراب الضغط الوعائي", "الروماتيزم العصبي"],
+    usage_types: ["وقاية_وحفظ_صحة"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "الدورة الدموية والجهاز العصبي والجلد",
+    hadith_verbatim: "إِذَا كَانَ أَحَدُكُمْ فِي الشَّمْسِ فَقَلَصَ عَنْهُ الظِّلُّ، فَصَارَ بَعْضُهُ فِي الظِّلِّ وَبَعْضُهُ فِي الشَّمْسِ، فَلْيَقُمْ",
+    companion: "أبو هريرة وبريدة بن الحصيب وقيس بن أبي حازم رضي الله عنهم",
+    primary_source: "سنن أبي داود وسنن ابن ماجه ومسند أحمد",
+    book_name: "أبو داود: كتاب الأدب / ابن ماجه: كتاب الأدب",
+    chapter_name: "باب في الجلوس بين الظل والشمس",
+    hadith_number: "أبو داود (4821)، ابن ماجه (3726)، أحمد (15421)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه أبو داود في سننه، كتاب الأدب، باب في الجلوس بين الظل والشمس، حديث رقم: 4821، وأحمد في مسنده، وصححه الألباني في السلسلة الصحيحة (رقم: 837)"
+    },
+    prophetic_context: "نهي وقائي وطبي عن المكوث في موضع يقع نصف الجسد فيه في حرارة الشمس ونصفه الآخر في برودة الظل",
+    traditional_indication: "فساد المزاج البدني لتناقض التأثير الحراري على نصفي البدن في وقت واحد",
+    modern_health_insight: "التفاوت الحراري المفاجئ بين شقي الجسد يسبب اختلالاً في تنظيم التمدد الوعائي العصبي مما قد يحفز التهاب العصب السابع وتشنج العضلات",
+    precautions: "الجلوس إما في الظل كاملاً أو في الشمس باعتدال دون الجمع بينهما"
+  },
+  {
+    id: 131,
+    title: "الإبراد بصلاة الظهر في شدة الحر لتفادي ضربات الشمس",
+    diseases_and_symptoms: ["ضربة الشمس (Heat stroke)", "الإجهاد الحراري الحاد", "الهبوط الوعائي في الهاجرة"],
+    usage_types: ["وقاية_وحفظ_صحة", "أصل_تشريعي_وأدب"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "الدورة الدموية والدماغ والتوازن الحراري",
+    hadith_verbatim: "إِذَا اشْتَدَّ الحَرُّ فَأَبْرِدُوا بِالصَّلاَةِ، فَإِنَّ شِدَّةَ الحَرِّ مِنْ فَيْحِ جَهَنَّمَ",
+    companion: "أبو هريرة وأبو ذر وعبد الله بن عمر رضي الله عنهم",
+    primary_source: "صحيح البخاري وصحيح مسلم",
+    book_name: "البخاري: كتاب مواقيت الصلاة / مسلم: كتاب المساجد",
+    chapter_name: "باب الإبراد بالظهر في شدة الحر",
+    hadith_number: "البخاري (533)، مسلم (615)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه البخاري في صحيحه، كتاب مواقيت الصلاة، باب الإبراد بالظهر في شدة الحر، حديث رقم: 533، وأخرجه مسلم في صحيحه، حديث رقم: 615 متفق عليه"
+    },
+    prophetic_context: "تشريع وقائي بتأخير صلاة الظهر في القيظ الشديد حتى تنكسر حدة الشمس وتبرد الأجواء",
+    traditional_indication: "دفع مشقة المشي في الهاجرة الحارقة صيانةً للأبدان من تلف الحرارة",
+    modern_health_insight: "تفادي التعرض المباشر لأشعة الشمس العمودية وقت الظهيرة يقي من الفشل الحراري الحاد وحروق الجلد وفقدان السوائل الحرج",
+    precautions: "تجنب الأنشطة البدنية المجهدة في ساعات الذروة الحارة بالصيف"
+  },
+  {
+    id: 132,
+    title: "صب الماء البارد على الرأس والجسد للصائم لتخفيف الحر والعطش",
+    diseases_and_symptoms: ["الجفاف الحاد", "الإجهاد الحراري للصائم", "فرط حرارة الأنسجة الخارجية"],
+    usage_types: ["وقاية_وحفظ_صحة", "غذاء_وعادة"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "الجلد والدماغ والتبريد الموضعي",
+    hadith_verbatim: "رَأَيْتُ رَسُولَ اللَّهِ ﷺ بِالعَرْجِ يَصُبُّ عَلَى رَأْسِهِ المَاءَ، وَهُوَ صَائِمٌ، مِنَ العَطَشِ أَوْ مِنَ الحَرِّ",
+    companion: "رجل من أصحاب النبي ﷺ",
+    primary_source: "سنن أبي داود ومسند أحمد",
+    book_name: "أبو داود: كتاب الصيام / أحمد: مسند الأنصار",
+    chapter_name: "باب الصائم يصب عليه الماء من العطش أو يغتسل",
+    hadith_number: "أبو داود (2365)، أحمد (15405)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه أبو داود في سننه، كتاب الصيام، حديث رقم: 2365، وأحمد في مسنده، وصححه الألباني في صحيح أبي داود (2072)"
+    },
+    prophetic_context: "فعل نبوي بتبريد الرأس بصب الماء أثناء الصيام لدفع لهيب الحر والظمأ دون إفساد الصوم",
+    traditional_indication: "ترطيب ظاهر البدن وتسكين حرارة الدماغ العطشان",
+    modern_health_insight: "صب الماء على فروة الرأس والرقبة يحفز التبريد التبخيري (Evaporative cooling) ويخفض درجة حرارة الدم الصاعد للمخ",
+    precautions: "الحذر من دخول الماء إلى الحلق أثناء صب الماء على الوجه والرأس"
+  },
+  {
+    id: 133,
+    title: "النهي عن الخذف بحصى الأصابع لحماية العيون والأسنان",
+    diseases_and_symptoms: ["فقء العين والعمى الرضي", "كسور الأسنان", "جروح الوجه الرضية"],
+    usage_types: ["وقاية_وحفظ_صحة", "أصل_تشريعي_وأدب"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "العين والأسنان والوجه وسلامة الأطراف",
+    hadith_verbatim: "أَنَّ رَسُولَ اللَّهِ ﷺ نَهَى عَنِ الخَذْفِ، وَقَالَ: «إِنَّهُ لاَ يَصِيدُ صَيْدًا، وَلاَ يَنْكَأُ عَدُوًّا، وَلَكِنَّهُ يَفْقَأُ العَيْنَ، وَيَكْسِرُ السِّنَّ»",
+    companion: "عبد الله بن مغفل رضي الله عنه",
+    primary_source: "صحيح البخاري وصحيح مسلم",
+    book_name: "البخاري: كتاب الذبائح والصيد / مسلم: كتاب الصيد والذبائح",
+    chapter_name: "باب الخذف والبندقة والنهي عنهما",
+    hadith_number: "البخاري (5479)، مسلم (1954)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه البخاري في صحيحه، كتاب الذبائح والصيد، باب الخذف، حديث رقم: 5479، وأخرجه مسلم في صحيحه، حديث رقم: 1954 متفق عليه"
+    },
+    prophetic_context: "نهي جازم عن رمي الحصى الصغير بين الإبهام والسبابة لما يسببه من عاهات مباغتة",
+    traditional_indication: "الخذف: رمي الحصاة بالسبابة والإبهام، ودفع ضرره الخطير عن الجالسين",
+    modern_health_insight: "المقذوفات الصغيرة السريعة تسبب تمزق القرنية وانفصال الشبكية وكسور المينا السنية التي يتعذر جبرها",
+    precautions: "الامتناع التام عن رمي الحجارة والمقذوفات في أماكن تجمع الناس"
+  },
+  {
+    id: 134,
+    title: "النهي عن الإشارة بالسلاح أو تعاطي السيف مسلولاً",
+    diseases_and_symptoms: ["الجروح القطعية البالغة", "بتر الأصابع العرضي", "النزف الشرياني الصاعق"],
+    usage_types: ["وقاية_وحفظ_صحة", "أصل_تشريعي_وأدب"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "السلامة المهنية ووقاية الأطراف من الجروح الحادة",
+    hadith_verbatim: "نَهَى رَسُولُ اللَّهِ ﷺ أَنْ يُتَعَاطَى السَّيْفُ مَسْلُولًا",
+    companion: "جابر بن عبد الله وأبو هريرة رضي الله عنهم",
+    primary_source: "سنن أبي داود وجامع الترمذي",
+    book_name: "أبو داود: كتاب الجهاد / الترمذي: أبواب الفتن",
+    chapter_name: "باب في تعاطي السيف مسلولا",
+    hadith_number: "أبو داود (2588)، الترمذي (2163)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه أبو داود في سننه، كتاب الجهاد، باب في تعاطي السيف مسلولا، حديث رقم: 2588، والترمذي في جامعه (رقم: 2163) وقال: حسن غريب، وصححه الألباني في صحيح أبي داود (2253)"
+    },
+    prophetic_context: "أمر وقائي بعدم مناولة الأدوات الحادة والقاطعة مكشوفة النصل باليد تجنباً للجرح الفجائي",
+    traditional_indication: "غماد السيف قبل دفعه للآخرين خشية أن تسقط اليد على الشفرة أو تنزلق فتجرحه",
+    modern_health_insight: "قواعد السلامة المهنية الصارمة في مناولة السكاكين والآلات الحادة تمنع قطع أوتار اليد والشرايين المغذية للأصابع",
+    precautions: "مناولة الأدوات الحادة بمقابضها أو وهي داخل أغمادها ومحافظها"
+  },
+  {
+    id: 135,
+    title: "ستر الوجه وغض الصوت عند العطاس لمكافحة انتشار الرذاذ",
+    diseases_and_symptoms: ["العدوى الفيروسية التنفسية", "الإنفلونزا ونزلات البرد", "تمزق عضلات العنق بالصوت العنيف"],
+    usage_types: ["وقاية_وحفظ_صحة", "نظافة_وسنن_فطرة", "أصل_تشريعي_وأدب"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "الجهاز التنفسي والمخالطة البيئية وعضلات الرقبة",
+    hadith_verbatim: "كَانَ رَسُولُ اللَّهِ ﷺ إِذَا عَطَسَ وَضَعَ يَدَهُ أَوْ ثَوْبَهُ عَلَى فِيهِ، وَخَفَضَ أَوْ غَضَّ بِهَا صَوْتَهُ",
+    companion: "أبو هريرة رضي الله عنه",
+    primary_source: "سنن أبي داود وجامع الترمذي ومستدرك الحاكم",
+    book_name: "أبو داود: كتاب الأدب / الترمذي: أبواب الأدب",
+    chapter_name: "باب ما جاء في خفض الصوت وتغطية الوجه عند العطاس",
+    hadith_number: "أبو داود (5029)، الترمذي (2745)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه أبو داود في سننه، كتاب الأدب، حديث رقم: 5029، والترمذي في جامعه (رقم: 2745) وقال: حديث حسن صحيح، وصححه الحاكم (4/264) والألباني في صحيح الترمذي (2205)"
+    },
+    prophetic_context: "هدي نبوي دائم بوضع الثوب أو الكف على الفم عند العطسة وكتم شدة صوتها",
+    traditional_indication: "ستر الوجه لمنع تطاير اللعاب والمخاط على الجالسين وخفض الصوت المنفر",
+    modern_health_insight: "تغطية الفم والأنف تمنع اندفاع ملايين القطيرات الميكروبية بسرعة هائلة في الهواء (Respiratory droplets transmission)",
+    precautions: "استعمال المناديل النظيفة أو باطن المرفق عند العطاس وغسل اليدين بعده"
+  },
+  {
+    id: 136,
+    title: "كظم التثاؤب ووضع اليد على الفم لحماية الفك والمجاري",
+    diseases_and_symptoms: ["انخلاع مفصل الفك الصدغي (TMJ Dislocation)", "دخول الغبار وهوام الهواء للحلق", "تشنج عضلات الوجه"],
+    usage_types: ["وقاية_وحفظ_صحة", "أصل_تشريعي_وأدب"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "مفصل الفك الصدغي والجهاز التنفسي العلوي",
+    hadith_verbatim: "إِذَا تَثَاءَبَ أَحَدُكُمْ فَلْيُمْسِكْ بِيَدِهِ عَلَى فِيهِ، فَإِنَّ الشَّيْطَانَ يَدْخُلُ",
+    companion: "أبو سعيد الخدري وأبو هريرة رضي الله عنهما",
+    primary_source: "صحيح مسلم وسنن أبي داود",
+    book_name: "مسلم: كتاب الزهد والرقائق / أبو داود: كتاب الأدب",
+    chapter_name: "باب كراهة التثاؤب في الصلاة والأمر بوضع اليد على الفم",
+    hadith_number: "مسلم (2995)، أبو داود (5026)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه مسلم في صحيحه، كتاب الزهد والرقائق، باب تشميت العاطس وكراهة التثاؤب، حديث رقم: 2995، ورواه البخاري بمعناه (6226)"
+    },
+    prophetic_context: "أمر بكبح التثاؤب قدر الاستطاعة ووضع اليد سداً على الفم المفتوح",
+    traditional_indication: "منع هيئة التثاؤب القبيحة، ودخول الذباب أو الهوام المجهولة إلى الحلق أثناء الشهيق العميق",
+    modern_health_insight: "الفتح المفرط السريع للفك أثناء التثاؤب قد يسبب انزلاق اللقمة الفكية وانخلاع المفصل الصدغي الصدري، واليد تمنع استنشاق الأتربة",
+    precautions: "رد التثاؤب بضم الشفتين أولاً، فإن غلب وضع باطن أو ظاهر اليد على الفم"
+  },
+  {
+    id: 137,
+    title: "النهي عن الجلوس أو النوم تحت الجدار المائل المتهدم",
+    diseases_and_symptoms: ["الكسور الانهيارية", "رضوض الرأس الساحقة", "الاختناق تحت الركام"],
+    usage_types: ["وقاية_وحفظ_صحة"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "الهيكل العظمي والسلامة الإنشائية والبيئية",
+    hadith_verbatim: "أَنَّ النَّبِيَّ ﷺ مَرَّ بِجِدَارٍ مَائِلٍ فَأَسْرَعَ المَشْيَ، فَقِيلَ لَهُ فِي ذَلِكَ، فَقَالَ: «إِنِّي أَكْرَهُ مَوْتَ الفَوَاتِ»",
+    companion: "صهيب الرومي وعبد الله بن عمر رضي الله عنهم",
+    primary_source: "شعب الإيمان للبيهقي ومسند أبي يعلى",
+    book_name: "البيهقي: شعب الإيمان / أبو يعلى: المسند",
+    chapter_name: "باب في حفظ النفس والتوكل مع الأسباب",
+    hadith_number: "البيهقي (5/354)، أبو يعلى (2083)",
+    authenticity: {
+      grade: "حسن",
+      judgement_by: "أخرجه البيهقي في شعب الإيمان (رقم: 5/354)، وأبو يعلى الموصلي (رقم: 2083)، وحسنه ابن حجر في الفتح، 10/181 بشواهده"
+    },
+    prophetic_context: "فعل وإسراع نبوي عند المرور تحت حائط متصدع مشرف على السقوط تجنباً للتهلكة",
+    traditional_indication: "موت الفوات: الموت المفاجئ تحت الهدم دون توبة أو وصية، ووجوب الحذر",
+    modern_health_insight: "تجنب التواجد تحت المباني الآيلة للسقوط يمنع الإصابات الرضية الساحقة (Crush injuries) ونزيف المخ القاتل",
+    precautions: "الابتعاد الفوري عن المباني المتصدعة ومناطق الانهيارات الجبلية"
+  },
+  {
+    id: 138,
+    title: "النهي عن النوم على البطن لحفظ التنفس والقلب",
+    diseases_and_symptoms: ["صعوبة التنفس الحجابي", "انضغاط عضلة القلب", "آلام فقرات الرقبة والظهر"],
+    usage_types: ["وقاية_وحفظ_صحة", "أصل_تشريعي_وأدب"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "الجهاز التنفسي والقلب والعمود الفقري",
+    hadith_verbatim: "إِنَّ هَذِهِ ضِجْعَةٌ يُبْغِضُهَا اللَّهُ عَزَّ وَجَلَّ، أَوْ قَالَ: ضِجْعَةُ أَهْلِ النَّارِ",
+    companion: "طخفة بن قيس الغفاري رضي الله عنه",
+    primary_source: "سنن أبي داود وجامع الترمذي ومسند أحمد",
+    book_name: "أبو داود: كتاب الأدب / الترمذي: أبواب الأدب",
+    chapter_name: "باب في كراهية الاضطجاع على البطن",
+    hadith_number: "أبو داود (5040)، الترمذي (2768)، أحمد (15570)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه أبو داود في سننه، كتاب الأدب، باب في كراهية الانبطاح، حديث رقم: 5040، وصححه ابن حبان (5550) والألباني في صحيح أبي داود (4214)"
+    },
+    prophetic_context: "نهي وتنبيه لرجل رآه النبي ﷺ نائماً في المسجد منبطحاً على بطنه",
+    traditional_indication: "ضجعة مكروهة شرعاً وطبعاً، وتعيق الحركة الحرة للجوف",
+    modern_health_insight: "النوم على البطن يضغط على القفص الصدري والحجاب الحاجز ويجبر الرقبة على الالتواء لجانب واحد مما يسبب ضغطاً على الأعصاب العنقية وإجهاداً تنفسياً",
+    precautions: "استبدال نومة البطن بالاضطجاع على الشق الأيمن أو الظهر"
+  },
+  {
+    id: 139,
+    title: "النهي عن الانتعال قائماً لتجنب السقوط واختلال التوازن",
+    diseases_and_symptoms: ["الدوخة وفقدان التوازن", "التواء الكاحل والرضوض", "السقوط العرضي لكبار السن"],
+    usage_types: ["وقاية_وحفظ_صحة", "أصل_تشريعي_وأدب"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "الهيكل العظمي والمفاصل والتوازن الحركي",
+    hadith_verbatim: "نَهَى رَسُولُ اللَّهِ ﷺ أَنْ يَنْتَعِلَ الرَّجُلُ قَائِمًا",
+    companion: "جابر بن عبد الله وأبو هريرة وأنس رضي الله عنهم",
+    primary_source: "سنن أبي داود وجامع الترمذي وسنن ابن ماجه",
+    book_name: "أبو داود: كتاب اللباس / الترمذي: أبواب اللباس",
+    chapter_name: "باب في لبس النعل قائما",
+    hadith_number: "أبو داود (4135)، الترمذي (1774)، ابن ماجه (3618)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه أبو داود في سننه، كتاب اللباس، حديث رقم: 4135، والترمذي في جامعه (رقم: 1774) وقال: حديث حسن غريب، وصححه الحاكم (4/138) والألباني في السلسلة الصحيحة (رقم: 719)"
+    },
+    prophetic_context: "أدب وقائي بلبس الحذاء أو ربطه من وضع الجلوس لمنع الانزلاق",
+    traditional_indication: "لبس النعل قاعداً أمكن وأسهل وأسلم من السقوط والتعثر",
+    modern_health_insight: "ارتداء الأحذية والوقوف على قدم واحدة يتطلب اتزاناً عصبياً قد يختل فجأة خاصة عند كبار السن أو المصابين بضعف العضلات",
+    precautions: "الجلوس عند ارتداء الأحذية ذات الأربطة أو الضيقة"
+  },
+  {
+    id: 140,
+    title: "الاستكثار من النعال لوقاية القدمين من الجراح والحرارة",
+    diseases_and_symptoms: ["تقرحات باطن القدم", "وخز الشوك والزجاج", "حروق الرمضاء والقروح السكرية"],
+    usage_types: ["وقاية_وحفظ_صحة", "لباس_وزينة"],
+    primary_usage: "وقاية_وحفظ_صحة",
+    target_body_system: "القدمين وباطن الأرجل والجلد",
+    hadith_verbatim: "اسْتَكْثِرُوا مِنَ النِّعَالِ، فَإِنَّ الرَّجُلَ لاَ يَزَالُ رَاكِبًا مَا انْتَعَلَ",
+    companion: "جابر بن عبد الله رضي الله عنهما",
+    primary_source: "صحيح مسلم وسنن أبي داود",
+    book_name: "مسلم: كتاب اللباس والزينة / أبو داود: كتاب اللباس",
+    chapter_name: "باب استحباب لبس النعال وما في معناها",
+    hadith_number: "مسلم (2096)، أبو داود (4133)",
+    authenticity: {
+      grade: "صحيح",
+      judgement_by: "أخرجه مسلم في صحيحه، كتاب اللباس والزينة، باب استحباب لبس النعال، حديث رقم: 2096، وأخرجه أبو داود (4133)"
+    },
+    prophetic_context: "حث على التزود بالأحذية ولبسها الدائم في المشي والأسفار لصيانة القدم",
+    traditional_indication: "المنتعِل يشبه الراكب في قلة مشقته على قدميه وسلامته من الحجارة والشوك",
+    modern_health_insight: "ارتداء الأحذية الطبية المناسبة يمتص الصدمات الميكانيكية، ويحمي باطن القدم من التقرحات والالتهابات والأجسام الحادة",
+    precautions: "اختيار أحذية لينة وواسعة لا تضغط على أصابع القدمين"
+  }
+);
+```
+
+انسخ هذا الكود وضعه في ملف `cards.js` بعد البطاقات السابقة. وعندما ترغب في استلام **الحزمة التالية (من 141 إلى 160)**، أشر بذلك وسأرسلها لك فوراً.
