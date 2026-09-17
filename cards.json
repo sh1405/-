@@ -1,25 +1,3 @@
-هذا الخطأ يحدث عادة لأن المتصفح يتأخر في قراءة الملف الخارجي أو بسبب اختلاف مسار الرابط على خوادم GitHub Pages.
-
----
-
-### الحل الأبسط والنهائي (دمج البيانات داخل ملف `index.html` مباشرة):
-
-قمت الآن **بدمج البطاقات بالكامل داخل كود صفحة `index.html`**؛ بحيث يعمل الموقع ذاتياً فوراً **بدون الحاجة لملف `cards.json` نهائياً وبدون أي أخطاء تحميل**.
-
----
-
-### ما عليك فعله في دقيقة واحدة:
-
-1. ادخل إلى مستودعك، واضغط على اسم الملف: **`index.html`**.
-2. اضغط على أيقونة **«القلم» ✏️ (تعديل الملف)** في أعلى يسار الملف.
-3. امسح كل الكلام الموجود داخله.
-4. انسخ الكود الجديد كاملاً من المربع المظلل أدناه والصقه مكانه.
-5. اضغط على الزر الأخضر: **«تثبيت التغييرات...»** ثم **«تثبيت التغييرات»**.
-
----
-
-### كود `index.html` المحدّث (انسخه كاملاً من المربع):
-
 ```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -39,7 +17,6 @@
 <body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between selection:bg-emerald-200 selection:text-emerald-950">
 
     <div>
-        <!-- رأس الصفحة -->
         <header class="bg-emerald-950 text-emerald-50 py-12 px-4 shadow-lg border-b border-emerald-800 text-center">
             <div class="max-w-6xl mx-auto space-y-4">
                 <div class="inline-block bg-emerald-800/60 border border-emerald-600/40 text-emerald-200 text-xs px-3 py-1 rounded-full font-medium">
@@ -54,10 +31,8 @@
             </div>
         </header>
 
-        <!-- لوحة التحكم والبحث -->
         <div class="max-w-6xl mx-auto px-4 -mt-6">
             <div class="bg-white rounded-2xl shadow-xl border border-slate-200/80 p-6 space-y-5">
-                <!-- حقل البحث المباشر -->
                 <div>
                     <input
                         type="text"
@@ -67,7 +42,6 @@
                     >
                 </div>
 
-                <!-- الفلاتر المنسدلة -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-bold text-slate-700 mb-1">🏥 تصفية بحسب المرض أو العَرَض:</label>
@@ -93,7 +67,6 @@
                     </div>
                 </div>
 
-                <!-- وسوم الصفة الاستعمالية -->
                 <div class="space-y-1.5 pt-2 border-t border-slate-100">
                     <span class="text-xs font-bold text-slate-600">🏷️ الصفة الاستعمالية الشرعية:</span>
                     <div class="flex flex-wrap gap-2" id="tagsContainer">
@@ -107,7 +80,6 @@
                     </div>
                 </div>
 
-                <!-- زر تصفير الفلاتر -->
                 <div class="flex justify-end pt-2 border-t border-slate-100">
                     <button id="resetBtn" class="text-xs text-rose-600 hover:text-rose-800 font-semibold transition">
                         ↺ إعادة ضبط جميع الفلاتر
@@ -116,7 +88,6 @@
             </div>
         </div>
 
-        <!-- شبكة البطاقات -->
         <main class="max-w-6xl mx-auto px-4 py-10">
             <div class="text-xs text-slate-800 font-semibold mb-6">
                 نتائج البحث: <span id="resultsCount" class="text-emerald-900 font-bold text-sm">0</span> بطاقة محققة
@@ -126,7 +97,6 @@
         </main>
     </div>
 
-    <!-- تذييل الصفحة -->
     <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-700 mt-12">
         <div class="max-w-6xl mx-auto px-4 space-y-2">
             <p>الموسوعة النبوية في الطب وحفظ الصحة — عمل مبني على التثبت والتحقيق وصيانة جناب السنة.</p>
@@ -134,9 +104,7 @@
         </div>
     </footer>
 
-    <!-- محرك التصفية والنسخ التلقائي والبيانات المدمجة -->
     <script>
-        // قاعدة البيانات مدمجة بالكامل لتعمل مباشرة دون الحاجة لأي ملفات خارجية
         const allCards = [
             {
                 id: 1,
@@ -435,14 +403,9 @@ ${card.precautions ? `⚠️ تنبيه: ${card.precautions}` : ''}`;
             render();
         });
 
-        // البدء الفوري
         populateDiseases();
         render();
     </script>
 </body>
 </html>
 ```
-
----
-
-بعد ا
