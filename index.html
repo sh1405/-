@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الموسوعة الجامعة للهدي والصحة النبوية</title>
 
+    <!-- Tailwind CSS للتصميم العصري المتقدم -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- الخطوط الملكية الفاخرة -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;800;900&family=Reem+Kufi:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;600;700;800;900&family=Reem+Kufi:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <!-- الأيقونات التفاعلية -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- مكتبة تصدير PDF الاحترافية -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <script>
@@ -19,17 +25,18 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            200: '#bbf7d0',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            800: '#166534',
-                            900: '#14532d',
-                            950: '#032311',
+                        burgundy: {
+                            50: '#fdf2f4',
+                            100: '#fce7ea',
+                            200: '#f8d0d7',
+                            700: '#9b1c31',
+                            800: '#801526',
+                            900: '#65101e',
+                            950: '#400610',
+                            990: '#260208',
                         },
-                        gold: {
+                        amberGold: {
+                            50: '#fffbeb',
                             100: '#fef3c7',
                             200: '#fde68a',
                             300: '#fcd34d',
@@ -49,71 +56,76 @@
         }
     </script>
     <style>
-        .hero-pattern {
-            background-color: #032311;
-            background-image: radial-gradient(rgba(245, 158, 11, 0.15) 1px, transparent 1px), radial-gradient(rgba(16, 185, 129, 0.1) 1px, #032311 1px);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px;
+        .royal-gradient {
+            background: linear-gradient(135deg, #260208 0%, #400610 40%, #65101e 80%, #801526 100%);
+        }
+        .gold-shimmer {
+            background: linear-gradient(90deg, #f59e0b 0%, #fde68a 50%, #f59e0b 100%);
+            background-size: 200% auto;
+            color: #400610;
         }
         .hadith-text {
             font-family: 'Amiri', serif;
-            line-height: 2.1;
+            line-height: 2.2;
         }
-        .glass-header {
-            background: rgba(3, 35, 17, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+        .card-luxury {
+            background: radial-gradient(circle at top right, rgba(254, 243, 199, 0.25) 0%, rgba(255, 255, 255, 1) 100%);
+            box-shadow: 0 10px 30px -5px rgba(64, 6, 16, 0.08);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .card-glow:hover {
-            box-shadow: 0 20px 35px -10px rgba(5, 46, 22, 0.12), 0 0 0 1px rgba(16, 185, 129, 0.2);
-            transform: translateY(-3px);
+        .card-luxury:hover {
+            box-shadow: 0 25px 45px -10px rgba(101, 16, 30, 0.2), 0 0 0 1px rgba(245, 158, 11, 0.4);
+            transform: translateY(-4px);
         }
         .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
+            width: 7px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f5f9;
+            background: #f8d0d7;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
+            background: #9b1c31;
             border-radius: 9999px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
+            background: #65101e;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-200 selection:text-emerald-950 flex flex-col min-h-screen">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-amber-200 selection:text-burgundy-950 flex flex-col min-h-screen">
 
-    <!-- شريط التنقل العلوي الفخم -->
-    <nav class="sticky top-0 z-50 glass-header border-b border-emerald-800/60 text-white shadow-2xl transition-all duration-300">
+    <!-- شريط التنقل العلوي الملكي -->
+    <nav class="sticky top-0 z-50 bg-burgundy-950/95 backdrop-blur-md border-b border-amberGold-500/40 text-white shadow-2xl transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
 
                 <!-- الشعار والاسم -->
                 <div class="flex items-center gap-3.5">
-                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-gold-500 via-emerald-600 to-emerald-800 flex items-center justify-center shadow-lg shadow-black/30 border border-gold-300/30">
-                        <span class="text-2xl font-serif font-bold text-white drop-shadow">ﷺ</span>
+                    <div class="w-13 h-13 p-2 rounded-2xl bg-gradient-to-tr from-amberGold-600 via-amberGold-400 to-amberGold-200 flex items-center justify-center shadow-lg shadow-black/40 border border-amberGold-300 glow-effect">
+                        <span class="text-2xl font-serif font-black text-burgundy-950 drop-shadow">ﷺ</span>
                     </div>
                     <div>
-                        <span class="font-kufi text-xl md:text-2xl font-bold tracking-wide text-white block">موسوعة الصحة النبوية</span>
-                        <span class="text-[11px] text-gold-300 font-semibold block tracking-wider">جامعة محققة على دواوين السنة</span>
+                        <span class="font-kufi text-xl md:text-2xl font-black tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-amberGold-200 via-amberGold-400 to-amberGold-100 block">موسوعة الصحة النبوية</span>
+                        <span class="text-[11px] text-amberGold-300 font-bold block tracking-wider">جامعة محققة على دواوين السنة المشرفة</span>
                     </div>
                 </div>
 
                 <!-- أزرار التصدير والقائمة الجانبية -->
                 <div class="flex items-center gap-2 sm:gap-3">
-                    <button onclick="exportFullEncyclopediaPDF()" class="inline-flex items-center gap-1.5 bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-500 hover:to-rose-600 text-white text-xs font-bold px-3.5 py-2.5 rounded-xl shadow-md transition transform hover:-translate-y-0.5 active:translate-y-0">
-                        <i class="fa-solid fa-file-pdf"></i>
-                        <span class="hidden sm:inline">تحميل PDF</span>
+                    <button onclick="exportFullEncyclopediaPDF()" class="inline-flex items-center gap-1.5 bg-gradient-to-r from-rose-700 to-red-800 hover:from-rose-600 hover:to-red-700 text-white text-xs font-black px-3.5 py-2.5 rounded-xl shadow-md transition transform hover:-translate-y-0.5 active:translate-y-0 border border-rose-400/40">
+                        <i class="fa-solid fa-file-pdf text-amberGold-300"></i>
+                        <span class="hidden sm:inline">تحميل الموقع PDF</span>
                     </button>
-                    <button onclick="exportFullEncyclopediaWord()" class="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-700 to-indigo-700 hover:from-blue-600 hover:to-indigo-600 text-white text-xs font-bold px-3.5 py-2.5 rounded-xl shadow-md transition transform hover:-translate-y-0.5 active:translate-y-0">
-                        <i class="fa-solid fa-file-word"></i>
-                        <span class="hidden sm:inline">تحميل Word</span>
+                    <button onclick="exportFullEncyclopediaWord()" class="inline-flex items-center gap-1.5 bg-gradient-to-r from-blue-800 to-indigo-900 hover:from-blue-700 hover:to-indigo-800 text-white text-xs font-black px-3.5 py-2.5 rounded-xl shadow-md transition transform hover:-translate-y-0.5 active:translate-y-0 border border-blue-400/40">
+                        <i class="fa-solid fa-file-word text-amberGold-300"></i>
+                        <span class="hidden sm:inline">تحميل الموقع Word</span>
                     </button>
 
                     <!-- زر القائمة ثلاث شُرط (Hamburger Menu) -->
-                    <button id="menuToggleBtn" onclick="toggleSidebar()" class="w-11 h-11 rounded-xl bg-emerald-900/80 hover:bg-emerald-800 text-gold-300 hover:text-white border border-emerald-700/60 flex items-center justify-center text-xl transition shadow-inner">
+                    <button id="menuToggleBtn" onclick="toggleSidebar()" class="w-11 h-11 rounded-xl bg-burgundy-900 hover:bg-burgundy-800 text-amberGold-400 hover:text-white border border-amberGold-500/50 flex items-center justify-center text-xl transition shadow-inner">
                         <i class="fa-solid fa-bars-staggered"></i>
                     </button>
                 </div>
@@ -121,119 +133,119 @@
         </div>
     </nav>
 
-    <!-- القائمة الجانبية المنسدلة الاحترافية (Drawer Overlay) -->
-    <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <!-- القائمة الجانبية المنسدلة (Drawer Overlay) -->
+    <div id="sidebarOverlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
-    <aside id="sidebar" class="fixed top-0 right-0 h-full w-80 sm:w-96 bg-emerald-950 text-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col border-l border-emerald-800">
+    <aside id="sidebar" class="fixed top-0 right-0 h-full w-80 sm:w-96 bg-burgundy-950 text-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col border-l border-amberGold-600/40">
         <!-- ترويسة القائمة -->
-        <div class="p-6 border-b border-emerald-800/80 flex items-center justify-between bg-emerald-900/40">
+        <div class="p-6 border-b border-amberGold-600/30 flex items-center justify-between bg-burgundy-900/60">
             <div class="flex items-center gap-2.5">
-                <span class="text-gold-400 text-lg"><i class="fa-solid fa-book-quran"></i></span>
-                <span class="font-kufi font-bold text-lg text-white">دليل الموسوعة</span>
+                <span class="text-amberGold-400 text-xl"><i class="fa-solid fa-compass"></i></span>
+                <span class="font-kufi font-black text-lg text-white">دليل الموسوعة</span>
             </div>
-            <button onclick="toggleSidebar()" class="w-8 h-8 rounded-lg bg-emerald-800/60 text-slate-300 hover:text-white flex items-center justify-center transition">
+            <button onclick="toggleSidebar()" class="w-8 h-8 rounded-lg bg-burgundy-800 text-amberGold-300 hover:text-white flex items-center justify-center transition border border-amberGold-500/30">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
         </div>
 
-        <!-- محتوى القائمة -->
+        <!-- محتوى القائمة المنسدلة -->
         <div class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
-            <button onclick="openModal('aboutModal'); toggleSidebar();" class="w-full text-right p-4 rounded-2xl bg-emerald-900/50 hover:bg-emerald-800/70 border border-emerald-800/80 transition flex items-center gap-3.5 group">
-                <div class="w-10 h-10 rounded-xl bg-emerald-800 group-hover:bg-gold-500 group-hover:text-emerald-950 text-gold-300 flex items-center justify-center text-lg transition">
+            <button onclick="openModal('aboutModal'); toggleSidebar();" class="w-full text-right p-4 rounded-2xl bg-burgundy-900/50 hover:bg-burgundy-800/80 border border-burgundy-700/60 transition flex items-center gap-3.5 group">
+                <div class="w-11 h-11 rounded-xl bg-burgundy-800 group-hover:bg-amberGold-500 group-hover:text-burgundy-950 text-amberGold-300 flex items-center justify-center text-lg transition shadow-md">
                     <i class="fa-solid fa-circle-info"></i>
                 </div>
                 <div>
                     <span class="font-bold text-white block text-sm">عن الموسوعة</span>
-                    <span class="text-[11px] text-emerald-300 block">رؤية المنصة وغاياتها العلمية</span>
+                    <span class="text-[11px] text-amberGold-200/80 block">رؤية المنصة وغاياتها العلمية</span>
                 </div>
             </button>
 
-            <button onclick="openModal('methodologyModal'); toggleSidebar();" class="w-full text-right p-4 rounded-2xl bg-emerald-900/50 hover:bg-emerald-800/70 border border-emerald-800/80 transition flex items-center gap-3.5 group">
-                <div class="w-10 h-10 rounded-xl bg-emerald-800 group-hover:bg-gold-500 group-hover:text-emerald-950 text-gold-300 flex items-center justify-center text-lg transition">
+            <button onclick="openModal('methodologyModal'); toggleSidebar();" class="w-full text-right p-4 rounded-2xl bg-burgundy-900/50 hover:bg-burgundy-800/80 border border-burgundy-700/60 transition flex items-center gap-3.5 group">
+                <div class="w-11 h-11 rounded-xl bg-burgundy-800 group-hover:bg-amberGold-500 group-hover:text-burgundy-950 text-amberGold-300 flex items-center justify-center text-lg transition shadow-md">
                     <i class="fa-solid fa-scale-balanced"></i>
                 </div>
                 <div>
                     <span class="font-bold text-white block text-sm">منهج الموسوعة</span>
-                    <span class="text-[11px] text-emerald-300 block">قواعد التحقيق والضبط الحديثي</span>
+                    <span class="text-[11px] text-amberGold-200/80 block">قواعد التحقيق والضبط والتصنيف</span>
                 </div>
             </button>
 
-            <button onclick="openModal('contactModal'); toggleSidebar();" class="w-full text-right p-4 rounded-2xl bg-emerald-900/50 hover:bg-emerald-800/70 border border-emerald-800/80 transition flex items-center gap-3.5 group">
-                <div class="w-10 h-10 rounded-xl bg-emerald-800 group-hover:bg-gold-500 group-hover:text-emerald-950 text-gold-300 flex items-center justify-center text-lg transition">
+            <button onclick="openModal('contactModal'); toggleSidebar();" class="w-full text-right p-4 rounded-2xl bg-burgundy-900/50 hover:bg-burgundy-800/80 border border-burgundy-700/60 transition flex items-center gap-3.5 group">
+                <div class="w-11 h-11 rounded-xl bg-burgundy-800 group-hover:bg-amberGold-500 group-hover:text-burgundy-950 text-amberGold-300 flex items-center justify-center text-lg transition shadow-md">
                     <i class="fa-solid fa-envelope-open-text"></i>
                 </div>
                 <div>
                     <span class="font-bold text-white block text-sm">اتصل بنا والمقترحات</span>
-                    <span class="text-[11px] text-emerald-300 block">تواصل مباشر مع الإدارة</span>
+                    <span class="text-[11px] text-amberGold-200/80 block">نموذج تواصل مباشر بالإدارة</span>
                 </div>
             </button>
         </div>
 
         <!-- تذييل القائمة -->
-        <div class="p-5 border-t border-emerald-900 bg-emerald-950/80 text-center">
-            <span class="text-xs text-gold-300 font-serif">وقف لله تعالى @شيرين بنت كاظم بنون</span>
+        <div class="p-5 border-t border-amberGold-600/30 bg-burgundy-990 text-center">
+            <span class="text-xs text-amberGold-300 font-serif font-bold">وقف لله تعالى @شيرين بنت كاظم بنون</span>
         </div>
     </aside>
 
-    <!-- الواجهة الرئيسية (Hero Section) الفخمة -->
-    <header class="hero-pattern text-white pt-12 pb-24 px-4 relative overflow-hidden">
+    <!-- الواجهة الرئيسية (Hero Section) بالعنابي والذهبي المتوهج -->
+    <header class="royal-gradient text-white pt-14 pb-28 px-4 relative overflow-hidden border-b border-amberGold-500/40">
         <div class="max-w-4xl mx-auto text-center space-y-4 relative z-10">
-            <div class="inline-flex items-center gap-2 bg-gradient-to-r from-gold-500/20 to-emerald-500/20 border border-gold-400/30 px-4 py-1.5 rounded-full text-gold-300 text-xs font-semibold backdrop-blur-md">
-                <span>✨</span> الموسوعة الجامعة المستوفاة على دواوين السنة المشرفة
+            <div class="inline-flex items-center gap-2 bg-gradient-to-r from-amberGold-500/30 via-amberGold-400/20 to-amberGold-500/30 border border-amberGold-400/50 px-4 py-1.5 rounded-full text-amberGold-300 text-xs font-bold backdrop-blur-md shadow-lg">
+                <i class="fa-solid fa-star text-amberGold-400"></i> الموسوعة الشاملة الجامعة المستوفاة على أصول السنة المشرفة
             </div>
 
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-black font-serif tracking-tight text-white leading-tight">
                 الموسوعة الجامعة للهدي والصحة النبوية
             </h1>
 
-            <p class="text-emerald-100/80 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed font-light">
+            <p class="text-amberGold-100/90 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed font-normal">
                 محرك بحث وبطاقات محققة تُميز بدقة متناهية بين ما ورد استشفاءً وتداوياً صريحاً، وما كان غذاءً وعادةً معيشية، وما شُرع وقايةً وسنن فطرة؛ صيانةً لجناب السنة النبوية المطهرة.
             </p>
         </div>
     </header>
 
-    <!-- لوحة البحث والتحكم التفاعلية الفخمة -->
-    <section class="max-w-6xl mx-auto px-4 -mt-12 relative z-20 w-full">
-        <div class="bg-white rounded-3xl shadow-2xl border border-slate-200/90 p-5 md:p-7 space-y-5">
+    <!-- لوحة البحث والتحكم الملكية المتطورة -->
+    <section class="max-w-6xl mx-auto px-4 -mt-14 relative z-20 w-full">
+        <div class="bg-white rounded-3xl shadow-2xl border-2 border-amberGold-400/40 p-5 md:p-7 space-y-5">
 
-            <!-- شريط البحث السريع والذكي -->
+            <!-- شريط البحث الفوري والذكي -->
             <div class="relative">
-                <span class="absolute inset-y-0 right-4 flex items-center text-slate-400 text-lg pointer-events-none">
+                <span class="absolute inset-y-0 right-4 flex items-center text-amberGold-600 text-xl pointer-events-none">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
                 <input
                     type="text"
                     id="searchInput"
                     placeholder="ابحث بالمرض (الشقيقة، استطلاق البطن، الحمى...)، بالمادة (العسل، الحبة السوداء...)، أو نص الحديث..."
-                    class="w-full pr-11 pl-4 py-3.5 rounded-2xl border border-slate-300 focus:ring-4 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none text-slate-800 text-sm md:text-base transition bg-slate-50/50 hover:bg-white"
+                    class="w-full pr-12 pl-4 py-4 rounded-2xl border-2 border-slate-200 focus:border-amberGold-500 focus:ring-4 focus:ring-amberGold-500/20 outline-none text-slate-800 text-sm md:text-base transition bg-slate-50 hover:bg-white font-medium"
                 >
             </div>
 
             <!-- الفلاتر المنسدلة للتصفية بالمرض والدرجة -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                <div class="bg-slate-50/80 p-2.5 rounded-2xl border border-slate-200/80">
-                    <label class="block text-xs font-bold text-slate-700 mb-1 flex items-center gap-1.5">
-                        <i class="fa-solid fa-stethoscope text-emerald-600"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-burgundy-50/60 p-3 rounded-2xl border border-burgundy-200/60">
+                    <label class="block text-xs font-bold text-burgundy-950 mb-1.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-stethoscope text-burgundy-700"></i>
                         <span>تصفية بحسب المرض أو العَرَض:</span>
                     </label>
                     <select
                         id="diseaseFilter"
-                        class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-600 outline-none text-xs md:text-sm bg-white font-semibold text-slate-700"
+                        class="w-full px-3.5 py-2.5 rounded-xl border border-burgundy-200 focus:ring-2 focus:ring-amberGold-500 outline-none text-xs md:text-sm bg-white font-bold text-slate-700 shadow-sm"
                     >
                         <option value="all">جميع الأمراض والأعراض المعالجة</option>
                     </select>
                 </div>
 
-                <div class="bg-slate-50/80 p-2.5 rounded-2xl border border-slate-200/80">
-                    <label class="block text-xs font-bold text-slate-700 mb-1 flex items-center gap-1.5">
-                        <i class="fa-solid fa-award text-gold-600"></i>
-                        <span>درجة ثبوت الحديث:</span>
+                <div class="bg-amberGold-50/60 p-3 rounded-2xl border border-amberGold-200/80">
+                    <label class="block text-xs font-bold text-amberGold-900 mb-1.5 flex items-center gap-1.5">
+                        <i class="fa-solid fa-certificate text-amberGold-600"></i>
+                        <span>درجة ثبوت الحديث وإسناده:</span>
                     </label>
                     <select
                         id="gradeFilter"
-                        class="w-full px-3 py-2 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-600 outline-none text-xs md:text-sm bg-white font-semibold text-slate-700"
+                        class="w-full px-3.5 py-2.5 rounded-xl border border-amberGold-300 focus:ring-2 focus:ring-amberGold-500 outline-none text-xs md:text-sm bg-white font-bold text-slate-700 shadow-sm"
                     >
-                        <option value="all">جميع درجات الحديث</option>
+                        <option value="all">جميع الدرجات الحديثية</option>
                         <option value="صحيح">صحيح فقط</option>
                         <option value="حسن">حسن</option>
                         <option value="ضعيف_معلل">ضعيف معلل</option>
@@ -242,25 +254,25 @@
             </div>
 
             <!-- وسوم الصفة الاستعمالية الشرعية -->
-            <div class="space-y-2 pt-1 border-t border-slate-100">
-                <span class="text-xs font-bold text-slate-600 block">🏷️ الصفة الاستعمالية:</span>
-                <div class="flex flex-wrap gap-1.5" id="tagsContainer">
-                    <button class="tag-btn bg-emerald-900 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-sm" data-tag="all">جميع الأبواب</button>
-                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-xl text-xs font-bold transition" data-tag="دواء_واستشفاء_صريح">🌿 دواء واستشفاء منصوص</button>
-                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-xl text-xs font-bold transition" data-tag="غذاء_وعادة">🥣 غذاء وهدي معيشي</button>
-                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-xl text-xs font-bold transition" data-tag="وقاية_وحفظ_صحة">🛡️ وقاية وحفظ صحة</button>
-                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-xl text-xs font-bold transition" data-tag="نظافة_وسنن_فطرة">💧 سنن الفطرة والنظافة</button>
-                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-xl text-xs font-bold transition" data-tag="إجراء_جراحي_يدوي">✂️ إجراء جراحي يدوي</button>
-                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-xl text-xs font-bold transition" data-tag="أصل_تشريعي_وأدب">⚖️ تشريع وأدب طبي</button>
+            <div class="space-y-2.5 pt-2 border-t border-slate-100">
+                <span class="text-xs font-black text-slate-700 block">🏷️ الصفة الاستعمالية الشرعية المنضبطة:</span>
+                <div class="flex flex-wrap gap-2" id="tagsContainer">
+                    <button class="tag-btn bg-gradient-to-r from-burgundy-900 to-burgundy-800 text-amberGold-300 border border-amberGold-400 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition shadow-md" data-tag="all">جميع الأبواب</button>
+                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-burgundy-100 hover:text-burgundy-900 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-slate-200" data-tag="دواء_واستشفاء_صريح">🌿 دواء واستشفاء منصوص</button>
+                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-burgundy-100 hover:text-burgundy-900 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-slate-200" data-tag="غذاء_وعادة">🥣 غذاء وهدي معيشي</button>
+                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-burgundy-100 hover:text-burgundy-900 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-slate-200" data-tag="وقاية_وحفظ_صحة">🛡️ وقاية وحفظ صحة</button>
+                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-burgundy-100 hover:text-burgundy-900 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-slate-200" data-tag="نظافة_وسنن_فطرة">💧 سنن الفطرة والنظافة</button>
+                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-burgundy-100 hover:text-burgundy-900 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-slate-200" data-tag="إجراء_جراحي_يدوي">✂️ إجراء جراحي يدوي</button>
+                    <button class="tag-btn bg-slate-100 text-slate-700 hover:bg-burgundy-100 hover:text-burgundy-900 px-3.5 py-2 rounded-xl text-xs md:text-sm font-bold transition border border-slate-200" data-tag="أصل_تشريعي_وأدب">⚖️ تشريع وأدب طبي</button>
                 </div>
             </div>
 
             <!-- شريط نتائج البحث وزر التصفير -->
             <div class="flex justify-between items-center pt-2 border-t border-slate-100 text-xs">
-                <div class="font-bold text-slate-600">
-                    البطاقات المطابقة: <span id="resultsCount" class="text-emerald-900 font-black text-sm">0</span>
+                <div class="font-bold text-slate-700">
+                    البطاقات المطابقة: <span id="resultsCount" class="text-burgundy-900 font-black text-base px-2 py-0.5 rounded-lg bg-amberGold-100 border border-amberGold-300">0</span>
                 </div>
-                <button id="resetBtn" class="text-rose-600 hover:text-rose-800 font-bold transition flex items-center gap-1">
+                <button id="resetBtn" class="text-rose-600 hover:text-rose-800 font-bold transition flex items-center gap-1.5">
                     <i class="fa-solid fa-rotate-left"></i>
                     <span>إعادة ضبط البحث</span>
                 </button>
@@ -269,31 +281,31 @@
     </section>
 
     <!-- منطقة عرض البطاقات ومؤشر البحث (Loading Spinner) -->
-    <main class="max-w-6xl mx-auto px-4 py-10 flex-grow w-full">
+    <main class="max-w-6xl mx-auto px-4 py-12 flex-grow w-full">
 
         <!-- دائرة الانتظار والتحميل وقت البحث (Spinner) -->
         <div id="loadingSpinner" class="hidden text-center py-16">
-            <div class="inline-block w-12 h-12 border-4 border-emerald-200 border-t-emerald-700 rounded-full animate-spin"></div>
-            <p class="text-xs font-bold text-slate-500 mt-3">جاري استخراج وتحديث النتائج...</p>
+            <div class="inline-block w-14 h-14 border-4 border-burgundy-200 border-t-amberGold-500 rounded-full animate-spin"></div>
+            <p class="text-xs font-bold text-burgundy-900 mt-3 font-serif">جاري استخراج وتحديث النتائج...</p>
         </div>
 
         <!-- شبكة البطاقات -->
-        <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+        <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
     </main>
 
-    <!-- تذييل الصفحة الرسمي والوقفية -->
-    <footer class="bg-emerald-950 text-white border-t border-emerald-900 py-10 text-center text-xs mt-16">
-        <div class="max-w-4xl mx-auto px-4 space-y-3">
-            <div class="text-gold-300 font-serif text-2xl font-bold tracking-wide">
+    <!-- تذييل الصفحة الملكي الفخم والوقفية -->
+    <footer class="bg-burgundy-990 text-white border-t-2 border-amberGold-500/40 py-12 text-center text-xs mt-16 shadow-2xl">
+        <div class="max-w-4xl mx-auto px-4 space-y-3.5">
+            <div class="text-transparent bg-clip-text bg-gradient-to-r from-amberGold-300 via-amberGold-100 to-amberGold-400 font-serif text-3xl font-black tracking-wide drop-shadow">
                 وقفٌ لله تعالى
             </div>
-            <div class="text-emerald-100 font-kufi text-lg font-bold">
+            <div class="text-amberGold-300 font-kufi text-xl font-bold">
                 @شيرين بنت كاظم بنون
             </div>
-            <p class="text-emerald-300/80 max-w-lg mx-auto text-xs leading-relaxed font-light">
+            <p class="text-amberGold-100/80 max-w-lg mx-auto text-xs leading-relaxed font-light">
                 اللهم اجعل هذا العمل خالصاً لوجهك الكريم، نافعاً لعبادك، ومصدراً موثوقاً لصيانة جناب السنة النبوية المطهرة.
             </p>
-            <div class="text-emerald-500/60 pt-3 border-t border-emerald-900/80 text-[11px]">
+            <div class="text-amberGold-400/60 pt-4 border-t border-burgundy-900 text-[11px]">
                 الموسوعة الجامعة للهدي والصحة النبوية © عمل وقفي متاح للجميع
             </div>
         </div>
@@ -302,440 +314,517 @@
     <!-- النوافذ المنبثقة التفاعلية (Modals) للقائمة الجانبية -->
 
     <!-- نافذة: عن الموسوعة -->
-    <div id="aboutModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-4 shadow-2xl relative border border-slate-200 max-h-[85vh] overflow-y-auto custom-scrollbar">
+    <div id="aboutModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-4 shadow-2xl relative border-2 border-amberGold-400 max-h-[85vh] overflow-y-auto custom-scrollbar">
             <button onclick="closeModal('aboutModal')" class="absolute top-5 left-5 w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <div class="inline-block bg-emerald-100 text-emerald-900 px-3 py-0.5 rounded-full text-xs font-bold">عن المنصة</div>
-            <h3 class="text-2xl font-black font-serif text-emerald-950">الموسوعة الجامعة للهدي والصحة النبوية</h3>
-            <p class="text-sm text-slate-600 leading-relaxed">
+            <div class="inline-block bg-burgundy-100 text-burgundy-950 px-3 py-0.5 rounded-full text-xs font-bold border border-burgundy-200">عن المنصة</div>
+            <h3 class="text-2xl font-black font-serif text-burgundy-950">الموسوعة الجامعة للهدي والصحة النبوية</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">
                 مشروع علمي واستقصائي رائد يهدف إلى حصر وتحقيق كامل المرويات النبوية والآثار ذات الصلة بالصحة والبدن والتغذية والجراحة والبيئة، وعرضها في بيئة رقمية حديثة تخدم الباحثين، والأطباء، وعموم المسلمين في مشارق الأرض ومغاربها.
             </p>
         </div>
     </div>
 
     <!-- نافذة: منهج الموسوعة -->
-    <div id="methodologyModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-4 shadow-2xl relative border border-slate-200 max-h-[85vh] overflow-y-auto custom-scrollbar">
+    <div id="methodologyModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 space-y-4 shadow-2xl relative border-2 border-amberGold-400 max-h-[85vh] overflow-y-auto custom-scrollbar">
             <button onclick="closeModal('methodologyModal')" class="absolute top-5 left-5 w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <div class="inline-block bg-gold-100 text-gold-700 px-3 py-0.5 rounded-full text-xs font-bold">الأمانة الحديثية</div>
-            <h3 class="text-2xl font-black font-serif text-emerald-950">منهج التحقيق والتصنيف</h3>
+            <div class="inline-block bg-amberGold-100 text-amberGold-900 px-3 py-0.5 rounded-full text-xs font-bold border border-amberGold-300">الأمانة الحديثية</div>
+            <h3 class="text-2xl font-black font-serif text-burgundy-950">منهج التحقيق والتصنيف</h3>
             <div class="space-y-3 text-xs sm:text-sm text-slate-700 leading-relaxed">
                 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                    <strong class="text-emerald-900 block mb-1">1. النقل الحرفي الدقيق:</strong>
+                    <strong class="text-burgundy-900 block mb-1">1. النقل الحرفي الدقيق:</strong>
                     نقل متون الأحاديث بألفاظها الحرفية التامة المثبتة في الروايات المسندة، مع العزو للكتاب والباب ورقم الحديث المعتمد.
                 </div>
                 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                    <strong class="text-emerald-900 block mb-1">2. تمييز العادة عن الدواء:</strong>
+                    <strong class="text-burgundy-900 block mb-1">2. تمييز العادة عن الدواء:</strong>
                     عدم إطلاق وصف "دواء أو علاج" إلا على ما تضمن نصاً صريحاً بالشفاء أو الاستطباب، وتسمية المأكولات المعتادة بالهدي الغذائي.
                 </div>
                 <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                    <strong class="text-emerald-900 block mb-1">3. التحقيق الطبي والمحاذير:</strong>
+                    <strong class="text-burgundy-900 block mb-1">3. التحقيق الطبي والمحاذير:</strong>
                     إبراز المنظور الطبي المعاصر المنضبط، وإدراج التنبيهات والمحاذير السريرية لسلامة الاستخدام.
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- نافذة: اتصل بنا والمقترحات (مربوطة ببريدك) -->
-    <div id="contactModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-4 shadow-2xl relative border border-slate-200 max-h-[90vh] overflow-y-auto custom-scrollbar">
+    <!-- نافذة: اتصل بنا والمقترحات (نموذج مباشر عبر API مع إشعار بالنجاح) -->
+    <div id="contactModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 space-y-4 shadow-2xl relative border-2 border-amberGold-400 max-h-[90vh] overflow-y-auto custom-scrollbar">
             <button onclick="closeModal('contactModal')" class="absolute top-5 left-5 w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <div class="inline-block bg-emerald-100 text-emerald-900 px-3 py-0.5 rounded-full text-xs font-bold">التواصل المباشر</div>
-            <h3 class="text-2xl font-black font-serif text-emerald-950">اتصل بإدارة الموسوعة</h3>
-            <p class="text-xs text-slate-600">تسعدنا مقترحاتكم واستفساراتكم وتنبيهاتكم العلمية عبر هذا النموذج المباشر.</p>
+            <div class="inline-block bg-burgundy-100 text-burgundy-950 px-3 py-0.5 rounded-full text-xs font-bold border border-burgundy-200">التواصل المباشر</div>
+            <h3 class="text-2xl font-black font-serif text-burgundy-950">اتصل بإدارة الموسوعة</h3>
+            <p class="text-xs text-slate-600">تسعدنا مقترحاتكم واستفساراتكم وتنبيهاتكم العلمية مباشرة عبر هذا النموذج.</p>
 
-            <form action="https://formsubmit.co/sh.k.b1448@gmail.com" method="POST" class="space-y-3 pt-2">
-                <input type="hidden" name="_subject" value="رسالة جديدة من موقع موسوعة الصحة النبوية">
-                <input type="hidden" name="_captcha" value="false">
-
+            <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-3.5 pt-2">
                 <div>
                     <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكريم:</label>
-                    <input type="text" name="name" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-600 outline-none text-xs bg-slate-50" placeholder="اسمك الكريم...">
+                    <input type="text" id="contactName" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amberGold-500 outline-none text-xs bg-slate-50" placeholder="اسمك الكريم...">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-700 mb-1">البريد الإلكتروني:</label>
-                    <input type="email" name="email" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-600 outline-none text-xs bg-slate-50" placeholder="name@example.com">
+                    <input type="email" id="contactEmail" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amberGold-500 outline-none text-xs bg-slate-50" placeholder="name@example.com">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-700 mb-1">الموضوع:</label>
-                    <input type="text" name="subject" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-600 outline-none text-xs bg-slate-50" placeholder="استفسار / مقترح...">
+                    <input type="text" id="contactSubject" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amberGold-500 outline-none text-xs bg-slate-50" placeholder="استفسار / مقترح...">
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-700 mb-1">نص الرسالة:</label>
-                    <textarea name="message" rows="3" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-600 outline-none text-xs bg-slate-50" placeholder="اكتب رسالتك بالتفصيل..."></textarea>
+                    <textarea id="contactMessage" rows="3" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amberGold-500 outline-none text-xs bg-slate-50" placeholder="اكتب رسالتك بالتفصيل..."></textarea>
                 </div>
-                <button type="submit" class="w-full bg-emerald-900 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl shadow-md transition text-xs flex items-center justify-center gap-2">
+                <button type="submit" id="contactSubmitBtn" class="w-full bg-gradient-to-r from-burgundy-900 to-burgundy-800 hover:from-burgundy-800 hover:to-burgundy-700 text-amberGold-300 font-bold py-3 rounded-xl shadow-md transition text-xs flex items-center justify-center gap-2 border border-amberGold-400/40">
                     <i class="fa-solid fa-paper-plane"></i>
-                    <span>إرسال الرسالة للإدارة</span>
+                    <span id="contactBtnText">إرسال الرسالة إلى إدارة الموسوعة</span>
                 </button>
             </form>
+            <div id="contactStatus" class="hidden text-center p-3 rounded-xl text-xs font-bold"></div>
         </div>
     </div>
 
-    <!-- ربط ملف البيانات المعتمد cards.js -->
-    <script src="cards.js"></script>
-
-    <!-- المحرك البرمجي المطور للبحث والتصفية والتصدير -->
+    <!-- المحرك البرمجي المدمج وقاعدة البيانات الكاملة دون أي ملف خارجي -->
     <script>
-        let currentTag = 'all';
-        let searchTimeout = null;
-
-        // إدارة القائمة الجانبية (Sidebar)
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebarOverlay');
-            const isOpen = !sidebar.classList.contains('translate-x-full');
-
-            if (isOpen) {
-                sidebar.classList.add('translate-x-full');
-                overlay.classList.add('opacity-0', 'pointer-events-none');
-            } else {
-                sidebar.classList.remove('translate-x-full');
-                overlay.classList.remove('opacity-0', 'pointer-events-none');
-            }
-        }
-
-        // إدارة النوافذ المنبثقة (Modals)
-        function openModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.classList.remove('opacity-0', 'pointer-events-none');
-            }
-        }
-
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.classList.add('opacity-0', 'pointer-events-none');
-            }
-        }
-
-        // ملء قائمة الأمراض الفريدة
-        function populateDiseases() {
-            const select = document.getElementById('diseaseFilter');
-            const set = new Set();
-            if (typeof allCards !== 'undefined') {
-                allCards.forEach(card => {
-                    if (card.diseases_and_symptoms) {
-                        card.diseases_and_symptoms.forEach(d => set.add(d));
-                    }
-                });
-            }
-            Array.from(set).sort().forEach(disease => {
-                const opt = document.createElement('option');
-                opt.value = disease;
-                opt.textContent = disease;
-                select.appendChild(opt);
-            });
-        }
-
-        // نسخ بيانات البطاقة كاملة بالتخريج
-        function copyCardContent(cardId, btnElement) {
-            if (typeof allCards === 'undefined') return;
-            const card = allCards.find(c => c.id === cardId);
-            if (!card) return;
-
-            const textToCopy = `📌 [${card.title}]
-«${card.hadith_verbatim}»
-📖 المصدر والتخريج: ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})
-👤 الصحابي الراوي: ${card.companion}
-⚖️ الحكم السندي: ${card.authenticity.grade} (${card.authenticity.judgement_by})
-🎯 العضو/الجهاز المستهدف: ${card.target_body_system}
-🩺 الاستعمال التراثي: ${card.traditional_indication}
-🔬 المنظور الطبي الحديث: ${card.modern_health_insight}
-${card.precautions ? `⚠️ تنبيه طبي: ${card.precautions}` : ''}`;
-
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const originalHtml = btnElement.innerHTML;
-                btnElement.innerHTML = `<i class="fa-solid fa-check"></i> <span>تم النسخ!</span>`;
-                btnElement.className = "py-2 px-2 rounded-xl text-xs font-bold bg-emerald-700 text-white shadow transition flex items-center justify-center gap-1";
-
-                setTimeout(() => {
-                    btnElement.innerHTML = originalHtml;
-                    btnElement.className = "py-2 px-2 rounded-xl text-xs font-bold bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 border border-slate-200 hover:border-emerald-300 transition flex items-center justify-center gap-1 shadow-sm";
-                }, 2000);
-            });
-        }
-
-        // تصدير بطاقة مفردة Word
-        function exportSingleCardWord(cardId) {
-            if (typeof allCards === 'undefined') return;
-            const card = allCards.find(c => c.id === cardId);
-            if (!card) return;
-
-            const content = `
-                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
-                <head><meta charset='utf-8'><title>${card.title}</title>
-                <style>body{font-family:'Traditional Arabic',Arial;direction:rtl;text-align:right;padding:20px;}</style>
-                </head><body>
-                <h1 style="color:#064e3b;border-bottom:2px solid #064e3b;padding-bottom:5px;">${card.title}</h1>
-                <p style="font-size:14pt;line-height:2;"><strong>الحديث الشريف:</strong> «${card.hadith_verbatim}»</p>
-                <p><strong>المصدر:</strong> ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})</p>
-                <p><strong>الراوي:</strong> ${card.companion} | <strong>الحكم:</strong> ${card.authenticity.grade} (${card.authenticity.judgement_by})</p>
-                <p><strong>العضو المستهدف:</strong> ${card.target_body_system}</p>
-                <p><strong>التوصيف النبوي:</strong> ${card.prophetic_context}</p>
-                <p><strong>الاستعمال التراثي:</strong> ${card.traditional_indication}</p>
-                <p><strong>المنظور الطبي المعاصر:</strong> ${card.modern_health_insight}</p>
-                ${card.precautions ? `<p style="color:red;"><strong>تنبيه:</strong> ${card.precautions}</p>` : ''}
-                <hr><p style="text-align:center;font-size:10pt;color:#666;">الموسوعة الجامعة للهدي والصحة النبوية - وقف لله تعالى @شيرين بنت كاظم بنون</p>
-                </body></html>
-            `;
-
-            const blob = new Blob(['\ufeff' + content], { type: 'application/msword' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `بطاقة_${card.id}_${card.title}.doc`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        // تصدير بطاقة مفردة PDF
-        function exportSingleCardPDF(cardId) {
-            const element = document.getElementById(`card-element-${cardId}`);
-            if (!element) return;
-            const opt = {
-                margin: 10,
-                filename: `بطاقة_${cardId}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            html2pdf().set(opt).from(element).save();
-        }
-
-        // تصدير كامل الموسوعة Word
-        function exportFullEncyclopediaWord() {
-            if (typeof allCards === 'undefined') return;
-            let fullHtml = `
-                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
-                <head><meta charset='utf-8'><title>الموسوعة الجامعة للهدي والصحة النبوية</title>
-                <style>body{font-family:'Traditional Arabic',Arial;direction:rtl;text-align:right;padding:25px;} .card{page-break-inside:avoid;margin-bottom:25px;border-bottom:1px solid #ccc;padding-bottom:15px;}</style>
-                </head><body>
-                <h1 style="text-align:center;color:#064e3b;">الموسوعة الجامعة للهدي والصحة النبوية</h1>
-                <p style="text-align:center;font-size:12pt;">وقف لله تعالى @شيرين بنت كاظم بنون</p><hr><br>
-            `;
-
-            allCards.forEach(card => {
-                fullHtml += `
-                    <div class="card">
-                        <h2 style="color:#064e3b;">#${card.id} - ${card.title}</h2>
-                        <p style="font-size:14pt;line-height:2;">«${card.hadith_verbatim}»</p>
-                        <p><strong>المصدر:</strong> ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})</p>
-                        <p><strong>الراوي:</strong> ${card.companion} | <strong>الحكم:</strong> ${card.authenticity.grade}</p>
-                        <p><strong>العضو المستهدف:</strong> ${card.target_body_system}</p>
-                        <p><strong>الاستعمال التراثي:</strong> ${card.traditional_indication}</p>
-                        <p><strong>المنظور الطبي:</strong> ${card.modern_health_insight}</p>
-                        ${card.precautions ? `<p style="color:red;"><strong>تنبيه:</strong> ${card.precautions}</p>` : ''}
-                    </div>
-                `;
-            });
-
-            fullHtml += '</body></html>';
-            const blob = new Blob(['\ufeff' + fullHtml], { type: 'application/msword' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `الموسوعة_الجامعة_للصحة_النبوية_كاملة.doc`;
-            a.click();
-            URL.revokeObjectURL(url);
-        }
-
-        // تصدير كامل الموسوعة PDF
-        function exportFullEncyclopediaPDF() {
-            const grid = document.getElementById('cardsGrid');
-            const opt = {
-                margin: 8,
-                filename: `الموسوعة_الجامعة_للصحة_النبوية.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 1.5 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            html2pdf().set(opt).from(grid).save();
-        }
-
-        // تصيير وتحديث البطاقات مع تشغيل دائرة البحث (Spinner)
-        function triggerRenderWithSpinner() {
-            const spinner = document.getElementById('loadingSpinner');
-            const grid = document.getElementById('cardsGrid');
-
-            grid.innerHTML = '';
-            spinner.classList.remove('hidden');
-
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => {
-                spinner.classList.add('hidden');
-                executeRender();
-            }, 180);
-        }
-
-        function executeRender() {
-            if (typeof allCards === 'undefined') return;
-            const query = document.getElementById('searchInput').value.trim().toLowerCase();
-            const selectedGrade = document.getElementById('gradeFilter').value;
-            const selectedDisease = document.getElementById('diseaseFilter').value;
-            const grid = document.getElementById('cardsGrid');
-            grid.innerHTML = '';
-
-            const filtered = allCards.filter(card => {
-                const matchesTag = currentTag === 'all' || (card.usage_types && card.usage_types.includes(currentTag));
-                const matchesGrade = selectedGrade === 'all' || (card.authenticity && card.authenticity.grade === selectedGrade);
-                const matchesDisease = selectedDisease === 'all' || (card.diseases_and_symptoms && card.diseases_and_symptoms.includes(selectedDisease));
-
-                const matchesQuery = !query ||
-                    card.title.toLowerCase().includes(query) ||
-                    card.hadith_verbatim.toLowerCase().includes(query) ||
-                    card.target_body_system.toLowerCase().includes(query) ||
-                    card.companion.toLowerCase().includes(query) ||
-                    (card.diseases_and_symptoms && card.diseases_and_symptoms.some(d => d.toLowerCase().includes(query)));
-
-                return matchesTag && matchesGrade && matchesDisease && matchesQuery;
-            });
-
-            document.getElementById('resultsCount').textContent = filtered.length;
-
-            if (filtered.length === 0) {
-                grid.innerHTML = `
-                    <div class="col-span-full text-center py-16 bg-white rounded-3xl border border-dashed border-slate-300">
-                        <i class="fa-solid fa-magnifying-glass text-3xl text-slate-400 mb-2"></i>
-                        <p class="text-slate-700 font-bold text-base">لم يتم العثور على بطاقات تطابق معايير البحث.</p>
-                        <p class="text-slate-400 text-xs mt-1">جرب كلمات أخرى أو أعد ضبط خيارات البحث.</p>
-                    </div>
-                `;
-                return;
-            }
-
-            filtered.forEach(card => {
-                const article = document.createElement('article');
-                article.id = `card-element-${card.id}`;
-                article.className = "bg-white rounded-3xl border border-slate-200/90 shadow-sm card-glow transition-all duration-300 flex flex-col justify-between overflow-hidden relative";
-
-                const gradeBadgeClass =
-                    card.authenticity.grade === 'صحيح' ? 'bg-emerald-100 text-emerald-900 border-emerald-300' :
-                    card.authenticity.grade === 'حسن' ? 'bg-teal-100 text-teal-900 border-teal-300' : 'bg-amber-100 text-amber-900 border-amber-300';
-
-                const diseasesHtml = card.diseases_and_symptoms && card.diseases_and_symptoms.length > 0 ? `
-                    <div class="flex flex-wrap items-center gap-1.5 mb-3.5 bg-slate-50 p-2.5 rounded-2xl border border-slate-100">
-                        <span class="text-[10px] font-black text-slate-500">الأمراض والأعراض:</span>
-                        ${card.diseases_and_symptoms.map(d => `
-                            <button onclick="setDiseaseFilter('${d}')" class="text-[11px] px-2 py-0.5 rounded-lg font-bold bg-rose-50 text-rose-800 border border-rose-200 hover:bg-rose-100 transition">
-                                💊 ${d}
-                            </button>
-                        `).join('')}
-                    </div>
-                ` : '';
-
-                const tagsHtml = card.usage_types ? card.usage_types.map(t => `
-                    <span class="text-[11px] px-2 py-0.5 rounded-lg bg-emerald-50 text-emerald-800 font-bold border border-emerald-200">
-                        🏷️ ${t.replace(/_/g, ' ')}
-                    </span>
-                `).join('') : '';
-
-                article.innerHTML = `
-                    <div class="p-6 pb-4">
-                        <div class="flex justify-between items-start gap-2 mb-3">
-                            <span class="text-xs font-black text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">#${card.id}</span>
-                            <div class="flex flex-wrap gap-1.5 justify-end">
-                                <span class="text-xs px-2.5 py-0.5 rounded-full font-black border ${gradeBadgeClass}">${card.authenticity.grade}</span>
-                                <span class="bg-slate-100 text-slate-700 text-xs px-2.5 py-0.5 rounded-full border border-slate-200 font-bold">🎯 ${card.target_body_system}</span>
-                            </div>
-                        </div>
-
-                        <h2 class="text-xl font-bold text-slate-900 mb-2.5 font-serif">${card.title}</h2>
-
-                        ${diseasesHtml}
-
-                        <div class="bg-gradient-to-r from-emerald-50 to-emerald-100/40 border-r-4 border-emerald-700 p-4 rounded-2xl mb-3 text-emerald-950 hadith-text text-base md:text-lg shadow-sm">
-                            «${card.hadith_verbatim}»
-                        </div>
-
-                        <div class="text-xs text-slate-700 bg-slate-50 p-3 rounded-2xl border border-slate-200/80 mb-3 space-y-1">
-                            <p><strong>📖 المصدر والتخريج:</strong> ${card.primary_source} (${card.book_name} - ${card.chapter_name}، رقم: ${card.hadith_number})</p>
-                            <p><strong>👤 الصحابي الراوي:</strong> ${card.companion}</p>
-                            <p><strong>⚖️ الحكم السندي:</strong> <span class="text-emerald-900 font-bold">${card.authenticity.judgement_by}</span></p>
-                        </div>
-
-                        <div class="flex flex-wrap gap-1 mb-3">${tagsHtml}</div>
-
-                        <div class="space-y-1.5 text-xs text-slate-800 border-t border-slate-100 pt-3 leading-relaxed">
-                            <p><strong class="text-emerald-950">📌 التوصيف:</strong> ${card.prophetic_context}</p>
-                            <p><strong class="text-emerald-950">🩺 الاستعمال:</strong> ${card.traditional_indication}</p>
-                            <p><strong class="text-emerald-950">🔬 المنظور الطبي:</strong> ${card.modern_health_insight}</p>
-                        </div>
-
-                        ${card.precautions ? `
-                            <div class="mt-3 p-2.5 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 font-medium">
-                                ⚠️ <strong>تنبيه طبي:</strong> ${card.precautions}
-                            </div>
-                        ` : ''}
-                    </div>
-
-                    <!-- أزرار النسخ والتصدير في أسفل كل بطاقة -->
-                    <div class="px-6 py-3.5 bg-slate-50 border-t border-slate-200/80 grid grid-cols-3 gap-2">
-                        <button onclick="copyCardContent(${card.id}, this)" class="py-2 px-2 rounded-xl text-xs font-bold bg-white hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 border border-slate-200 hover:border-emerald-300 transition flex items-center justify-center gap-1 shadow-sm">
-                            <i class="fa-regular fa-copy"></i>
-                            <span>نسخ</span>
-                        </button>
-                        <button onclick="exportSingleCardPDF(${card.id})" class="py-2 px-2 rounded-xl text-xs font-bold bg-white hover:bg-rose-50 text-rose-700 border border-slate-200 hover:border-rose-300 transition flex items-center justify-center gap-1 shadow-sm">
-                            <i class="fa-solid fa-file-pdf"></i>
-                            <span>PDF</span>
-                        </button>
-                        <button onclick="exportSingleCardWord(${card.id})" class="py-2 px-2 rounded-xl text-xs font-bold bg-white hover:bg-indigo-50 text-indigo-700 border border-slate-200 hover:border-indigo-300 transition flex items-center justify-center gap-1 shadow-sm">
-                            <i class="fa-solid fa-file-word"></i>
-                            <span>Word</span>
-                        </button>
-                    </div>
-                `;
-                grid.appendChild(article);
-            });
-        }
-
-        function setDiseaseFilter(disease) {
-            document.getElementById('diseaseFilter').value = disease;
-            triggerRenderWithSpinner();
-        }
-
-        // مستمعات الأحداث للتصفية الفورية
-        document.getElementById('searchInput').addEventListener('input', triggerRenderWithSpinner);
-        document.getElementById('gradeFilter').addEventListener('change', triggerRenderWithSpinner);
-        document.getElementById('diseaseFilter').addEventListener('change', triggerRenderWithSpinner);
-
-        document.getElementById('tagsContainer').addEventListener('click', (e) => {
-            const btn = e.target.closest('.tag-btn');
-            if (btn) {
-                document.querySelectorAll('.tag-btn').forEach(b => {
-                    b.className = 'tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-xl text-xs font-bold transition';
-                });
-                btn.className = 'tag-btn bg-emerald-900 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-sm';
-                currentTag = btn.getAttribute('data-tag');
-                triggerRenderWithSpinner();
-            }
-        });
-
-        document.getElementById('resetBtn').addEventListener('click', () => {
-            document.getElementById('searchInput').value = '';
-            document.getElementById('gradeFilter').value = 'all';
-            document.getElementById('diseaseFilter').value = 'all';
-            document.querySelectorAll('.tag-btn').forEach(b => {
-                b.className = 'tag-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-3 py-1.5 rounded-xl text-xs font-bold transition';
-            });
-            document.querySelector('[data-tag="all"]').className = 'tag-btn bg-emerald-900 text-white px-3 py-1.5 rounded-xl text-xs font-bold transition shadow-sm';
-            currentTag = 'all';
-            triggerRenderWithSpinner();
-        });
-
-        // البدء عند اكتمال تحميل الصفحة
-        window.addEventListener('DOMContentLoaded', () => {
-            populateDiseases();
-            executeRender();
-        });
-    </script>
-</body>
-</html>
-```
+        // قاعدة البيانات المحققة مدمجة بالكامل لتعمل فوراً ذاتياً دون الحاجة لملفات خارجية
+        const allCards = [
+            {
+                id: 1,
+                title: "الاستشفاء بالعسل والحجامة والكي",
+                diseases_and_symptoms: ["النزف الحاد", "احتقان الدم", "الصداع والشقيقة", "اضطرابات الهضم", "الجروح والحروق"],
+                usage_types: ["دواء_واستشفاء_صريح", "غذاء_وعادة", "إجراء_جراحي_يدوي"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز الهضمي، الدورة الدموية، الجروح",
+                hadith_verbatim: "الشِّفَاءُ فِي ثَلاَثَةٍ: شَرْبَةِ عَسَلٍ، وَشَرْطَةِ مِحْجَمٍ، وَكَيَّةِ نَارٍ، وَأَنْهَى أُمَّتِي عَنِ الكَيِّ",
+                companion: "عبد الله بن عباس رضي الله عنهما",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب الشفاء في ثلاث",
+                hadith_number: 5680,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "الإمام البخاري (أخرجه في صحيحه)"
+                },
+                prophetic_context: "نص استشفائي صريح بالاستطباب بهذه الأصول الثلاثة مع كراهة الكي والنهي عنه إلا لضرورة حسم النزف",
+                traditional_indication: "استفراغ الأخلاط الرديئة: الدموية بالحجامة، والبلغمية بالعسل، وحسم المادة العفنة بالكي",
+                modern_health_insight: "العسل مطهر طبيعي ومضاد للأكسدة، والحجامة تنشط التروية الموضعية، والكي يناظر الجراحة الحرارية لحسم النزف",
+                precautions: "يمتنع إعطاء العسل للرضع دون عمر السنة، والكي لا يصار إليه إلا عند تعذر البدائل الطبية"
+            },
+            {
+                id: 2,
+                title: "علاج استطلاق البطن بسقي العسل",
+                diseases_and_symptoms: ["استطلاق البطن (الإسهال)", "مغص الأمعاء", "عسر الهضم", "تسمم الغذاء"],
+                usage_types: ["دواء_واستشفاء_صريح", "غذاء_وعادة"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز الهضمي والأمعاء",
+                hadith_verbatim: "أَنَّ رَجُلًا أَتَى النَّبِيَّ ﷺ فَقَالَ: أَخِي يَشْتَكِي بَطْنَهُ، فَقَالَ: «اسْقِهِ عَسَلًا» ثُمَّ أَتَى الثَّانِيَةَ، فَقَالَ: «اسْقِهِ عَسَلًا» ثُمَّ أَتَاهُ الثَّالِثَةَ فَقَالَ: «اسْقِهِ عَسَلًا» ثُمَّ أَتَاهُ فَقَالَ: قَدْ فَعَلْتُ؟ فَقَالَ: «صَدَقَ اللَّهُ، وَكَذَبَ بَطْنُ أَخِيكَ، اسْقِهِ عَسَلًا» فَسَقَاهُ فَبَرَأَ",
+                companion: "أبو سعيد الخدري رضي الله عنه",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب الدواء بالعسل",
+                hadith_number: 5684,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 2217)"
+                },
+                prophetic_context: "توجيه علاجي صريح بتكرار جرعة العسل للمريض لدفع المادة اللزجة الفاسدة المسببة للاستطلاق حتى برأ",
+                traditional_indication: "دباغة المعدة وجلاء الفضلات البلغمية الملتصقة بجدار الأمعاء",
+                modern_health_insight: "يمتلك العسل فاعلية مضادة للبكتيريا المعوية المسببة للإسهال ويعوض السوائل والأملاح المفقودة",
+                precautions: "مراعاة تعويض السوائل تجنباً للجفاف ومراقبة مرضى السكري"
+            },
+            {
+                id: 3,
+                title: "التلبينة لمجم فؤاد المريض وذهاب الحزن",
+                diseases_and_symptoms: ["الحزن والاكتئاب", "ضعف الشهية", "إعياء المريض", "وهن النقاهة"],
+                usage_types: ["غذاء_وعادة", "دواء_واستشفاء_صريح"],
+                primary_usage: "غذاء_وعادة",
+                target_body_system: "الجهاز الهضمي والدعم العصبي والنفسي",
+                hadith_verbatim: "التَّلْبِينَةُ مُجِمَّةٌ لِفُؤَادِ المَرِيضِ، تَذْهَبُ بِبَعْضِ الحُزْنِ",
+                companion: "عائشة أم المؤمنين رضي الله عنها",
+                primary_source: "صحيح البخاري",
+                book_name: "صحيح البخاري: كتاب الأطعمة / صحيح مسلم: كتاب السلام",
+                chapter_name: "باب التلبينة مجمة لفؤاد المريض",
+                hadith_number: 5417,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (البخاري برقم 5417 ومسلم برقم 2216)"
+                },
+                prophetic_context: "أمرت بها عائشة رضي الله عنها عند المصيبة والمرض لطعام أهل الميت والمريض لإراحة الفؤاد وترطيب البدن",
+                traditional_indication: "تغذية البدن الضعيف بخلط لطيف سهل الهضم، وتسكين حرارة وحزن القلب ببرودتها ورطوبتها",
+                modern_health_insight: "حساء الشعير بنخالته غني بالألياف الذائبة وحمض التريبتوفان المسهم في تحسين المزاج وتخفيف الكرب",
+                precautions: "لا تناسب مرضى حساسية الجلوتين (السيلياك)"
+            },
+            {
+                id: 4,
+                title: "الشفاء في الحبة السوداء",
+                diseases_and_symptoms: ["ضعف المناعة", "الزكام ونزلات البرد", "الربو والسعال", "اضطرابات الهضم الباردة"],
+                usage_types: ["دواء_واستشفاء_صريح"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "المناعة والجهاز التنفسي والهضمي",
+                hadith_verbatim: "فِي الحَبَّةِ السَّوْدَاءِ شِفَاءٌ مِنْ كُلِّ دَاءٍ، إِلَّا السَّامَ",
+                companion: "أبو هريرة رضي الله عنه",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب الحبة السوداء",
+                hadith_number: 5688,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 2215)"
+                },
+                prophetic_context: "إرشاد نبوي عام للاستطباب بها للأمراض الباردة والبلغمية وتقوية مناعة البدن",
+                traditional_indication: "تسخين البدن البارد، إذابة البلغم، طرد الرياح، وتضميد الأورام البلغمية",
+                modern_health_insight: "تحتوي على مادة الثيموكينون المضادة للالتهاب والمحفزة للاستجابة المناعية والموسعة للشعب الهوائية",
+                precautions: "الالتزام بالجرعات الغذائية المعتدلة وتجنب الإفراط المركز الضار بالكلى والكبد"
+            },
+            {
+                id: 5,
+                title: "ماء الكمأة لشفاء العين",
+                diseases_and_symptoms: ["رمد العين", "ضعف البصر", "التراخوما", "سيلان الدموع والقذى"],
+                usage_types: ["دواء_واستشفاء_صريح", "غذاء_وعادة"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "العين والبصر",
+                hadith_verbatim: "الكَمْأَةُ مِنَ المَنِّ، وَمَاؤُهَا شِفَاءٌ لِلْعَيْنِ",
+                companion: "سعيد بن زيد رضي الله عنه",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب المن شفاء للعين",
+                hadith_number: 5708,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 2049)"
+                },
+                prophetic_context: "نص استشفائي صريح باستعمال مائها كعلاج وقطرة للعين",
+                traditional_indication: "تبريد رمد العين الحار، جلاء البصر، ومنع نزول الماء والرطوبات إلى طبقات القرنية",
+                modern_health_insight: "يحتوي مستخلص مائها المعقم على مضادات حيوية طبيعية تمنع تشكل التليف في الملتحمة وتكافح بكتيريا التراخوما",
+                precautions: "يجب تعقيم وتصفية مائها طبياً قبل تقطيره في العين لمنع الالتهابات البكتيرية الثانوية"
+            },
+            {
+                id: 6,
+                title: "الوقاية بتمر العجوة من السم والسحر",
+                diseases_and_symptoms: ["التسمم الغذائي", "سموم الكبد", "الاضطرابات العصبية"],
+                usage_types: ["غذاء_وعادة", "وقاية_وحفظ_صحة", "دواء_واستشفاء_صريح"],
+                primary_usage: "وقاية_وحفظ_صحة",
+                target_body_system: "الكبد والجهاز العصبي والوقاية السمية",
+                hadith_verbatim: "مَنْ تَصَبَّحَ كُلَّ يَوْمٍ سَبْعَ تَمَرَاتٍ عَجْوَةً، لَمْ يَضُرَّهُ فِي ذَلِكَ اليَوْمِ سُمٌّ وَلاَ سِحْرٌ",
+                companion: "سعد بن أبي وقاص رضي الله عنه",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الأطعمة",
+                chapter_name: "باب العجوة",
+                hadith_number: 5445,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 2047)"
+                },
+                prophetic_context: "تدبير وقائي على الريق بحبات معدودة لدرء آثار السموم والاعتلالات",
+                traditional_indication: "تعديل مزاج الكبد، حفظ القوة الغريزية، وقطع التسمم المعوي والغذائي",
+                modern_health_insight: "غني بالمركبات الفينولية ومضادات الأكسدة التي تدعم قدرة الكبد على تفكيك السموم",
+                precautions: "مراعاة تنظيم الحصص لمرضى السكري وضبط السعرات اليومية"
+            },
+            {
+                id: 7,
+                title: "العلاج بالقسط الهندي في السعوط واللدود",
+                diseases_and_symptoms: ["العذرة (التهاب اللوزات والحلق)", "ذات الجنب (التهاب الغشاء البلوري)", "ضيق التنفس", "السعال"],
+                usage_types: ["دواء_واستشفاء_صريح"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز التنفسي والحلق والصدر",
+                hadith_verbatim: "عَلَيْكُمْ بِهَذَا العُودِ الهِنْدِيِّ، فَإِنَّ فِيهِ سَبْعَةَ أَشْفِيَةٍ: يُسْتَعَطُ بِهِ مِنَ العُذْرَةِ، وَيُلَدُّ بِهِ مِنْ ذَاتِ الجَنْبِ",
+                companion: "أم قيس بنت محصن رضي الله عنها",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب السعوط بالقسط الهندي والبحري",
+                hadith_number: 5692,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 2214)"
+                },
+                prophetic_context: "بديل علاجي نبوي لطيف للأطفال عِوضاً عن غمز الحلق ودفعه بالأصابع (الدغر) المؤذي",
+                traditional_indication: "علاج التهاب اللوزات وسقوط اللهاة بالتقطير الأنفي (سعوطاً)، والتهاب الغشاء البلوري للرئة (لدوداً)",
+                modern_health_insight: "يمتلك تأثيراً مضاداً للالتهابات التنفسية ومثبطاً للبكتيريا وموسعاً للشعب الهوائية",
+                precautions: "يُحظر على الحوامل لما قد يسببه من تنشيط لانقباضات الرحم"
+            },
+            {
+                id: 8,
+                title: "مواضع الحجامة في الأخدعين والكاهل",
+                diseases_and_symptoms: ["تبيغ الدم (فرط ضغط الدم)", "الصداع والشقيقة", "آلام الرقبة والكتفين", "ثقل الرأس"],
+                usage_types: ["دواء_واستشفاء_صريح", "إجراء_جراحي_يدوي", "وقاية_وحفظ_صحة"],
+                primary_usage: "إجراء_جراحي_يدوي",
+                target_body_system: "الدورة الدموية والرأس والرقبة والظهر",
+                hadith_verbatim: "أَنَّ رَسُولَ اللَّهِ ﷺ احْتَجَمَ ثَلَاثًا فِي الْأَخْدَعَيْنِ وَالْكَاهِلِ",
+                companion: "أنس بن مالك رضي الله عنه",
+                primary_source: "سنن أبي داود",
+                book_name: "كتاب الطب",
+                chapter_name: "باب في موضع الحجم",
+                hadith_number: 3860,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "صححه الترمذي (2051) والحاكم (7468) والنووي والألباني"
+                },
+                prophetic_context: "إجراء جراحي واستفراغي موضعي باشره النبي ﷺ لعلاج امتلاء الرأس وتبيغ الدم",
+                traditional_indication: "تفريغ الدم المحتقن في أوردة العنق وأعلى الظهر لتسكين الصداع وثقل الكتفين والعينين",
+                modern_health_insight: "تخفيف التشنج العضلي العنقي وتحسين التروية الدموية الدقيقة وتسكين آلام الرقبة",
+                precautions: "وجوب التعقيم الصارم للشفرات والمواضع وتجنب مواضع الشرايين الرئيسية والأوردة البارزة"
+            },
+            {
+                id: 9,
+                title: "ألية شاة أعرابية لعرق النسا",
+                diseases_and_symptoms: ["عرق النسا (التهاب العصب الوركي)", "آلام أسفل الظهر الممتدة للساق", "تيبس المفاصل"],
+                usage_types: ["دواء_واستشفاء_صريح"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز العظمي والعصبي والأطراف السفلية",
+                hadith_verbatim: "شِفَاءُ عِرْقِ النَّسَا أَلْيَةُ شَاةٍ أَعْرَابِيَّةٍ تُذَابُ، ثُمَّ تُجَزَّأُ ثَلَاثَةَ أَجْزَاءٍ، ثُمَّ يُشْرَبُ عَلَى الرِّيقِ فِي كُلِّ يَوْمٍ جُزْءٌ",
+                companion: "أنس بن مالك رضي الله عنه",
+                primary_source: "سنن ابن ماجه",
+                book_name: "كتاب الطب",
+                chapter_name: "باب دواء عرق النسا",
+                hadith_number: 3463,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه ابن ماجه وأحمد (13248) وصححه الحاكم والبوصيري والألباني"
+                },
+                prophetic_context: "وصفة علاجية باطنة محددة التوقيت على الريق لعلاج ألم العصب الوركي الناشئ عن اليبوسة والبرد",
+                traditional_indication: "تليين العصب المنقبض، وإنضاج المادة الغليظة في مفصل الورك",
+                modern_health_insight: "الدهون الطبيعية للشياه التي ترعى الأعشاب البرية غنية بالأحماض الدهنية غير المشبعة ومضادات الالتهاب الموضعية",
+                precautions: "تراعى لحالات عرق النسا الناشئة عن اليبوسة ومراجعة الطبيب في الانزلاقات الغضروفية الميكانيكية"
+            },
+            {
+                id: 10,
+                title: "تبريد الحمى بالماء",
+                diseases_and_symptoms: ["الحمى وارتفاع الحرارة", "الضربة الحرارية", "الإجهاد الحراري"],
+                usage_types: ["دواء_واستشفاء_صريح", "وقاية_وحفظ_صحة"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز الدوري والدماغ وتنظيم الحرارة",
+                hadith_verbatim: "الحُمَّى مِنْ فَيْحِ جَهَنَّمَ، فَأَبْرِدُوهَا بِالمَاءِ",
+                companion: "عبد الله بن عمر وعائشة ورافع بن خديج رضي الله عنهم",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب الحمى من فيح جهنم",
+                hadith_number: 3261,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 2209)"
+                },
+                prophetic_context: "توجيه علاجي فيزيائي فوري لكسر حدة الحرارة بالماء البارد",
+                traditional_indication: "إطفاء حرارة الدم المشتعلة، وحماية الأعضاء الرئيسية من الاحتراق بالحرارة",
+                modern_health_insight: "العلاج المائي (Hydrotherapy) بالكمادات والغسل هو الإسعاف الأولي لخفض الحرارة لحماية خلايا الدماغ من التلف",
+                precautions: "تجنب استخدام الماء شديد البرودة (المثلج) فجأة لتفادي صدمة الأوعية وانقباضها العنيف"
+            },
+            {
+                id: 11,
+                title: "حب الدباء (القرع) في الطعام المعتاد",
+                diseases_and_symptoms: ["عسر الهضم", "حرارة المعدة", "العطش الشديد"],
+                usage_types: ["غذاء_وعادة"],
+                primary_usage: "غذاء_وعادة",
+                target_body_system: "الجهاز الهضمي والترطيب البدني",
+                hadith_verbatim: "فَرَأَيْتُ النَّبِيَّ ﷺ يَتَتَبَّعُ الدُّبَّاءَ مِنْ حَوَالَيِ القَصْعَةِ، فَلَمْ أَزَلْ أُحِبُّ الدُّبَّاءَ بَعْدَ يَوْمِئِذٍ",
+                companion: "أنس بن مالك رضي الله عنه",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الأطعمة",
+                chapter_name: "باب الدباء",
+                hadith_number: 5433,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 2041)"
+                },
+                prophetic_context: "طعام معتاد استحبه النبي ﷺ وتناوله كعادة غذائية دون نص على دواء لمرض محدد بلفظ صحيح",
+                traditional_indication: "غذاء لطيف مبرد للمعدة، خفيف على الهضم، مهدئ للعطش",
+                modern_health_insight: "غني بالماء والألياف ومضادات الأكسدة وقليل السعرات مما يريح جدار المعدة والأمعاء",
+                precautions: "لا يصح في كونه علاجاً مخصصاً لمرض معين حديث مرفوع"
+            },
+            {
+                id: 12,
+                title: "كراهية الشرب من ثلمة القدح والنفخ فيه",
+                diseases_and_symptoms: ["جروح الشفاه", "التسمم الجرثومي", "عدوى الجهاز التنفسي الفموية"],
+                usage_types: ["وقاية_وحفظ_صحة", "نظافة_وسنن_فطرة"],
+                primary_usage: "وقاية_وحفظ_صحة",
+                target_body_system: "الفم والشفاه والجهاز الهضمي",
+                hadith_verbatim: "نَهَى رَسُولُ اللَّهِ ﷺ عَنِ الشُّرْبِ مِنْ ثُلْمَةِ الْقَدَحِ، وَأَنْ يُنْفَخَ فِي الشَّرَابِ",
+                companion: "أبو سعيد الخدري رضي الله عنه",
+                primary_source: "سنن أبي داود",
+                book_name: "كتاب الأشربة",
+                chapter_name: "باب في الشرب من ثلمة القدح",
+                hadith_number: 3722,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه أبو داود بإسناد صحيح وصححه الحاكم والألباني"
+                },
+                prophetic_context: "توجيه وقائي لحماية الجسد وصيانة الآنية من الملوثات",
+                traditional_indication: "تجنب جرح الشفة بحافة الإناء المكسورة، وتفادي تجمع الأوساخ في الشق",
+                modern_health_insight: "الشقوق الدقيقة في الأواني تعد بيئة مثالية لنمو المستعمرات البكتيرية التي يصعب تطهيرها بالغسيل المعتاد",
+                precautions: "التأكد من سلامة حواف أواني الشرب للأطفال والكبار"
+            },
+            {
+                id: 13,
+                title: "التداوي بألبان الإبل وأبوالها للاستسقاء",
+                diseases_and_symptoms: ["الاستسقاء", "وخم البطن", "تضخم الطحال والكبد", "اليرقان"],
+                usage_types: ["دواء_واستشفاء_صريح", "غذاء_وعادة"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "الجهاز الهضمي والكبد والمسالك",
+                hadith_verbatim: "أَنَّ نَاسًا اجْتَوَوْا فِي المَدِينَةِ، فَأَمَرَهُمُ النَّبِيُّ ﷺ أَنْ يَلْحَقُوا بِرَاعِيهِ، يَعْنِي الإِبِلَ، فَيَشْرَبُوا مِنْ أَلْبَانِهَا وَأَبْوَالِهَا، فَلَحِقُوا بِرَاعِيهِ فَشَرِبُوا مِنْ أَلْبَانِهَا وَأَبْوَالِهَا، حَتَّى صَلَحَتْ أَبْدَانُهُمْ",
+                companion: "أنس بن مالك رضي الله عنه",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب الدواء بألبان الإبل",
+                hadith_number: 5686,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 1671)"
+                },
+                prophetic_context: "علاج سريري نوعي لأهل البادية الذين استوخموا جو المدينة وأصابتهم أمراض البطن والاستسقاء",
+                traditional_indication: "تفتيح سدد الكبد والأحشاء، وإدرار السوائل المحتبسة في البطن",
+                modern_health_insight: "يحتوي لبن الإبل على أجسام مناعية نانوية نادرة ومركبات بروتينية تدعم وظائف الكبد وتدر البول",
+                precautions: "الحرص على الفحص البيطري للإبل تجنباً لانتقال فيروسات كورونا أو البروسيلا"
+            },
+            {
+                id: 14,
+                title: "حسم النزف بحرق الحصير واستعمال الرماد",
+                diseases_and_symptoms: ["الجروح النازفة", "نزيف الوجه والرأس", "تهتك الأنسجة"],
+                usage_types: ["إجراء_جراحي_يدوي", "دواء_واستشفاء_صريح"],
+                primary_usage: "إجراء_جراحي_يدوي",
+                target_body_system: "الأوعية الدموية والجلد والجروح",
+                hadith_verbatim: "لَمَّا كُسِرَتْ رَبَاعِيَةُ رَسُولِ اللَّهِ ﷺ، وَدُمِيَ وَجْهُهُ، وَكُسِرَتِ البَيْضَةُ عَلَى رَأْسِهِ، كَانَتْ فَاطِمَةُ تَغْسِلُ الدَّمَ، وَعَلِيٌّ يَسْكُبُ عَلَيْهَا، فَلَمَّا رَأَتْ فَاطِمَةُ أَنَّ الدَّمَ لاَ يَزِيدُ إِلَّا كَثْرَةً، أَخَذَتْ قِطْعَةَ حَصِيرٍ، فَأَحْرَقَتْهَا حَتَّى صَارَتْ رَمَادًا، ثُمَّ أَلْزَقَتْهُ بِالْجُرْحِ فَاسْتَمْسَكَ الدَّمُ",
+                companion: "سهل بن سعد الساعدي رضي الله عنه",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب المغازي",
+                chapter_name: "باب ما أصاب النبي صلى الله عليه وسلم من الجراح يوم أحد",
+                hadith_number: 2903,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 1790)"
+                },
+                prophetic_context: "إسعاف جراحي فوري في أرض المعركة لوقف النزف الوريدي والشرياني المتدفق",
+                traditional_indication: "تخثير الدم وسد فوهات العروق المفتوحة بقوة رماد البردي القابضة المجففة",
+                modern_health_insight: "رماد النباتات المحروقة كربون معقم يمتص السوائل ويحفز التجلط السريع كعامل تخثر موضعي",
+                precautions: "التأكد من خلو الرماد من الشوائب الملوثة تجنباً للتكزز (Tetanus)"
+            },
+            {
+                id: 15,
+                title: "كحل الإثمد لجلاء البصر وإنبات الشعر",
+                diseases_and_symptoms: ["ضعف البصر", "تساقط شعر الأهداب", "غشاوة العين", "حكة الجفون"],
+                usage_types: ["دواء_واستشفاء_صريح", "زينة_وتطيب"],
+                primary_usage: "دواء_واستشفاء_صريح",
+                target_body_system: "العين والأهداب والجفون",
+                hadith_verbatim: "عَلَيْكُمْ بِالإِثْمِدِ عِنْدَ النَّوْمِ، فَإِنَّهُ يَجْلُو البَصَرَ، وَيُنْبِتُ الشَّعْرَ",
+                companion: "عبد الله بن عباس رضي الله عنهما",
+                primary_source: "سنن ابن ماجه",
+                book_name: "كتاب الطب",
+                chapter_name: "باب الكحل بالإثمد",
+                hadith_number: 3497,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "صححه الترمذي (1757) وابن حبان (5633) والحاكم والألباني"
+                },
+                prophetic_context: "إرشاد علاجي ووقائي وتطيبي للعين عند النوم ليثبت في الملتحمة",
+                traditional_indication: "تنقية العين من الأوساخ، شد أعصاب العين، وتسكين الدمعة الحارة",
+                modern_health_insight: "معدن الإثمد النقي (الأنتيمون) يمتلك خواص قابضة ومحفزة لبصيلات رموش العين ومطهرة لملتحمة الجفن",
+                precautions: "الحذر من كحل الإثمد المغشوش الممزوج بالرصاص السام واختيار الحجر الأصلي النقي"
+            },
+            {
+                id: 16,
+                title: "السواك مطهرة للفم ومرضاة للرب",
+                diseases_and_symptoms: ["بخر الفم (الرائحة الكريهة)", "تسوس الأسنان", "التهاب اللثة", "تراكم الجير"],
+                usage_types: ["نظافة_وسنن_فطرة", "وقاية_وحفظ_صحة"],
+                primary_usage: "نظافة_وسنن_فطرة",
+                target_body_system: "الفم والأسنان واللثة",
+                hadith_verbatim: "السِّوَاكُ مَطْهَرَةٌ لِلْفَمِ مَرْضَاةٌ لِلرَّبِّ",
+                companion: "عائشة أم المؤمنين رضي الله عنها",
+                primary_source: "سنن النسائي",
+                book_name: "كتاب الطهارة",
+                chapter_name: "باب الترغيب في السواك",
+                hadith_number: 5,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "رواه النسائي وأحمد (24203) وصححه ابن خزيمة (135) وابن حبان (1067) والنووي"
+                },
+                prophetic_context: "سنة تعبدية وإصحاح وقائي متكرر عند الصلاة والوضوء والقيام ودخول البيت",
+                traditional_indication: "إزالة فضلات الطعام، تنقية الأسنان، وشد اللثة الرخوة",
+                modern_health_insight: "يحتوي خشب الأراك على ألياف ميكانيكية دقيقة، والفلورايد، والسيليكا، ومواد قلوية مضادة للتسوس",
+                precautions: "قص الشعيرات المستهلكة وغسل السواك بالماء لمنع نمو البكتيريا عليه"
+            },
+            {
+                id: 17,
+                title: "تنظيم الغذاء (ثلث لطعامه وثلث لشرابه وثلث لنفسه)",
+                diseases_and_symptoms: ["السمنة والبدانة", "التخمة والامتلاء", "عسر الهضم المزمن", "الخمول والكسل"],
+                usage_types: ["وقاية_وحفظ_صحة", "غذاء_وعادة"],
+                primary_usage: "وقاية_وحفظ_صحة",
+                target_body_system: "الجهاز الهضمي والقلب والتمثيل الغذائي",
+                hadith_verbatim: "مَا مَلَأَ آدَمِيٌّ وِعَاءً شَرًّا مِنْ بَطْنٍ، بِحَسْبِ ابْنِ آدَمَ أُكُلاَتٌ يُقِمْنَ صُلْبَهُ، فَإِنْ كَانَ لاَ مَحَالَةَ: فَثُلُثٌ لِطَعَامِهِ، وَثُلُثٌ لِشَرَابِهِ، وَثُلُثٌ لِنَفَسِهِ",
+                companion: "المقدام بن معد يكرب رضي الله عنه",
+                primary_source: "جامع الترمذي",
+                book_name: "أبواب الزهد",
+                chapter_name: "باب ما جاء في كراهية كثرة الأكل",
+                hadith_number: 2380,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "قال الترمذي: حديث حسن صحيح، وصححه ابن حبان (5236) والحاكم والألباني"
+                },
+                prophetic_context: "قاعدة كلية في حفظ صحة البدن والاعتدال في التغذية لدفع أمراض التخمة",
+                traditional_indication: "منع تمدد المعدة، والحفاظ على حرارة الهضم الغريزية دون إرهاق",
+                modern_health_insight: "التنظيم الحجمي للوجبات يمنع ارتجاع المريء، ويضبط هرمونات الشبع (اللبتين والجرلين)، ويحمي من متلازمة الأيض",
+                precautions: "الالتزام بالتدرج في تناول الطعام ومضغه جيداً قبل البلع"
+            },
+            {
+                id: 18,
+                title: "الحظر الوقائي من الطاعون (الحجر الصحي)",
+                diseases_and_symptoms: ["الطاعون والجوائح", "العدوى الوبائية التنفسية", "الأمراض السارية المنتشرة"],
+                usage_types: ["وقاية_وحفظ_صحة", "أصل_تشريعي_وأدب"],
+                primary_usage: "وقاية_وحفظ_صحة",
+                target_body_system: "الصحة العامة ومكافحة الأوبئة والجوائح",
+                hadith_verbatim: "إِذَا سَمِعْتُمْ بِالطَّاعُونِ بِأَرْضٍ فَلاَ تَدْخُلُوهَا، وَإِذَا وَقَعَ بِأَرْضٍ وَأَنْتُمْ بِهَا فَلاَ تَخْرُجُوا مِنْهَا",
+                companion: "أسامة بن زيد رضي الله عنهما",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب ما يذكر في الطاعون",
+                hadith_number: 5728,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 2218)"
+                },
+                prophetic_context: "تشريع وبائي لمنع انتشار المرض وحصاره في بؤرته الأولية",
+                traditional_indication: "منع مخالطة الأصحاء لمادة الهواء والبيئة الفاسدة صيانةً للأنفس",
+                modern_health_insight: "الأساس الطبي لعزل المناطق الموبوءة (Quarantine) لمنع تحول الوباء المحلي إلى جائحة عالمية",
+                precautions: "وجوب طاعة التعليمات الصحية وعدم كسر الحجر الوبائي"
+            },
+            {
+                id: 19,
+                title: "الفرار من المجذوم وتجنب مخالطة العدوى",
+                diseases_and_symptoms: ["الجذام (داء هانسن)", "العدوى الجلدية البكتيرية المزمنة", "التقرحات المشوهة"],
+                usage_types: ["وقاية_وحفظ_صحة", "أصل_تشريعي_وأدب"],
+                primary_usage: "وقاية_وحفظ_صحة",
+                target_body_system: "الجلد والجهاز المناعي والتنفسي",
+                hadith_verbatim: "فِرَّ مِنَ المَجْذُومِ كَمَا تَفِرُّ مِنَ الأَسَدِ",
+                companion: "أبو هريرة رضي الله عنه",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الطب",
+                chapter_name: "باب الجذام",
+                hadith_number: 5707,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "أخرجه البخاري تعليقاً ووصلاً وأحمد (9722) بإسناد صحيح"
+                },
+                prophetic_context: "أمر وقائي صريح بالتباعد عن المصابين بالأمراض المعدية الخطيرة تفادياً لانتقال الداء",
+                traditional_indication: "الابتعاد عن رائحة المجذوم وتنفسه المخالط للجلد والأنف",
+                modern_health_insight: "بكتيريا الجذام (Mycobacterium leprae) تنتقل عبر الرذاذ التنفسي بالمعايشة اللصيقة الطويلة",
+                precautions: "الالتزام بإجراءات الوقاية والعزل دون احتقار أو إيذاء للمريض نفسياً"
+            },
+            {
+                id: 20,
+                title: "تطهير أثر دم الحيض بالمسك",
+                diseases_and_symptoms: ["الروائح الكريهة بعد الحيض", "التهابات المهبل البكتيرية", "ركود الإفرازات التناسلية"],
+                usage_types: ["نظافة_وسنن_فطرة", "زينة_وتطيب"],
+                primary_usage: "نظافة_وسنن_فطرة",
+                target_body_system: "الجهاز التناسلي الأنثوي والجلد",
+                hadith_verbatim: "أَنَّ امْرَأَةً سَأَلَتِ النَّبِيَّ ﷺ عَنْ غُسْلِهَا مِنَ المَحِيضِ، فَأَمَرَهَا كَيْفَ تَغْتَسِلُ، قَالَ: «خُذِي فِرْصَةً مِنْ مِسْكٍ، فَتَطَهَّرِي بِهَا» قَالَتْ: كَيْفَ أَتَطَهَّرُ؟ قَالَ: «تَطَهَّرِي بِهَا» قَالَتْ: كَيْفَ؟ قَالَ: «سُبْحَانَ اللَّهِ، تَطَهَّرِي» فَاجْتَبَذْتُهَا إِلَيَّ، فَقُلْتُ: تَتَبَّعِي بِهَا أَثَرَ الدَّمِ",
+                companion: "عائشة أم المؤمنين رضي الله عنها",
+                primary_source: "صحيح البخاري",
+                book_name: "كتاب الحيض",
+                chapter_name: "باب دلك المرأة نفسها إذا اغتسلت من المحيض",
+                hadith_number: 314,
+                authenticity: {
+                    grade: "صحيح",
+                    judgement_by: "متفق عليه (أخرجه البخاري ومسلم برقم 332)"
+                },
+                prophetic_context: "تعليم نبوي للمرأة للاعتناء بنظافة وتطييب
